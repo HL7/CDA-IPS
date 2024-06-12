@@ -137,7 +137,7 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 	<xs:complexType name="COCT_MT230100UV01.Content">
 		<xs:sequence>
 			<xs:group ref="hl7v3:InfrastructureRootElements"/>
-			<xs:element name="quantity" type="hl7v3:RTO" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="quantity" type="hl7v3:RTO" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="containerPackagedProduct" type="pharm:COCT_MT230100UV01.PackagedProduct" minOccurs="1" maxOccurs="1"/>
 			<!-- HL7 Pharma extensions for the IPS: items removed from the original schema
 			<xs:element name="subjectOf1" type="pharm:COCT_MT230100UV01.Subject1" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
@@ -269,7 +269,7 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 		<xs:sequence>
 			<xs:group ref="hl7v3:InfrastructureRootElements"/>
 			<xs:element name="code" type="hl7v3:CD" minOccurs="0"/>
-			<xs:element name="name" type="hl7v3:EN" minOccurs="0"/>
+			<xs:element name="name" type="hl7v3:EN" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="desc" type="hl7v3:ED" minOccurs="0"/>
 			<xs:element name="formCode" type="hl7v3:CD" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="capacityQuantity" type="hl7v3:PQ" minOccurs="0" maxOccurs="1"/>
