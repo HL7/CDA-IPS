@@ -1,0 +1,457 @@
+<div xmlns="http://www.w3.org/1999/xhtml"><h1>Templates</h1> <h2>CDA Document Level Templates</h2> <h3>International Patient Summary <a href="tm::2.16.840.1.113883.10.22.1.1--20200714160821" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.1.1 (2020-07-14)</a>
+</h3> <h2>CDA Header Level Templates</h2> <h3>IPS CDA Organization <a href="tm::2.16.840.1.113883.10.22.9.1--20170411000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.9.1 (2017-04-11)</a>
+</h3> <h3>IPS CDA Person <a href="tm::2.16.840.1.113883.10.22.9.3--20170412000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.9.3 (2017-04-12)</a>
+</h3> <h3>IPS CDA author <a href="tm::2.16.840.1.113883.10.22.2.2--20170411000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.2.2 (2017-04-11)</a>
+</h3> <h3>IPS CDA custodian <a href="tm::2.16.840.1.113883.10.22.2.3--20210804121307" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.2.3 (2021-08-04)</a>
+</h3> <h3>IPS CDA documentationOf <a href="tm::2.16.840.1.113883.10.22.2.6--20170412000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.2.6 (2017-04-12)</a>
+</h3> <h3>IPS CDA legalAuthenticator <a href="tm::2.16.840.1.113883.10.22.2.4--20170411000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.2.4 (2017-04-11)</a>
+</h3> <h3>IPS CDA recordTarget <a href="tm::2.16.840.1.113883.10.22.2.1--20210902121024" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.2.1 (2021-09-02)</a>
+</h3> <h3>IPS CDA relatedDocument <a href="tm::2.16.840.1.113883.10.22.2.7--20170412000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.2.7 (2017-04-12)</a>
+</h3> <h3>IPS Patient Contacts <a href="tm::2.16.840.1.113883.10.22.2.5--20170412000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.2.5 (2017-04-12)</a>
+</h3> <h2>CDA Section Level Templates</h2> <h3>IHE Coded Vital Signs Section <a href="tm::1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2--20151005155707" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2 (2015-10-05)</a>
+</h3> <h3>IPS Advance Directives Section <a href="tm::2.16.840.1.113883.10.22.3.12--20200508163849" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.12 (2020-05-08)</a>
+</h3> <h3>IPS Allergies and Intolerances Section <a href="tm::2.16.840.1.113883.10.22.3.2--20161111000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.2 (2016-11-11)</a>
+</h3> <h3>IPS Functional Status Section <a href="tm::2.16.840.1.113883.10.22.3.8--20200508191737" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.8 (2020-05-08)</a>
+</h3> <h3>IPS History of Past Illness Section <a href="tm::2.16.840.1.113883.10.22.3.7--20170412000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.7 (2017-04-12)</a>
+</h3> <h3>IPS History of Pregnancy Section <a href="tm::2.16.840.1.113883.10.22.3.11--20200507184608" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.11 (2020-05-07)</a>
+</h3> <h3>IPS History of Procedures Section <a href="tm::2.16.840.1.113883.10.22.3.4--20170327000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.4 (2017-03-27)</a>
+</h3> <h3>IPS Immunizations Section <a href="tm::2.16.840.1.113883.10.22.3.5--20170405000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.5 (2017-04-05)</a>
+</h3> <h3>IPS Medical Devices Section <a href="tm::2.16.840.1.113883.10.22.3.6--20211020171142" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.6 (2021-10-20)</a>
+</h3> <h3>IPS Medication Summary Section <a href="tm::2.16.840.1.113883.10.22.3.1--20161111000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.1 (2016-11-11)</a>
+</h3> <h3>IPS Plan of Care Section <a href="tm::2.16.840.1.113883.10.22.3.9--20200508182838" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.9 (2020-05-08)</a>
+</h3> <h3>IPS Problems Section <a href="tm::2.16.840.1.113883.10.22.3.3--20170215000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.3 (2017-02-15)</a>
+</h3> <h3>IPS Results Section <a href="tm::2.16.840.1.113883.10.22.3.14--20170430000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.14 (2017-04-30)</a>
+</h3> <h3>IPS Social History Section <a href="tm::2.16.840.1.113883.10.22.3.10--20200510185232" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.10 (2020-05-10)</a>
+</h3> <h3>IPS Translation Section <a href="tm::2.16.840.1.113883.10.22.3.15--20210902120441" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.3.15 (2021-09-02)</a>
+</h3> <h2>CDA Entry Level Templates</h2> <h3>IPS Advance Directive Observation <a href="tm::2.16.840.1.113883.10.22.4.37--20200508162154" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.37 (2020-05-08)</a>
+</h3> <h3>IPS Advance Directive Organizer <a href="tm::2.16.840.1.113883.10.22.4.46--20200508161148" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.46 (2020-05-08)</a>
+</h3> <h3>IPS Allergy Certainty Observation <a href="tm::2.16.840.1.113883.10.22.10--20180207120044" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.10 (2018-02-07)</a>
+</h3> <h3>IPS Allergy Status Observation <a href="tm::2.16.840.1.113883.10.22.4.21--20170524000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.21 (2017-05-24)</a>
+</h3> <h3>IPS Allergy and Intolerance Concern <a href="tm::2.16.840.1.113883.10.22.4.5--20161111000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.5 (2016-11-11)</a>
+</h3> <h3>IPS Allergy or Intolerance <a href="tm::2.16.840.1.113883.10.22.4.1--20161110000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.1 (2016-11-10)</a>
+</h3> <h3>IPS Body Author <a href="tm::2.16.840.1.113883.10.22.4.14--20170302000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.14 (2017-03-02)</a>
+</h3> <h3>IPS CDA Device <a href="tm::2.16.840.1.113883.10.22.9.2--20170412000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.9.2 (2017-04-12)</a>
+</h3> <h3>IPS Certainty Observation <a href="tm::2.16.840.1.113883.10.22.4.19--20170329000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.19 (2017-03-29)</a>
+</h3> <h3>IPS Comment Activity <a href="tm::2.16.840.1.113883.10.22.4.22--20170405000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.22 (2017-04-05)</a>
+</h3> <h3>IPS Criticality Observation <a href="tm::2.16.840.1.113883.10.22.4.18--20170327000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.18 (2017-03-27)</a>
+</h3> <h3>IPS Immunization <a href="tm::2.16.840.1.113883.10.22.4.15--20170308000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.15 (2017-03-08)</a>
+</h3> <h3>IPS Immunization Medication Information <a href="tm::2.16.840.1.113883.10.22.4.16--20170308000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.16 (2017-03-08)</a>
+</h3> <h3>IPS Internal Reference <a href="tm::2.16.840.1.113883.10.22.4.31--20170502000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.31 (2017-05-02)</a>
+</h3> <h3>IPS Laboratory Result Observation <a href="tm::2.16.840.1.113883.10.22.4.13--20170321000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.13 (2017-03-21)</a>
+</h3> <h3>IPS Manufactured Material <a href="tm::2.16.840.1.113883.10.22.4.3--20210802165227" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.3 (2021-08-02)</a>
+</h3> <h3>IPS Medical Device <a href="tm::2.16.840.1.113883.10.22.4.26--20170411000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.26 (2017-04-11)</a>
+</h3> <h3>IPS Medication Information (detail) <a href="tm::2.16.840.1.113883.10.22.4.2--20161110000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.2 (2016-11-10)</a>
+</h3> <h3>IPS Medication Statement <a href="tm::2.16.840.1.113883.10.22.4.4--20210902121754" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.4 (2021-09-02)</a>
+</h3> <h3>IPS ObservationMedia <a href="tm::2.16.840.1.113883.10.22.4.23--20210902120216" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.23 (2021-09-02)</a>
+</h3> <h3>IPS Pathology Result Observation <a href="tm::2.16.840.1.113883.10.22.4.11--20170321000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.11 (2017-03-21)</a>
+</h3> <h3>IPS Planned Act <a href="tm::2.16.840.1.113883.10.22.4.39--20220715135511" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.39 (2022-07-15)</a>
+</h3> <h3>IPS Planned Encounter <a href="tm::2.16.840.1.113883.10.22.4.40--20200508181838" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.40 (2020-05-08)</a>
+</h3> <h3>IPS Planned Immunization <a href="tm::2.16.840.1.113883.10.22.4.47--20200508172918" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.47 (2020-05-08)</a>
+</h3> <h3>IPS Planned Observation <a href="tm::2.16.840.1.113883.10.22.4.41--20200508183442" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.41 (2020-05-08)</a>
+</h3> <h3>IPS Planned Procedure <a href="tm::2.16.840.1.113883.10.22.4.38--20200508173848" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.38 (2020-05-08)</a>
+</h3> <h3>IPS Pregnancy Expected Delivery Date Observation <a href="tm::2.16.840.1.113883.10.22.4.29--20170413000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.29 (2017-04-13)</a>
+</h3> <h3>IPS Pregnancy Observation <a href="tm::2.16.840.1.113883.10.22.4.36--20200507183637" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.36 (2020-05-07)</a>
+</h3> <h3>IPS Pregnancy Outcome Observation <a href="tm::2.16.840.1.113883.10.22.4.28--20170413000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.28 (2017-04-13)</a>
+</h3> <h3>IPS Pregnancy Status Observation <a href="tm::2.16.840.1.113883.10.22.4.27--20200714163153" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.27 (2020-07-14)</a>
+</h3> <h3>IPS Problem Concern Entry <a href="tm::2.16.840.1.113883.10.22.4.7--20210804084927" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.7 (2021-08-04)</a>
+</h3> <h3>IPS Problem Entry <a href="tm::2.16.840.1.113883.10.22.4.8--20210804085252" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.8 (2021-08-04)</a>
+</h3> <h3>IPS Problem Status Observation <a href="tm::2.16.840.1.113883.10.22.4.20--20170329000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.20 (2017-03-29)</a>
+</h3> <h3>IPS Procedure Entry <a href="tm::2.16.840.1.113883.10.22.4.17--20200714163558" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.17 (2020-07-14)</a>
+</h3> <h3>IPS Radiology Result Observation <a href="tm::2.16.840.1.113883.10.22.4.12--20170321000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.12 (2017-03-21)</a>
+</h3> <h3>IPS Reaction Manifestation <a href="tm::2.16.840.1.113883.10.22.4.6--20161115000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.6 (2016-11-15)</a>
+</h3> <h3>IPS Result Observation <a href="tm::2.16.840.1.113883.10.22.4.10--20170302000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.10 (2017-03-02)</a>
+</h3> <h3>IPS Result Organizer <a href="tm::2.16.840.1.113883.10.22.4.9--20170302000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.9 (2017-03-02)</a>
+</h3> <h3>IPS Severity Observation <a href="tm::2.16.840.1.113883.10.22.4.25--20170407000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.25 (2017-04-07)</a>
+</h3> <h3>IPS Social History Alcohol Use <a href="tm::2.16.840.1.113883.10.22.4.35--20170629000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.35 (2017-06-29)</a>
+</h3> <h3>IPS Social History Observation <a href="tm::2.16.840.1.113883.10.22.4.48--20200510151616" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.48 (2020-05-10)</a>
+</h3> <h3>IPS Social History Tobacco Use <a href="tm::2.16.840.1.113883.10.22.4.34--20170620000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.34 (2017-06-20)</a>
+</h3> <h3>IPS Specimen Collection <a href="tm::2.16.840.1.113883.10.22.4.30--20170414000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.30 (2017-04-14)</a>
+</h3> <h3>IPS Survey Observation <a href="tm::2.16.840.1.113883.10.22.4.43--20200508190511" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.43 (2020-05-08)</a>
+</h3> <h3>IPS Survey Panel <a href="tm::2.16.840.1.113883.10.22.4.42--20200508190226" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.4.42 (2020-05-08)</a>
+</h3> <h2>CDA Template References</h2> <h3>UV Use Period <a href="tm::2.16.840.1.113883.10.21.9.1--20170502000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.21.9.1 (2017-05-02)</a>
+</h3> <h3>IPS Address <a href="tm::2.16.840.1.113883.10.22.11--20180404154136" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.22.11 (2018-04-04)</a>
+</h3> <h2>Unconstrained Templates from the original CDA specification</h2> <h3>CDA AssignedEntity <a href="tm::2.16.840.1.113883.10.12.153--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.153 (2005-09-07)</a>
+</h3> <h3>CDA Organization <a href="tm::2.16.840.1.113883.10.12.151--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.151 (2005-09-07)</a>
+</h3> <h3>CDA Person <a href="tm::2.16.840.1.113883.10.12.152--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.152 (2005-09-07)</a>
+</h3> <h3>CDA AssignedEntity <a href="tm::2.16.840.1.113883.10.12.153--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.153 (2005-09-07)</a>
+</h3> <h3>CDA Author (Body) <a href="tm::2.16.840.1.113883.10.12.318--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.318 (2005-09-07)</a>
+</h3> <h3>CDA Device <a href="tm::2.16.840.1.113883.10.12.315--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.315 (2005-09-07)</a>
+</h3> <h3>CDA Informant (Body) <a href="tm::2.16.840.1.113883.10.12.319--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.319 (2005-09-07)</a>
+</h3> <h3>CDA Organization <a href="tm::2.16.840.1.113883.10.12.151--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.151 (2005-09-07)</a>
+</h3> <h3>CDA Performer (Body) <a href="tm::2.16.840.1.113883.10.12.323--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.323 (2005-09-07)</a>
+</h3> <h3>CDA Person <a href="tm::2.16.840.1.113883.10.12.152--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.152 (2005-09-07)</a>
+</h3> <h3>CDA RelatedEntity <a href="tm::2.16.840.1.113883.10.12.316--20050907000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.12.316 (2005-09-07)</a>
+</h3> <h2>Unconstrained Templates from the original Pharamcy CDA specification</h2> <h3>UV Subordinate Substance Administration <a href="tm::2.16.840.1.113883.10.21.4.6--20170430000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.10.21.4.6 (2017-04-30)</a>
+</h3> <h2>Unconstrained Templates from IHE</h2> <h3>IHE Vital Signs Observation <a href="tm::1.3.6.1.4.1.19376.1.5.3.1.4.13.2--20160929092249" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">1.3.6.1.4.1.19376.1.5.3.1.4.13.2 (2016-09-29)</a>
+</h3> <h3>IHE Vital Signs Organizer <a href="tm::1.3.6.1.4.1.19376.1.5.3.1.4.13.1--20131220000000" class="__artdecor__a__inline__artifact __artdecor_tm" onclick="event.stopPropagation(); event.preventDefault(); return">1.3.6.1.4.1.19376.1.5.3.1.4.13.1 (2013-12-20)</a>
+</h3> <h2>Value Sets</h2> <p>Value Sets defined for the IPS.</p> <h3>Absent or Unknown Allergies <a href="vs::.16.840.1.113883.11.22.9--20170329000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.9 (2017-03-29)</a>
+</h3> <h3>Absent or Unknown Devices <a href="vs::.16.840.1.113883.11.22.61--20180127221947" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.61 (2018-01-27)</a>
+</h3> <h3>Absent or Unknown Immunization <a href="vs::.16.840.1.113883.11.22.43--20170524000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.43 (2017-05-24)</a>
+</h3> <h3>Absent or Unknown Medication <a href="vs::.16.840.1.113883.11.22.15--20170401000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.15 (2017-04-01)</a>
+</h3> <h3>Absent or Unknown Problems <a href="vs::.16.840.1.113883.11.22.17--20170407000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.17 (2017-04-07)</a>
+</h3> <h3>Absent or Unknown Procedures <a href="vs::.16.840.1.113883.11.22.36--20170523000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.36 (2017-05-23)</a>
+</h3> <h3>ActStatusActiveCompletedAbortedCancelled <a href="vs::.16.840.1.113883.11.22.22--20170502000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.22 (2017-05-02)</a>
+</h3> <h3>ActStatusActiveCompletedAbortedSuspended <a href="vs::.16.840.1.113883.11.21.2--20170306000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.21.2 (2017-03-06)</a>
+</h3> <h3>ActStatusActiveCompletedAbortedSuspended <a href="vs::.16.840.1.113883.11.22.12--20170330000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.12 (2017-03-30)</a>
+</h3> <h3>Adverse Reaction Agents <a href="vs::.16.840.1.113883.11.22.11--20170329000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.11 (2017-03-29)</a>
+</h3> <h3>All Languages <a href="vs::.16.840.1.113883.4.642.3.21--20210902115547" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.4.642.3.21 (2021-09-02)</a>
+</h3> <h3>Allergy Reaction <a href="vs::.16.840.1.113883.11.22.3--20170223000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.3 (2017-02-23)</a>
+</h3> <h3>Allergy or Intolerance Type <a href="vs::.16.840.1.113883.11.22.2--20161206000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.2 (2016-12-06)</a>
+</h3> <h3>Allergy-intolerance Criticality <a href="vs::.16.840.1.113883.11.22.60--20171214102248" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.60 (2017-12-14)</a>
+</h3> <h3>CORE Problem List Disorders <a href="vs::.16.840.1.113883.11.22.5--20170201000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.5 (2017-02-01)</a>
+</h3> <h3>DRUGActCode <a href="vs::.16.840.1.113883.11.22.14--20170401000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.14 (2017-04-01)</a>
+</h3> <h3>IPS Allergy Status Code <a href="vs::.16.840.1.113883.11.22.42--20170524000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.42 (2017-05-24)</a>
+</h3> <h3>IPS Allergy Verification Status <a href="vs::.16.840.1.113883.11.22.62--20180207120421" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.62 (2018-02-07)</a>
+</h3> <h3>IPS Allergy or Intolerance Conditions <a href="vs::.16.840.1.113883.11.22.10--20170329000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.10 (2017-03-29)</a>
+</h3> <h3>IPS Condition Status Code <a href="vs::.16.840.1.113883.11.22.24--20170502000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.24 (2017-05-02)</a>
+</h3> <h3>IPS Condition Verification Status <a href="vs::.16.840.1.113883.11.22.8--20170329000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.8 (2017-03-29)</a>
+</h3> <h3>IPS Current Smoking Status <a href="vs::.16.840.1.113883.11.22.59--20171214093320" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.59 (2017-12-14)</a>
+</h3> <h3>IPS Expected Delivery Date Method <a href="vs::.16.840.1.113883.11.22.20--20170413000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.20 (2017-04-13)</a>
+</h3> <h3>IPS Healthcare Professional Roles <a href="vs::.16.840.1.113883.11.22.53--20170621000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.53 (2017-06-21)</a>
+</h3> <h3>IPS Medical Devices <a href="vs::.16.840.1.113883.11.22.23--20180216000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.23 (2018-02-16)</a>
+</h3> <h3>IPS Personal Relationship <a href="vs::.16.840.1.113883.11.22.54--20170718000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.54 (2017-07-18)</a>
+</h3> <h3>IPS Pregnancies Summary <a href="vs::.16.840.1.113883.11.22.21--20170413000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.21 (2017-04-13)</a>
+</h3> <h3>IPS Pregnancy Status <a href="vs::.16.840.1.113883.11.22.68--20181205093551" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.68 (2018-12-05)</a>
+</h3> <h3>IPS Procedures <a href="vs::.16.840.1.113883.11.22.35--20170523000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.35 (2017-05-23)</a>
+</h3> <h3>IPS Results Coded Values Laboratory <a href="vs::.16.840.1.113883.11.22.46--20170531000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.46 (2017-05-31)</a>
+</h3> <h3>IPS Results Coded Values Pathology <a href="vs::.16.840.1.113883.11.22.47--20170531000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.47 (2017-05-31)</a>
+</h3> <h3>IPS Results Observation <a href="vs::.16.840.1.113883.11.22.38--20170523000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.38 (2017-05-23)</a>
+</h3> <h3>IPS Results Observation Laboratory <a href="vs::.16.840.1.113883.11.22.39--20170523000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.39 (2017-05-23)</a>
+</h3> <h3>IPS Results Observation Pathology <a href="vs::.16.840.1.113883.11.22.41--20170523000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.41 (2017-05-23)</a>
+</h3> <h3>IPS Results Observation Radiology <a href="vs::.16.840.1.113883.11.22.40--20170523000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.40 (2017-05-23)</a>
+</h3> <h3>IPS Results Organizer <a href="vs::.16.840.1.113883.11.22.37--20170523000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.37 (2017-05-23)</a>
+</h3> <h3>IPS Specimen Type <a href="vs::.16.840.1.113883.11.22.56--20171210164914" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.56 (2017-12-10)</a>
+</h3> <h3>IPS Target Site <a href="vs::.16.840.1.113883.11.22.55--20171018155746" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.55 (2017-10-18)</a>
+</h3> <h3>IPS Vaccines <a href="vs::.16.840.1.113883.11.22.44--20170524000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.44 (2017-05-24)</a>
+</h3> <h3>Laterality (qualifier) <a href="vs::.16.840.1.113883.11.22.57--20171212192725" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.57 (2017-12-12)</a>
+</h3> <h3>Medicine Active Substances <a href="vs::.16.840.1.113883.11.22.32--20170503000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.32 (2017-05-03)</a>
+</h3> <h3>Medicine Doseform <a href="vs::.16.840.1.113883.11.22.25--20170503000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.25 (2017-05-03)</a>
+</h3> <h3>Medicine Package <a href="vs::.16.840.1.113883.11.22.27--20170503000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.27 (2017-05-03)</a>
+</h3> <h3>Medicine Route of Administration <a href="vs::.16.840.1.113883.11.22.33--20170510000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.33 (2017-05-10)</a>
+</h3> <h3>Medicine Strength Denominator <a href="vs::.16.840.1.113883.11.22.31--20170503000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.31 (2017-05-03)</a>
+</h3> <h3>Medicine Strength Numerator <a href="vs::.16.840.1.113883.11.22.30--20170503000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.30 (2017-05-03)</a>
+</h3> <h3>Problem Severity <a href="vs::.16.840.1.113883.11.22.18--20170407000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.18 (2017-04-07)</a>
+</h3> <h3>Problem Type <a href="vs::.16.840.1.113883.11.22.16--20170407000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.16 (2017-04-07)</a>
+</h3> <h3>Quantity Units <a href="vs::.16.840.1.113883.11.22.28--20170503000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.28 (2017-05-03)</a>
+</h3> <h3>Topographical modifier (qualifier) <a href="vs::.16.840.1.113883.11.22.58--20171212193352" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.58 (2017-12-12)</a>
+</h3> <h3>WHO ATC <a href="vs::.16.840.1.113883.11.22.29--20170503000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.22.29 (2017-05-03)</a>
+</h3> <h2>Value Set References</h2> <p>These Value Sets are referenced from other standards.</p> <h3>ActStatus <a href="vs::.16.840.1.113883.1.11.15933--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.15933 (2014-03-26)</a>
+</h3> <h3>ActSubstanceAdministrationImmunizationCode <a href="vs::.16.840.1.113883.1.11.19709--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.19709 (2014-03-26)</a>
+</h3> <h3>AdministrableDrugForm <a href="vs::.16.840.1.113883.1.11.14570--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.14570 (2014-03-26)</a>
+</h3> <h3>Administrative Gender (HL7 V3) <a href="vs::.16.840.1.113883.1.11.1--20160623000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.1 (2016-06-23)</a>
+</h3> <h3>AdvanceDirectiveTypeCode <a href="vs::.16.840.1.113883.1.11.20.2--20160623000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.20.2 (2016-06-23)</a>
+</h3> <h3>EntityCode <a href="vs::.16.840.1.113883.1.11.16040--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.16040 (2014-03-26)</a>
+</h3> <h3>HL7 BasicConfidentialityKind <a href="vs::.16.840.1.113883.1.11.16926--20160623000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.16926 (2016-06-23)</a>
+</h3> <h3>INDRoleclassCodes <a href="vs::.16.840.1.113883.11.20.9.33--20160623000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.20.9.33 (2016-06-23)</a>
+</h3> <h3>Medication Time Units (UCUM) <a href="vs::.16.840.1.113883.11.21.1--20150429000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.21.1 (2015-04-29)</a>
+</h3> <h3>Mood Code Evn Int Rqo <a href="vs::.16.840.1.113883.11.21.4--20180321000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.21.4 (2018-03-21)</a>
+</h3> <h3>MoodCodeEvnInt <a href="vs::.16.840.1.113883.11.20.9.18--20160623000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.11.20.9.18 (2016-06-23)</a>
+</h3> <h3>ObservationInterpretation <a href="vs::.16.840.1.113883.1.11.78--20171217000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.78 (2017-12-17)</a>
+</h3> <h3>ParticipationFunction <a href="vs::.16.840.1.113883.1.11.10267--20160623000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.10267 (2016-06-23)</a>
+</h3> <h3>ParticipationMode <a href="vs::.16.840.1.113883.1.11.16543--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.16543 (2014-03-26)</a>
+</h3> <h3>PersonalRelationshipRoleType <a href="vs::.16.840.1.113883.1.11.19563--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.19563 (2014-03-26)</a>
+</h3> <h3>PostalAddressUse <a href="vs::.16.840.1.113883.1.11.10637--20050501000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.10637 (2005-05-01)</a>
+</h3> <h3>RoleClassIngredientEntity <a href="vs::.16.840.1.113883.1.11.10430--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.10430 (2014-03-26)</a>
+</h3> <h3>RoleClassMutualRelationship <a href="vs::.16.840.1.113883.1.11.19316--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.19316 (2014-03-26)</a>
+</h3> <h3>RoleStatus <a href="vs::.16.840.1.113883.1.11.15999--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.15999 (2014-03-26)</a>
+</h3> <h3>SeverityObservationCode <a href="vs::.16.840.1.113883.1.11.20386--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.20386 (2014-03-26)</a>
+</h3> <h3>Social History Type <a href="vs::.16.840.1.113883.3.88.12.80.60--20081218000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.3.88.12.80.60 (2008-12-18)</a>
+</h3> <h3>TelecommunicationAddressUse <a href="vs::.16.840.1.113883.1.11.201--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.201 (2014-03-26)</a>
+</h3> <h3>TimingEvent <a href="vs::.16.840.1.113883.1.11.10706--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.10706 (2014-03-26)</a>
+</h3> <h3>VitalSignsObservation_code <a href="vs::.3.6.1.4.1.19376.1.5.3.1.11.4--20160929092211" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">1.3.6.1.4.1.19376.1.5.3.1.11.4 (2016-09-29)</a>
+</h3> <h3>x_ActRelationshipEntry <a href="vs::.16.840.1.113883.1.11.19446--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.19446 (2014-03-26)</a>
+</h3> <h3>x_ActStatusActiveComplete <a href="vs::.16.840.1.113883.1.11.19890--20140326000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.19890 (2014-03-26)</a>
+</h3> <h3>x_ServiceEventPerformer <a href="vs::.16.840.1.113883.1.11.19601--20170324000000" class="__artdecor__a__inline__artifact __artdecor_vs" onclick="event.stopPropagation(); event.preventDefault(); return">2.16.840.1.113883.1.11.19601 (2017-03-24)</a>
+</h3> <h2>Data Types</h2> <p>PageData types for element definitions used</p> <ul>
+                        <li>
+                            <p>AD – Address</p>
+                        </li>
+                        <li>
+                            <p>AD.IPS – IPS Address (see <a href="https://docs.art-decor.org/documentation/datatypes/DTr1_AD.IPS/" rel="noopener noreferrer nofollow">[1]</a>)</p>
+                        </li>
+                        <li>
+                            <p>ANY – ANY</p>
+                        </li>
+                        <li>
+                            <p>BL – Boolean</p>
+                        </li>
+                        <li>
+                            <p>CD – Concept Descriptor</p>
+                        </li>
+                        <li>
+                            <p>CD.IPS – IPS CD (see <a href="https://docs.art-decor.org/documentation/datatypes/DTr1_CD.IPS/" rel="noopener noreferrer nofollow">[2]</a>)</p>
+                        </li>
+                        <li>
+                            <p>CE – Coded with Equivalents</p>
+                        </li>
+                        <li>
+                            <p>CE.IPS – IPS CE (see <a href="https://docs.art-decor.org/documentation/datatypes/DTr1_CE.IPS/" rel="noopener noreferrer nofollow">[3]</a>)</p>
+                        </li>
+                        <li>
+                            <p>CR – Concept Role</p>
+                        </li>
+                        <li>
+                            <p>CS – Coded Simple Value</p>
+                        </li>
+                        <li>
+                            <p>CV – Coded Value</p>
+                        </li>
+                        <li>
+                            <p>CV.IPS – IPS CV (see <a href="https://docs.art-decor.org/documentation/datatypes/DTr1_CV.IPS/" rel="noopener noreferrer nofollow">[4]</a>)</p>
+                        </li>
+                        <li>
+                            <p>ED – Encapsulated Data</p>
+                        </li>
+                        <li>
+                            <p>EIVL.event – Event-Related Interval of Time</p>
+                        </li>
+                        <li>
+                            <p>EIVL_TS – Event-related time interval</p>
+                        </li>
+                        <li>
+                            <p>EN – Entity Name</p>
+                        </li>
+                        <li>
+                            <p>ENXP – Entity Name Part</p>
+                        </li>
+                        <li>
+                            <p>II – Instance Identifier</p>
+                        </li>
+                        <li>
+                            <p>INT – Integer</p>
+                        </li>
+                        <li>
+                            <p>IVL_PQ – Interval of Physical Quantity</p>
+                        </li>
+                        <li>
+                            <p>IVL_TS – Interval of Time Stamp</p>
+                        </li>
+                        <li>
+                            <p>IVL_TS.IPS.TZ – IPS IVL Time Stamp TZ (see <a href="https://docs.art-decor.org/documentation/datatypes/DTr1_IVL_TS.IPS.TZ/" rel="noopener noreferrer nofollow">[5]</a>)</p>
+                        </li>
+                        <li>
+                            <p>IVL_TS.IPS.TZ.OPT</p>
+                        </li>
+                        <li>
+                            <p>IVXB_TS – Interval Boundary of Time Stamp</p>
+                        </li>
+                        <li>
+                            <p>ON – Organization Name</p>
+                        </li>
+                        <li>
+                            <p>PIVL_TS – Periodic Interval of Timezone</p>
+                        </li>
+                        <li>
+                            <p>PN – Person Name</p>
+                        </li>
+                        <li>
+                            <p>PQ – Physical Quantity</p>
+                        </li>
+                        <li>
+                            <p>SC – String with Codes</p>
+                        </li>
+                        <li>
+                            <p>SD.TEXT – Structured Document Text</p>
+                        </li>
+                        <li>
+                            <p>ST – Character String</p>
+                        </li>
+                        <li>
+                            <p>SXPR_TS – Parenthetic Set Expression of Time Stamp</p>
+                        </li>
+                        <li>
+                            <p>TEL – Telecommunication Address</p>
+                        </li>
+                        <li>
+                            <p>TEL.IPS – IPS TEL (see <a href="https://docs.art-decor.org/documentation/datatypes/DTr1_IVL_TS.EPSOS.TZ.OPT/" rel="noopener noreferrer nofollow">[6]</a>)</p>
+                        </li>
+                        <li>
+                            <p>TS – Time Stamp</p>
+                        </li>
+                        <li>
+                            <p>TS.IPS.TZ – IPS Time Stamp TZ (see <a href="https://docs.art-decor.org/documentation/datatypes/DTr1_TS.IPS.TZ/" rel="noopener noreferrer nofollow">[7]</a>)</p>
+                        </li>
+                    </ul> <p>Data types for attributes used</p> <ul>
+                        <li>
+                            <p>bl – boolean code</p>
+                        </li>
+                        <li>
+                            <p>cs – code</p>
+                        </li>
+                        <li>
+                            <p>oid – identifier</p>
+                        </li>
+                        <li>
+                            <p>set_cs – code</p>
+                        </li>
+                        <li>
+                            <p>st – string</p>
+                        </li>
+                        <li>
+                            <p>uid – identifier</p>
+                        </li>
+                    </ul> <h2>Extensions</h2> <h3>Detailed medications information</h3> <p>This specification uses CDA extensions in order to provide details about medications, as further described in the section on the design conventions for Medicinal Product Identification (see <em>The use of medication statements in the summary</em>) and as used in template 2.16.840.1.113883.10.22.4.3 <em>IPS Manufactured Material</em>. The extension uses the namespace
+                            <code>urn:hl7-org:pharm</code>.</p> <p>This is the list of elements defined for that template.</p> <ul>
+                        <li>
+                            <p>
+            <code>pharm:formCode</code> (Administrable Pharmaceutical Dose Form)</p>
+                        </li>
+                        <li>
+                            <p>
+            <code>pharm:asContent</code> (Packaging of the medication)</p>
+                            <ul>
+                                <li>
+                                    <p>
+                                        <code>pharm:quantity</code>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                    <code>pharm:containerPackagedMedicine</code> (Most inner Package Item or the Packaged Medicinal Product)</p>
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                <code>pharm:code</code>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                            <code>pharm:name</code> (Name of the Package Item or of the Packaged Medicinal Product)</p>
+                                        </li>
+                                        <li>
+                                            <p>
+                            <code>pharm:formCode</code> (type of the most inner package item or of the or the Packaged Medicinal Product)</p>
+                                        </li>
+                                        <li>
+                                            <p>
+                            <code>pharm:capacityQuantity</code> (the functional capacity of the container)</p>
+                                        </li>
+                                        <li>
+                                            <p>
+                            <code>pharm:asContent</code> (Containing package)</p>
+                                            <ul>
+                                                <li>
+                                                    <p>
+                                                        <code>pharm:quantity</code>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                    <code>pharm:containerPackagedMedicine</code> (Intermediate Package Item or the Packaged Medicinal Product)</p>
+                                                    <ul>
+                                                        <li>
+                                                            <p>
+                                                                <code>pharm:code</code>
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                            <code>pharm:name</code> (Name of the Package Item or of the Packaged Medicinal Product)</p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                            <code>pharm:formCode</code> (type of the intermediate package item or of the or the Packaged Medicinal Product)</p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                            <code>pharm:capacityQuantity</code> (the functional capacity of the container)</p>
+                                                        </li>
+                                                        <li>
+                                                            <p>
+                                            <code>pharm:asContent</code> (Containing package)</p>
+                                                            <ul>
+                                                                <li>
+                                                                    <p>
+                                                                        <code>pharm:quantity</code>
+                                                                    </p>
+                                                                </li>
+                                                                <li>
+                                                                    <p>
+                                                    <code>pharm:containerPackagedMedicine</code> (Packaged Medicinal Product)</p>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <p>
+                                                                                <code>pharm:code</code>
+                                                                            </p>
+                                                                        </li>
+                                                                        <li>
+                                                                            <p>
+                                                            <code>pharm:name</code> (Name of the Packaged Medicinal Product)</p>
+                                                                        </li>
+                                                                        <li>
+                                                                            <p>
+                                                            <code>pharm:formCode</code> (type of the Packaged Medicinal Product)</p>
+                                                                        </li>
+                                                                        <li>
+                                                                            <p>
+                                                            <code>pharm:capacityQuantity</code> (the functional capacity of the container)</p>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>
+            <code>pharm:asSpecializedKind</code> (used to represent any classification of the product (ATC code, future PhPIDs,..) )</p>
+                            <ul>
+                                <li>
+                                    <p>
+                                        <code>pharm:generalizedMaterialKind</code>
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                <code>pharm:code</code>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <code>pharm:name</code>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>
+            <code>pharm:ingredient</code> (list of active substances used for this product)</p>
+                            <ul>
+                                <li>
+                                    <p>
+                    <code>pharm:quantity</code> (strength)</p>
+                                </li>
+                                <li>
+                                    <p>
+                    <code>pharm:ingredientSubstance</code> (active substance)</p>
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                <code>pharm:code</code>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <code>pharm:name</code>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul> <h3>Translation of designations</h3> <p>This specification recommends the introduction of an optional extension for properly recording multilingual designations, that is further described in <em>Code mappings and multilingual support</em> in section<em>Translation of Designations.</em>
+</p> <ul>
+                        <li>
+                            <p>
+                                <code>ips:designation</code>
+                            </p>
+                        </li>
+                    </ul></div>

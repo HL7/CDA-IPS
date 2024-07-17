@@ -1,0 +1,222 @@
+<div xmlns="http://www.w3.org/1999/xhtml"><h1>
+                        <strong>Important Notes</strong>
+                    </h1> <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>HL7 licenses its standards and select IP free of charge. <strong>If you did not acquire a free license from HL7 for this document</strong>, you are not authorized to access or make any use of it. To obtain a free license, please visit <a href="http://www.HL7.org/implement/standards/index.cfm" rel="noopener noreferrer nofollow">http://www.HL7.org/implement/standards/index.cfm</a>.</p>
+                                    <p>
+                    <strong>If you are the individual that obtained the license for this HL7 Standard, specification or other freely licensed work (in each and every instance "Specified Material")</strong>, the following describes the permitted uses of the Material.</p>
+                                    <p>
+                    <strong>A. HL7 INDIVIDUAL, STUDENT AND HEALTH PROFESSIONAL MEMBERS</strong>, who register and agree to the terms of HL7’s license, are authorized, without additional charge, to read, and to use Specified Material to develop and sell products and services that implement, but do not directly incorporate, the Specified Material in whole or in part without paying
+                                        license fees to HL7.</p>
+                                    <p>INDIVIDUAL, STUDENT AND HEALTH PROFESSIONAL MEMBERS wishing to incorporate additional items of Special Material in whole or part, into products and services, or to enjoy additional authorizations granted to HL7 ORGANIZATIONAL MEMBERS as noted below, must become ORGANIZATIONAL MEMBERS of HL7.</p>
+                                    <p>
+                    <strong>B. HL7 ORGANIZATION MEMBERS</strong>, who register and agree to the terms of HL7's License, are authorized, without additional charge, on a perpetual (except as provided for in the full license terms governing the Material), non-exclusive and worldwide basis, the right to (a) download, copy (for internal purposes only) and share this Material with
+                                        your employees and consultants for study purposes, and (b) utilize the Material for the purpose of developing, making, having made, using, marketing, importing, offering to sell or license, and selling or licensing, and to otherwise distribute, Compliant Products, in all cases subject to the conditions set forth in this Agreement and any relevant patent and
+                                        other intellectual property rights of third parties (which may include members of HL7). No other license, sublicense, or other rights of any kind are granted under this Agreement.</p>
+                                    <p>
+                    <strong>C. NON-MEMBERS</strong>, who register and agree to the terms of HL7’s IP policy for Specified Material, are authorized, without additional charge, to read and use the Specified Material for evaluating whether to implement, or in implementing, the Specified Material, and to use Specified Material to develop and sell products and services that
+                                        implement, but do not directly incorporate, the Specified Material in whole or in part. NON-MEMBERS wishing to incorporate additional items of Specified Material in whole or part, into products and services, or to enjoy the additional authorizations granted to HL7 ORGANIZATIONAL MEMBERS, as noted above, must become ORGANIZATIONAL MEMBERS of HL7. Please see
+                                            <a href="http://www.HL7.org/legal/ippolicy.cfm" rel="noopener noreferrer nofollow">http://www.HL7.org/legal/ippolicy.cfm</a> for the full license terms governing the Material.</p>
+                                    <p>
+                    <strong>Ownership</strong>. Licensee agrees and acknowledges that <strong>HL7 owns</strong> all right, title, and interest, in and to the Materials. Licensee shall <strong>take no action contrary to, or inconsistent with</strong>, the foregoing.</p>
+                                    <p>
+                                        <strong>Licensee agrees and acknowledges that HL7 may not own all right, title, and interest, in and to the Materials and that the Materials may contain and/or reference intellectual property owned by third parties (“Third Party IP”). Acceptance of these License Terms does not grant Licensee any rights with respect to Third Party IP. Licensee alone is
+                                            responsible for identifying and obtaining any necessary licenses or authorizations to utilize Third Party IP in connection with the Materials or otherwise. Any actions, claims or suits brought by a third party resulting from a breach of any Third Party IP right by the Licensee remains the Licensee’s liability.</strong>
+                                    </p>
+                                    <p>Following is a non-exhaustive list of third-party terminologies that may require a separate license:</p>
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <th style="background-color: rgb(234, 236, 240);">
+                                                    <p>Terminology</p>
+                                                </th>
+                                                <th style="background-color: rgb(234, 236, 240);">
+                                                    <p>Owner/Contact</p>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>Current Procedures Terminology (CPT) code set</p>
+                                                </td>
+                                                <td>
+                                                    <p>American Medical Association <a href="https://www.ama-assn.org/practice-management/cpt-licensing" rel="noopener noreferrer nofollow">https://www.ama-assn.org/practice-management/cpt-licensing</a>
+                                </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>SNOMED CT®</p>
+                                                </td>
+                                                <td>
+                                                    <p>SNOMED International <a href="http://www.snomed.org/snomed-ct/get-snomed-ct" rel="noopener noreferrer nofollow">http://www.snomed.org/snomed-ct/get-snomed-ct</a> or info@ihtsdo.org</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>Logical Observation Identifiers Names &amp; Codes (LOINC®)</p>
+                                                </td>
+                                                <td>
+                                                    <p>Regenstrief Institute, Inc.</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>International Classification of Diseases (ICD) codes</p>
+                                                </td>
+                                                <td>
+                                                    <p>World Health Organization (WHO)</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>NUCC Health Care Provider Taxonomy code set</p>
+                                                </td>
+                                                <td>
+                                                    <p>American Medical Association. Please see www.nucc.org. AMA licensing contact: 312-464-5022 (AMA IP services)</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> <p>
+                        <strong>Primary Editor and Contributors</strong>
+                    </p> <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>Primary Editor</p>
+                                </td>
+                                <td>
+                                    <p>Giorgio Cangioli, PhD<br/>Consultant, HL7 Italy <br/>giorgio.cangioli@gmail.com</p>
+                                </td>
+                                <td>
+                                    <p>Primary Editor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Primary Editor</p>
+                                </td>
+                                <td>
+                                    <p>Rob Hausam<br/>Hausam Consulting LLC <br/>rob@hausamconsulting.com</p>
+                                </td>
+                                <td>
+                                    <p>Primary Editor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Primary Editor</p>
+                                </td>
+                                <td>
+                                    <p>Dr Kai U. Heitmann<br/>Heitmann Consulting and Services,<br/>HL7 Germany,<br/>ART-DECOR Open Tools GmbH<br/>info@kheitmann.de</p>
+                                </td>
+                                <td>
+                                    <p>Primary Editor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Primary Editor</p>
+                                </td>
+                                <td>
+                                    <p>François Macary <br/>Phast<br/>francois.macary@phast.fr</p>
+                                </td>
+                                <td>
+                                    <p>Primary Editor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                                <td>
+                                    <p>Dr Philip Scott <br/>HL7 UK<br/>philip.scott@uwtsd.ac.uk</p>
+                                </td>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                                <td>
+                                    <p>Dr Christof Geßner <br/>Gematik<br/>christof.gessner@gematik.de</p>
+                                </td>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                                <td>
+                                    <p>Dr Stefan Sabutsch <br/>ELGA, HL7 Austria<br/>stefan.sabutsch@elga.gv.at</p>
+                                </td>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                                <td>
+                                    <p>Gary Dickinson <br/>CentriHealth<br/>gary.dickinson@ehr-standards.com</p>
+                                </td>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                                <td>
+                                    <p>Catherine Chronaki<br/>HL7 International Foundation<br/>chronaki@gmail.com</p>
+                                </td>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                                <td>
+                                    <p>Dr Stephen Chu <br/>HL7 Australia<br/>chuscmi88@gmail.com</p>
+                                </td>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                                <td>
+                                    <p>Didi Davis <br/>The Sequoia Project<br/>ddavis@sequoiaproject.org</p>
+                                </td>
+                                <td>
+                                    <p>Contributor</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Other Contributors</p>
+                                </td>
+                                <td>
+                                    <p>Alexander Berler (a.berler@gnomon.com.gr) ; Carina Seerainer (carina.seerainer@elga.gv.at); John Roberts (John.A.Roberts@tn.gov); Julie James (julie_james@bluewaveinformatics.co.uk); Mark Shafarman (mark.shafarman@earthlink.net); Fernando Portilla (fportila@gmail.com); Ed Hammond (william.hammond@duke.edu); Steve Kay (s.kay@histandards.net)</p>
+                                </td>
+                                <td>
+                                    <p>Other Contributors</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table></div>
