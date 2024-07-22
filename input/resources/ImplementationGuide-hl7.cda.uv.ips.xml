@@ -3,7 +3,8 @@
     <id value="hl7.cda.uv.ips"/>
     <url value="http://hl7.org/cda/uv/cda-ips/ImplementationGuide/hl7.cda.uv.ips"/>
     <version value="1.1.0"/>
-    <name value="hl7ips-20240414195126-implementationguide"/>
+    <!-- <name value="hl7ips-20240414195126-implementationguide"/> -->
+    <name value="InternationalPatientSummaryCDAIG"/>
     <title value="International Patient Summary (IPS)"/>
     <status value="draft"/>
     <publisher value="Health Level Seven"/>
@@ -59,7 +60,7 @@
         <page>
             <name value="index.html"/>
             <title value="Index page"/>
-            <generation value="html"/>
+            <generation value="markdown"/>
             <page>
                 <name value="p-1989e119-f04f-48e5-89e1-19f04fb8e123.html"/>
                 <title value="Important Notes"/>
