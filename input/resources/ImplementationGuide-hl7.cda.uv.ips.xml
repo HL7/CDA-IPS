@@ -1,11 +1,13 @@
-<ImplementationGuide>
-    <id value="hl7ips-20240414195126-implementationguide"/>
-    <url value="2.16.840.1.113883.3.1937.777.13.29.1"/>
-    <version value="STU2"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide  xmlns="http://hl7.org/fhir">
+    <id value="hl7.cda.uv.ips"/>
+    <url value="http://hl7.org/cda/uv/cda-ips/ImplementationGuide/hl7.cda.uv.ips"/>
+    <version value="1.1.0"/>
     <name value="hl7ips-20240414195126-implementationguide"/>
     <title value="International Patient Summary (IPS)"/>
     <status value="draft"/>
     <publisher value="Health Level Seven"/>
+    <!-- contact to be updated to PC -->
     <contact>
         <name value="HL7 International - International Patient Summary"/>
         <telecom>
@@ -15,7 +17,7 @@
     </contact>
     <packageId value="hl7.cda.uv.ips"/>
     <fhirVersion value="5.0.0"/>
-    <!--
+    <!-- 
         <dependsOn id="cda">
             <uri value="http://hl7.org/fhir/cda/ImplementationGuide/hl7.fhir.cda"/>
             <packageId value="hl7.fhir.cda"/>
@@ -43,71 +45,73 @@
             <name value="Other Templates"/>
             <description value="Other templates ..."/>
         </grouping>
-        <resource>
+
+<!--         <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.22.1.1--20200714160821"/>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.1.120200714160821"/> removed - - before 2020
                 <display value="HL7-IPS"/>
             </reference>
             <name value="HL7-IPS"/>
             <exampleBoolean value="false"/>
             <groupingId value="document"/>
-        </resource>
+        </resource> -->
+
         <page>
-            <name value="p-6e55fc85-13fc-403a-95fc-8513fc803af9.xml"/>
+            <name value="index.html"/>
             <title value="Index page"/>
             <generation value="html"/>
             <page>
-                <name value="p-1989e119-f04f-48e5-89e1-19f04fb8e123.xml"/>
+                <name value="p-1989e119-f04f-48e5-89e1-19f04fb8e123.html"/>
                 <title value="Important Notes"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-db11d3be-6643-471a-91d3-be6643e71a7a.xml"/>
+                <name value="p-db11d3be-6643-471a-91d3-be6643e71a7a.html"/>
                 <title value="Introduction"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-f90f93c1-2a58-4b42-8f93-c12a58cb4219.xml"/>
+                <name value="p-f90f93c1-2a58-4b42-8f93-c12a58cb4219.html"/>
                 <title value="Technical Background"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-6b5529b2-6c73-42ba-9529-b26c7352bad9.xml"/>
+                <name value="p-6b5529b2-6c73-42ba-9529-b26c7352bad9.html"/>
                 <title value="Functional requirements and high-level use cases"/>
                 <generation value="html"/>
                 <page>
-                    <name value="p-aad25e8f-a199-4dad-925e-8fa1995dad81.xml"/>
+                    <name value="p-aad25e8f-a199-4dad-925e-8fa1995dad81.html"/>
                     <title value="Code mappings and multilingual support"/>
                     <generation value="html"/>
                 </page>
             </page>
             <page>
-                <name value="p-1c7c828b-28f2-4e9c-bc82-8b28f26e9cab.xml"/>
+                <name value="p-1c7c828b-28f2-4e9c-bc82-8b28f26e9cab.html"/>
                 <title value="Design conventions and principles"/>
                 <generation value="html"/>
                 <page>
-                    <name value="p-cf9114e2-8bab-456c-9114-e28bab156cfe.xml"/>
+                    <name value="p-cf9114e2-8bab-456c-9114-e28bab156cfe.html"/>
                     <title value="Determining the Status of Clinical Statement"/>
                     <generation value="html"/>
                 </page>
                 <page>
-                    <name value="p-2cb4a6c4-d299-44b4-b4a6-c4d29934b4f2.xml"/>
+                    <name value="p-2cb4a6c4-d299-44b4-b4a6-c4d29934b4f2.html"/>
                     <title value="The use of medication statements in the summary"/>
                     <generation value="html"/>
                 </page>
             </page>
             <page>
-                <name value="p-d1165c7d-3728-4f71-965c-7d37280f71dd.xml"/>
+                <name value="p-d1165c7d-3728-4f71-965c-7d37280f71dd.html"/>
                 <title value="Conformance clause"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-6433a150-f8a2-4ffb-b3a1-50f8a2cffbf3.xml"/>
+                <name value="p-6433a150-f8a2-4ffb-b3a1-50f8a2cffbf3.html"/>
                 <title value="List of all artifacts used in this guide"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-867991e9-f04f-48e5-89e1-19f04fb8e123.xml"/>
+                <name value="p-867991e9-f04f-48e5-89e1-19f04fb8e123.html"/>
                 <title value="Appendix (Informative)"/>
                 <generation value="html"/>
             </page>
