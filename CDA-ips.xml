@@ -4,6 +4,9 @@
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
+<artifact id="StructureDefinition/2.16.840.1.113883.10.12.316--20050907000000" key="StructureDefinition-2.16.840.1.113883.10.12.316--20050907000000" name="CDA RelatedEntity"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.5--20170201000000" key="ValueSet-2.16.840.1.113883.11.22.5--20170201000000" name="CORE Problem List Disorders"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.47--20170531000000" key="ValueSet-2.16.840.1.113883.11.22.47--20170531000000" name="IPS Results Coded Values Pathology"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="p-867991e9-f04f-48e5-89e1-19f04fb8e123" name="Appendix (Informative)"/>
