@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ImplementationGuide  xmlns="http://hl7.org/fhir">
+<ImplementationGuide xmlns="http://hl7.org/fhir">
     <id value="hl7.cda.uv.ips"/>
     <url value="http://hl7.org/cda/uv/cda-ips/ImplementationGuide/hl7.cda.uv.ips"/>
     <version value="1.1.0"/>
@@ -18,13 +18,13 @@
     </contact>
     <!--<packageId value="hl7.cda.uv.ips"/>-->
     <fhirVersion value="5.0.0"/>
-    <!-- 
-        <dependsOn id="cda">
-            <uri value="http://hl7.org/fhir/cda/ImplementationGuide/hl7.fhir.cda"/>
-            <packageId value="hl7.fhir.cda"/>
-            <version value="dev"/>
-        </dependsOn>
-        -->
+
+    <dependsOn id="cda">
+        <uri value="http://hl7.org/cda/stds/core/ImplementationGuide/hl7.cda.uv.core"/>
+        <packageId value="hl7.cda.uv.core"/>
+        <version value="current"/>
+    </dependsOn>
+
     <definition>
         <grouping id="document">
             <name value="Document Templates"/>
@@ -47,7 +47,7 @@
             <description value="Other templates ..."/>
         </grouping>
 
-<!--         <resource>
+        <!--         <resource>
             <reference>
                 <reference value="StructureDefinition/2.16.840.1.113883.10.22.1.120200714160821"/> removed - - before 2020
                 <display value="HL7-IPS"/>
