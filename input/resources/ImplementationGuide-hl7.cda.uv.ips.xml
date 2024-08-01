@@ -16,7 +16,7 @@
             <value value="http://www.hl7.org/Special/committees/structure"/>
         </telecom>
     </contact>
-    <packageId value="hl7.cda.uv.ips"/>
+    <!--<packageId value="hl7.cda.uv.ips"/>-->
     <fhirVersion value="5.0.0"/>
     <!-- 
         <dependsOn id="cda">
@@ -62,57 +62,57 @@
             <title value="Index page"/>
             <generation value="markdown"/>
             <page>
-                <name value="p-1989e119-f04f-48e5-89e1-19f04fb8e123.html"/>
+                <name value="fp-1989e119-f04f-48e5-89e1-19f04fb8e123.html"/>
                 <title value="Important Notes"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-db11d3be-6643-471a-91d3-be6643e71a7a.html"/>
+                <name value="fp-db11d3be-6643-471a-91d3-be6643e71a7a.html"/>
                 <title value="Introduction"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-f90f93c1-2a58-4b42-8f93-c12a58cb4219.html"/>
+                <name value="fp-f90f93c1-2a58-4b42-8f93-c12a58cb4219.html"/>
                 <title value="Technical Background"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-6b5529b2-6c73-42ba-9529-b26c7352bad9.html"/>
+                <name value="fp-6b5529b2-6c73-42ba-9529-b26c7352bad9.html"/>
                 <title value="Functional requirements and high-level use cases"/>
                 <generation value="html"/>
                 <page>
-                    <name value="p-aad25e8f-a199-4dad-925e-8fa1995dad81.html"/>
+                    <name value="fp-aad25e8f-a199-4dad-925e-8fa1995dad81.html"/>
                     <title value="Code mappings and multilingual support"/>
                     <generation value="html"/>
                 </page>
             </page>
             <page>
-                <name value="p-1c7c828b-28f2-4e9c-bc82-8b28f26e9cab.html"/>
+                <name value="fp-1c7c828b-28f2-4e9c-bc82-8b28f26e9cab.html"/>
                 <title value="Design conventions and principles"/>
                 <generation value="html"/>
                 <page>
-                    <name value="p-cf9114e2-8bab-456c-9114-e28bab156cfe.html"/>
+                    <name value="fp-cf9114e2-8bab-456c-9114-e28bab156cfe.html"/>
                     <title value="Determining the Status of Clinical Statement"/>
                     <generation value="html"/>
                 </page>
                 <page>
-                    <name value="p-2cb4a6c4-d299-44b4-b4a6-c4d29934b4f2.html"/>
+                    <name value="fp-2cb4a6c4-d299-44b4-b4a6-c4d29934b4f2.html"/>
                     <title value="The use of medication statements in the summary"/>
                     <generation value="html"/>
                 </page>
             </page>
             <page>
-                <name value="p-d1165c7d-3728-4f71-965c-7d37280f71dd.html"/>
+                <name value="fp-d1165c7d-3728-4f71-965c-7d37280f71dd.html"/>
                 <title value="Conformance clause"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-6433a150-f8a2-4ffb-b3a1-50f8a2cffbf3.html"/>
+                <name value="fp-6433a150-f8a2-4ffb-b3a1-50f8a2cffbf3.html"/>
                 <title value="List of all artifacts used in this guide"/>
                 <generation value="html"/>
             </page>
             <page>
-                <name value="p-867991e9-f04f-48e5-89e1-19f04fb8e123.html"/>
+                <name value="fp-867991e9-f04f-48e5-89e1-19f04fb8e123.html"/>
                 <title value="Appendix (Informative)"/>
                 <generation value="html"/>
             </page>
