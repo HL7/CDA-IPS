@@ -8,6 +8,7 @@ on:
       - "**/sushi-config.yaml"
   workflow_dispatch:
 
+jobs:
   ig-publisher:
     runs-on: ubuntu-latest
 
