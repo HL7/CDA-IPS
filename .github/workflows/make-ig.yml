@@ -21,9 +21,9 @@ jobs:
       - name: Install IG publisher
         run: |
           chmod +x _updatePublisher.sh
-          sh _updatePublisher.sh -y
+          ./_updatePublisher.sh -y
 
       - name: Validate IG
         run: |
           chmod +x _genonce.sh
-          sh _genonce.sh
+          ./_genonce.sh
