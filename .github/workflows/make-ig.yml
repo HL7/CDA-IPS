@@ -3,9 +3,6 @@ name: Make IG
 on:
   push:
     branches: [ main ]
-    paths:
-      - "**.fsh"
-      - "**/sushi-config.yaml"
   workflow_dispatch:
 
 jobs:
