@@ -35,11 +35,7 @@ jobs:
         run: sudo npm install -g fsh-sushi
 
       - name: Install IG publisher
-        run: |
-          chmod +x ./_updatePublisher.sh
-          ./_updatePublisher.sh -y
+        run: ./_updatePublisher.sh -y
 
       - name: Validate IG
-        run: |
-          chmod +x ./_genonce.sh
-          ./_genonce.sh
+        run: ./_genonce.sh
