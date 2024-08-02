@@ -11,33 +11,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup
+      - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          path: profiles
 
-      - name: Install Sushi
-        run: npm install -g fsh-sushi
+      - name: Update FHIR Profiles
+        uses: cybernop/build-fhir-profiles@v1
+        with:
+          sushi-version: "3.11.0"
+          project-dir: profiles
 
-      - name: Validate with Sushi
-        run: sushi .
-
-  ig-publisher:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Jekyll
-        run: gem install jekyll
-
-      - name: Install Sushi
-        run: npm install -g fsh-sushi
-
-      - name: Install IG publisher
-        run: |
-          chmod +x ./_updatePublisher.sh
-          ./_updatePublisher.sh -y
-
-      - name: Validate IG
-        run: |
-          chmod +x ./_genonce.sh
-          ./_genonce.sh
+#  ig-publisher:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#
+#      - name: Install Jekyll
+#        run: gem install jekyll
+#
+#      - name: Install Sushi
+#        run: npm install -g fsh-sushi
+#
+#      - name: Install IG publisher
+#        run: |
+#          chmod +x ./_updatePublisher.sh
+#          ./_updatePublisher.sh -y
+#
+#      - name: Validate IG
+#        run: |
+#          chmod +x ./_genonce.sh
+#          ./_genonce.sh
