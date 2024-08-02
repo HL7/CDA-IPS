@@ -6,4 +6,4 @@ XSD Schemas, samples, and other artifacts for the HL7 CDA IPS IG
 - **examples** handcrafted XML examples of the CDA IPS
 - **input** Folder and Files for an Implementation Guide CDA IPS utilizing the FHIR IG publisher
 
-[![Validate docs](https://github.com/HL7/CDA-IPS/actions/workflows/main.yml/badge.svg)](https://github.com/HL7/CDA-IPS/actions/workflows/main.yml)
+[![Serve Sushi](https://github.com/HL7/CDA-IPS/actions/workflows/serve-sushi.yml/badge.svg)](https://github.com/HL7/CDA-IPS/actions/workflows/serve-sushi.yml)
