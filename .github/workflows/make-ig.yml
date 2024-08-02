@@ -1,4 +1,4 @@
-name: Validate docs
+name: Make IG
 
 on:
   push:
@@ -7,20 +7,6 @@ on:
       - "**.fsh"
       - "**/sushi-config.yaml"
   workflow_dispatch:
-  
-jobs:
-  sushi:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Sushi
-        run: sudo npm install -g fsh-sushi
-
-      - name: Validate with Sushi
-        run: sushi .
-
 
   ig-publisher:
     runs-on: ubuntu-latest
