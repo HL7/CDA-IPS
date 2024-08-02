@@ -14,7 +14,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install Sushi
-        run: sudo npm install -g fsh-sushi
+        run: |
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true
+          sudo npm install -g fsh-sushi
 
       - name: Validate with Sushi
         run: sushi .
