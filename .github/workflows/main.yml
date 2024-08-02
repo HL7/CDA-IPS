@@ -3,13 +3,14 @@ name: Validate docs
 on:
   push:
     branches: [ main ]
-  pull_request:
-    types: [opened, synchronize] # This will trigger the workflow only when a PR is opened or updated with new commits
-
+    paths:
+      - "**.fsh"
+      - "**/sushi-config.yaml"
+  workflow_dispatch:
+  
 jobs:
-  sushi:
+  build-profiles:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -21,6 +22,12 @@ jobs:
         with:
           sushi-version: "3.11.0"
           project-dir: profiles
+
+      - name: Push built Profiles
+        uses: cybernop/push-fsh-profiles@v1
+        with:
+          project-dir: profiles
+
 
 #  ig-publisher:
 #    runs-on: ubuntu-latest
