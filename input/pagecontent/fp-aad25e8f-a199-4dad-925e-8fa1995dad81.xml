@@ -1,12 +1,12 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-                         <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Code mappings and multilingual support</h4> 
+                         <h4>Code mappings and multilingual support</h4> 
                          <p>The capability of managing locally used coded concepts and reference terminologies, and that of providing receiving providers with human readable information in a language that can be understood by them, are critical aspects to be taken in account in the cross-border sharing of documents. This section summarizes some of the requirements related to these aspects,
                             including also additional needs derived from the European cross-border services and some lessons learned by the EU/US Trillium Bridge Project.</p> 
                          <p>The European cross-border services (Myhealth@EU), formerly known as <em>eHDSI</em>, use a business to business exchange infrastructure based on a network of country gateways that mediate access to the national infrastructures. The EU Patient Summary (EU PS) is used as a “pivot” document for the cross-border exchange. Local PS using data/document formats are in fact
                             remapped into the eHDSI PS. The document exchanged is processed each time it passes through one of these gateway applying the needed syntactical transformation, code mappings. and translation of the code designations. Finally, in the current practice the received PSs are displayed using specialized display tools that build a human readable representation of the PS in
                             the target language using the translated designations reported in the coded entries.</p> 
                          <p>The adoption of translated narratives in the received document has been one of the indications received by the Trillium Bridge Project. This in fact allows extending multilingual support for the cross-border patient summaries to a wider set of potential consumers (EHR-or PHR systems), without requiring specialized viewers as applied in the eHDSI services.</p> 
-                         <h5 xmlns:xhtml="http://www.w3.org/1999/xhtml">Concept code mapping</h5> 
+                         <h5>Concept code mapping</h5> 
                          <p>In several real world use cases the records used as source for the Patient Summaries may use locally adopted terminologies, which are mapped to the reference value sets when possible, or otherwise used directly to provide uncoded information. This leads to a series of requirements listed below and detailed further in section "Design conventions and principles".</p> 
                          <ul>
                             <li>
@@ -32,7 +32,7 @@
                                     cases.</p>
                             </li>
                         </ul> 
-                         <h5 xmlns:xhtml="http://www.w3.org/1999/xhtml">Multilingual support</h5> 
+                         <h5>Multilingual support</h5> 
                          <p>Multilingual support by IPS can be split in two categories of action:</p> 
                          <ol>
                             <li>
@@ -55,11 +55,11 @@
                             </li>
                         </ul> 
                          <p>This guide does not favor any of these solutions. All of them are supported.</p> 
-                         <h6 xmlns:xhtml="http://www.w3.org/1999/xhtml">Translation of Designations</h6> 
+                         <h6>Translation of Designations</h6> 
                          <p>The European Cross-border services requires that for “safety and liability reasons” all of the original coded terms (designations, displayName) shall be recorded in the exchanged documents together with at least the English and the receiving country language terms (designations, displayName) associated with the reference codes. The designations translated in the
                             receiving country language are used to generate the human readable content shown to the receiving provider. No free text translation is applied in this case. In order to accomplish this objective, the IPS should have the capability to record one or more designations, possibly indicating the language used. The solution chosen to fulfill this requirement is specified in
                             section 4.6.</p> 
-                         <h6 xmlns:xhtml="http://www.w3.org/1999/xhtml">Narrative Translation</h6> 
+                         <h6>Narrative Translation</h6> 
                          <p>Narrative translation covers two kinds of operations:</p> 
                          <ul>
                             <li>

@@ -1,5 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-                         <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Determining the Status of Clinical Statement </h4> 
+                         <h4>Determining the Status of Clinical Statement </h4> 
                          <p>
     <em>Note: Most of the description provided in this section is copied from the § 3.3 Determining the Status of Clinical Statement of the C-CDA DSTU R2.1 Implementation Guide Volume 1 [</em>HL7 C-CDA Implementation Guide DSTU R2.1 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=379" rel="noopener noreferrer nofollow">http://www.hl7.org/implement/standards/product_brief.cfm?product_id=379</a>].</p> 
                          <p>A recipient must be able to determine whether the status of an entry — which can include a problem, a medication administration, etc. — is active, completed, or in some other state. Determination of the exact status is dependent on the interplay between an act’s various components (such as statusCode and effectiveTime). The following principles apply when representing or

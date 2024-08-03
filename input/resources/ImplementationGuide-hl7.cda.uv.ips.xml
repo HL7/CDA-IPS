@@ -106,11 +106,11 @@
                 <title value="Conformance clause"/>
                 <generation value="html"/>
             </page>
-            <page>
+            <!--<page>
                 <nameUrl value="fp-6433a150-f8a2-4ffb-b3a1-50f8a2cffbf3.html"/>
                 <title value="List of all artifacts used in this guide"/>
                 <generation value="html"/>
-            </page>
+            </page>-->
             <page>
                 <nameUrl value="fp-867991e9-f04f-48e5-89e1-19f04fb8e123.html"/>
                 <title value="Appendix (Informative)"/>

@@ -1,5 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-                     <h3 xmlns:xhtml="http://www.w3.org/1999/xhtml">Functional requirements and high-level use cases </h3> 
+                     <h3>Functional requirements and high-level use cases </h3> 
                      <p>The International Patient Summary, i.e. a “specialty-agnostic, condition-independent" summary, was initially designed for cross-border unscheduled care, but its actual adoption is not limited to this usage scenario.</p> 
                      <p>Patient summary initiatives are currently in various stages of development in different parts of the world. A summary of the most recent initiatives and experiences across the world can be found in the <a href="https://international-patient-summary.net/implementations-across-the-globe/" rel="noopener noreferrer nofollow">https://international-patient-summary.net/implementations-across-the-globe/</a>.</p> 
                      <p>As mentioned there are several options in terms of creation, sharing and usage of an IPS. For example:</p> 

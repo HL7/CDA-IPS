@@ -1,5 +1,5 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-                     <h3 xmlns:xhtml="http://www.w3.org/1999/xhtml">Conformance clause </h3> 
+                     <h3>Conformance clause </h3> 
                      <p>This section references the requirements, criteria, or conditions to be satisfied in order that a product (tangible) or a service may claim conformance to this guide, and how other artifacts may claim compliance with it. (Note: The concept of conformance and compliance are used coherently with the HL7 Service-Aware Interoperability Framework: Canonical Definition
                         Specification, Release 2 [HL7 Service-Aware Interoperability Framework: Canonical Definition Specification, Release 2 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=3" rel="noopener noreferrer nofollow">http://www.hl7.org/implement/standards/product_brief.cfm?product_id=3</a>].</p> 
                      <p>The fulfilment of these clauses indirectly assures that a product that is the subject of a “conformity assessment” satisfies the business or the design requirements this specification complies to. It should, however, be clear that compliance with the specified business or design requirements, for example with the EN ISO 17269 IPS, does not imply that the compliant

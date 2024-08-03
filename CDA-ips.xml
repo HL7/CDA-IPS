@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ciUrl="" defaultVersion="current" defaultWorkgroup="sd" url="http://hl7.org/cda/uv/cda-ips">
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/cda/uv/ips/2024Sep" ciUrl="" defaultVersion="1.1.0-ballot" defaultWorkgroup="sd" url="http://hl7.org/cda/uv/cda-ips">
 <version code="current" url=""/>
+<version code="1.1.0-ballot" url="http://hl7.org/cda/uv/ips/2024Sep"/>
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
 <artifact id="StructureDefinition/2.16.840.1.113883.10.12.316--20050907000000" key="StructureDefinition-2.16.840.1.113883.10.12.316--20050907000000" name="CDA RelatedEntity"/>
-<artifact id="ValueSet/2.16.840.1.113883.11.22.5--20170201000000" key="ValueSet-2.16.840.1.113883.11.22.5--20170201000000" name="CORE Problem List Disorders"/>
-<artifact id="ValueSet/2.16.840.1.113883.11.22.47--20170531000000" key="ValueSet-2.16.840.1.113883.11.22.47--20170531000000" name="IPS Results Coded Values Pathology"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.10--20240802091633" key="ValueSet-2.16.840.1.113883.11.22.10--20240802091633" name="IPS Allergy or Intolerance Conditions"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.55--20240802093131" key="ValueSet-2.16.840.1.113883.11.22.55--20240802093131" name="IPS Body Site"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.59--20240802093233" key="ValueSet-2.16.840.1.113883.11.22.59--20240802093233" name="IPS Current Smoking Status"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.25--20240802100610" key="ValueSet-2.16.840.1.113883.11.22.25--20240802100610" name="IPS Medicine Doseform"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.33--20240802101219" key="ValueSet-2.16.840.1.113883.11.22.33--20240802101219" name="IPS Medicine Route of Administration"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.68--20240802101758" key="ValueSet-2.16.840.1.113883.11.22.68--20240802101758" name="IPS Pregnancy Status"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.35--20240802102529" key="ValueSet-2.16.840.1.113883.11.22.35--20240802102529" name="IPS Procedures"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.40--20240802104807" key="ValueSet-2.16.840.1.113883.11.22.40--20240802104807" name="IPS Results Radiology Observation"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.56--20240802105507" key="ValueSet-2.16.840.1.113883.11.22.56--20240802105507" name="IPS Specimen Type"/>
+<artifact id="ValueSet/2.16.840.1.113883.11.22.44--20240802114123" key="ValueSet-2.16.840.1.113883.11.22.44--20240802114123" name="IPS Vaccines"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="fp-867991e9-f04f-48e5-89e1-19f04fb8e123" name="Appendix (Informative)"/>

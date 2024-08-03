@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
-                     <h3 xmlns:xhtml="http://www.w3.org/1999/xhtml">Appendix (Informative)</h3> 
-                     <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Acronyms and abbreviations</h4> 
+                     <h3>Appendix (Informative)</h3> 
+                     <h4>Acronyms and abbreviations</h4> 
                      <ul>
                         <li>
                             <p>
@@ -171,7 +171,7 @@
             <strong>WHO</strong>: World Health Organization</p>
                         </li>
                     </ul> 
-                     <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Glossary</h4> 
+                     <h4>Glossary</h4> 
                      <ul>
                         <li>
                             <p>
@@ -212,9 +212,9 @@
             <strong>International Patient Summary dataset</strong>: a minimal and non-exhaustive patient summary dataset, specialty-agnostic, condition-independent, but readily usable by clinicians for the cross-border unscheduled care of a patient.</p>
                         </li>
                     </ul> 
-                     <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Real World User Stories</h4> 
+                     <h4>Real World User Stories</h4> 
                      <p>This section reports a series of real world user stories adapted from the Trillium Bridge project [The Trillium Bridge Project <a href="http://www.trilliumbridge.eu" rel="noopener noreferrer nofollow">http://www.trilliumbridge.eu</a>] and the eHDSI initiative [The eHDSI initiative <a href="https://ec.europa.eu/cefdigital/wiki/display/EHOPERATIONS/eHealth+DSI+Operations+Home" rel="noopener noreferrer nofollow">https://ec.europa.eu/cefdigital/wiki/display/EHOPERATIONS/eHealth+DSI+Operations+Home</a>].</p> 
-                     <h5 xmlns:xhtml="http://www.w3.org/1999/xhtml">IPS Storyboard 1: Martha, a traveling corporate executive</h5> 
+                     <h5>IPS Storyboard 1: Martha, a traveling corporate executive</h5> 
                      <p>Martha, a 45-year old corporate executive and breast cancer survivor travels frequently on business between the US and EU countries. She carries a clinical summary on her mobile phone and on paper just in case she needs to seek medical care regarding recurring symptoms. Martha’s summary includes</p> 
                      <ul>
                         <li>
@@ -242,14 +242,14 @@
                      <p>During a visit in Austria, Martha walks up a hill and experiences shortness of breath, faints, and wakes up a few minutes later after hitting her head on a stone step. A passerby helps her get to the emergency department of a local hospital. An ambulance is called and she is brought to the emergency ward.</p> 
                      <p>During registration and admission, Martha hands in her patient summary in a USB key. At the hospital, Martha is evaluated by an oncologist and a cardiologist.</p> 
                      <p>Following care provision, Martha receives an encounter report. When back home she hands in the encounter report to her primary physician, who updates her record.</p> 
-                     <h5 xmlns:xhtml="http://www.w3.org/1999/xhtml">IPS Storyboard 2: Paolo, a retired businessman</h5> 
+                     <h5>IPS Storyboard 2: Paolo, a retired businessman</h5> 
                      <p>Paolo Cerruti is a 67-year-old retired businessman, who normally lives in the outskirts Bergamo, near Lake Como, in Lombardy. He is generally healthy, but has long-standing hypertension. His regular physician changed his medication two weeks ago because of poor blood pressure control on his previous medication. He is on holiday going through New England, US, travelling on
                         his own to enjoy the autumn foliage, and is presently in Boston, MA. He is nearing the end of his holiday, and will be returning to Italy in three days’ time. Two days ago he lost his day bag. The bag included his hypertension medication, and he has not been able to take his tablets for two days.</p> 
                      <p>This morning he has woken up feeling dizzy and has blurred vision. The hotel is able to put him in urgent contact with a local general practitioner (GP). Having assessed him, the GP noted a raised blood pressure, but is uncertain about whether to attribute these symptoms to the raised blood pressure or a side effect of the new medication. Now, the GP in Boston needs to know
                         the medication, and the past few blood pressure readings to determine how exceptional the present reading is and manage Paolo appropriately.</p> 
                      <p>Immediate access to his International Patient Summary would be the perfect answer. Paolo may retrieve his online European Patient Summary for emergency access that is retrieved, transformed into an IPS and shown its content translated in English.</p> 
                      <p>The GP notes that visual disturbances are a recognized side effect of this medication. No specific treatment is indicated, and Paolo is reassured that side effects will gradually subside, and his GP can prescribe a suitable antihypertensive medication upon his return to Lake Como.</p> 
-                     <h5 xmlns:xhtml="http://www.w3.org/1999/xhtml">IPS Storyboard 3: Diana, a pregnant woman</h5> 
+                     <h5>IPS Storyboard 3: Diana, a pregnant woman</h5> 
                      <p>Diana is a 34-year-old pregnant woman from Lisbon with a past medical history of allergic asthma and thyroid cancer during adolescence; for the latter she had a surgical procedure done (thyroidectomy) and, as a consequence, suffers hypothyroidism which requires hormone replacement for life (levothyroxine). At the age of 31 she was diagnosed with a hereditary cardiac disorder
                         – Brugada Syndrome – and had a cardioverter defibrillator implanted to control potentially lethal arrhythmias.</p> 
                      <p>During the pregnancy of her first child (C-section delivery), she suffered gestational diabetes that developed into type 2 diabetes after giving birth and needs now to receive subcutaneous insulin. As chronic treatment she also needs nebulizations three-time per day for her asthma - this condition is aggravated in her case by being a smoker (1 pack per day) as included in
@@ -259,11 +259,11 @@
                      <p>Other sections of her Summary include allergies to latex and kiwi (which are very often associated) and to aspirin, and intolerance to lactose; immunizations administered during childhood and adolescence are also present.</p> 
                      <p>Although being real choices for the different diseases and conditions, the selection of the patient's current medication tries to present some easily described medication as well as not so easily ones: e.g. insulin degludec, amoxicilin+clavulanic acid, and the combination of ipratropium bromide+salbutamol for nebulization. For the oral treatment of the pre-eclampsia the
                         agents selected would not be used in real practice during pregnancy.</p> 
-                     <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Integrated examples</h4> 
+                     <h4>Integrated examples</h4> 
                      <p>The IPS specification releases are published at hl7intl.art-decor.org the International Patient Summary Project Publication Page [International Patient Summary Project Publication Page <a href="https://hl7intl.art-decor.pub/index.php?prefix=hl7ips-" rel="noopener noreferrer nofollow">https://hl7intl.art-decor.pub/index.php?prefix=hl7ips-</a>]. The actual release has a link
                         to the XML materials that the W3C schemas are part of; it also includes example CDA document instances. A set of use cases have been defined and represented in IPS format. Also multiple languages are covered.</p> 
                      <p>It is likely that the publication site will move to hl7.org permanently, and we will inform the community about that process.</p> 
-                     <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Validation artifacts</h4> 
+                     <h4>Validation artifacts</h4> 
                      <p>You can test your implementation (instances) against the IPS specification. To download materials to your computer for local testing and validation consider...</p> 
                      <ul>
                         <li>
@@ -275,7 +275,7 @@
                         </li>
                     </ul> 
                      <p>For further information you can follow the documentation.</p> 
-                     <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Operational information</h4> 
+                     <h4>Operational information</h4> 
                      <ul>
                         <li>
                             <p>The IPS project has an official mailing list address ips(at)lists.hl7.org, hosted at the HL7 listserver. Visit your <a href="http://www.hl7.org/myhl7/managelistservs.cfm?ref=common" rel="noopener noreferrer nofollow">Listserv Subscriptions</a> at hl7.org and subscribe to the <strong>International Patient Summary (IPS)</strong>that is summarised under the Structured
@@ -292,7 +292,7 @@
                             <p>The IPS specification on the wiki is hosted here (international-patient-summary.net). It is likely that the publication site will move to hl7.org permanently, we will inform about that process.</p>
                         </li>
                     </ul> 
-                     <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Licenses</h4> 
+                     <h4>Licenses</h4> 
                      <p>Following is a non-exhaustive list of third-party terminologies that may require a separate license:</p> 
                      <ul>
                         <li>
@@ -314,7 +314,7 @@
             <strong>EDQM Standard Terms </strong> : European Directorate for the Quality of Medicines &amp; Healthcare (EDQM, see EDQM Standard Terms <a href="https://standardterms.edqm.eu" rel="noopener noreferrer nofollow">https://standardterms.edqm.eu</a>).</p>
                         </li>
                     </ul> 
-                     <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">FAQ’s</h4> 
+                     <h4>FAQ’s</h4> 
                      <p>
                         <em>This is a placeholder for future Frequently Asked Questions about the International Patient Summary.</em>
                     </p> 

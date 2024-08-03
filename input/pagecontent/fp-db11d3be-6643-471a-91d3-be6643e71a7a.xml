@@ -12,10 +12,10 @@
             <em>Figure 1: The IPS product and by-products</em>
         </strong>
     </p>
-    <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Purpose</h4>
+    <h4>Purpose</h4>
     <p>The goal of this Implementation Guide is to specify how to represent in HL7 CDA the International Patient Summary (IPS). An alternative representation as templated HL7 FHIR R2 is also provided ( see the <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=483" rel="noopener noreferrer nofollow">hl7.org site</a> ). The initial focus of the International Patient
         Summary (IPS) was the unplanned care across national borders. This specification can be used and be useful also in local applications and be supportive of planned care.</p>
-    <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Scope</h4>
+    <h4>Scope</h4>
     <p>As specified in EN ISO 27269, the IPS dataset is a <strong>
             <em>“minimal, non-exhaustive set of data elements required for the international patient summary”</em>
         </strong>. A Patient Summary is defined by ISO/TR 12773-1:2009 as a “Health record extract comprising a standardized collection of clinical and contextual information (retrospective, concurrent, prospective) that provides a snapshot in time of a subject of care’s health information and healthcare.”</p>
@@ -33,11 +33,11 @@
             <em>Figure 2: The IPS composition</em>
         </strong>
     </p>
-    <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Project Background and relationships with other projects</h4>
+    <h4>Project Background and relationships with other projects</h4>
     <p>Details on the project background and relationships with other projects are available in the <a href="https://international-patient-summary.net/" rel="noopener noreferrer nofollow">IPS Website</a>.</p>
-    <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Ballot Status of the Document</h4>
+    <h4>Ballot Status of the Document</h4>
     <p>This Implementation Guide is STU with the intention to go normative.</p>
-    <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Audience</h4>
+    <h4>Audience</h4>
     <p>The audience for this Implementation Guide includes:</p>
     <p>Public</p>
     <ul>
@@ -75,6 +75,6 @@
             <p>Organizations that manage regional and national patient summaries.</p>
         </li>
     </ul>
-    <h4 xmlns:xhtml="http://www.w3.org/1999/xhtml">Reading Publication Artifacts</h4>
+    <h4>Reading Publication Artifacts</h4>
     <p>A reading guide is available that explains the formalism used to express the publication artifacts, i.e. template meta data and template design. For convenience the guide is included in the appendix. (see section "How to read the table view for templates")</p>
 </div>
