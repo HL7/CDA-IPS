@@ -1,0 +1,421 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.1--20240804094850"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-04T09:48:50+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.1--20240804094850"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.1"/>
+    </identifier>
+    <version value="2024-08-04T09:48:50"/>
+    <name value="IPSEntryAllergyOrIntolerance"/>
+    <title value="IPS Allergy or Intolerance"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-04T09:48:50Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description
+        value="This template reflects a discrete observation about a patient's allergy or intolerance. &#xA;&#xA;Because it is a discrete observation, it will have a statusCode of &#34;completed&#34;.&#xA;&#xA;                 &#xA;&#xA;The effectiveTime, also referred to as the &#34;biologically relevant time&#34; is the time at which the observation holds for the patient.&#xA;&#xA;                 &#xA;&#xA;For a provider seeing a patient in the clinic today, observing a history of penicillin allergy that developed five years ago, the effectiveTime is five years ago.&#xA;&#xA;                 &#xA;&#xA;The effectiveTime of the Allergy - Intolerance Observation gives an indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. &#xA;&#xA;                 &#xA;&#xA;If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &#34;UNK&#34;. &#xA;It is recommended that the agent responsible for an allergy or adverse reaction would be used for describing the allergy, however the possibility that pre-coordinate codes (e.g. &#34;allergy to nuts&#34;) will be used has been here also considered.&#xA;The agent responsible                     for  an allergy or adverse reaction it is not always a manufactured material (for example, food allergies), nor is it necessarily consumed; however  the playingEntity classCode = &#34;MMAT&#34; for all agents, manufactured or not is expected to be used. This choice depends on thecharacteristics of the base CDA R2 specification."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:primary">
+            <path value="Observation.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.templateId:primary.root">
+            <path value="Observation.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.1"/>
+        </element>
+        <element id="Observation.id">
+            <path value="Observation.id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <definition value="This element describes whether this condition refers to an allergy, non-allergy intolerance, or unknown class of intolerance (not known to be allergy or intolerance)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="Allergy or Intolerance Type"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.2--20161206000000"/>
+            </binding>
+        </element>
+        <element id="Observation.text">
+            <path value="Observation.text"/>
+            <definition value="The text element if present points to the text describing the problem being recorded; including any dates, comments, et cetera. The  contains a URI in value attribute. This URI points to the free text description of the problem in the document that is being described."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.text.reference">
+            <path value="Observation.text.reference"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.text.reference.value">
+            <path value="Observation.text.reference.value"/>
+            <representation value="xmlAttr"/>
+            <definition value="When used it shall refer to the narrative, typically #{label}-{generated-id}, e.g. #xxx-1"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <definition value="A clinical document normally records only those condition observation events that have been completed, not observations that are in any other state. Therefore, the  shall always have code='completed'."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="completed"/>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <definition
+                value="The effectiveTime, also referred to as the &#34;biologically relevant time&#34; is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of penicillin allergy that developed five years ago, the effectiveTime is five years ago. The effectiveTime of the                         Allergy - Intolerance  Observation may give an indication of whether or not the underlying allergy/intolerance is resolved.  &#xA; The &lt;low&gt; and &lt;high&gt; values should be no more precise than known, but as precise as possible."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.effectiveTime.low">
+            <path value="Observation.effectiveTime.low"/>
+            <definition value="The effectiveTime/low (a.k.a. &#34;onset date&#34;) asserts when the allergy/intolerance became biologically active."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.effectiveTime.high">
+            <path value="Observation.effectiveTime.high"/>
+            <definition value="The effectiveTime/high (a.k.a. &#34;resolution date&#34;) asserts when the allergy/intolerance became biologically resolved. &#xA; If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &#34;UNK&#34;.If this condition is known to be resolved, then the effectiveTime/high would be present."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Allergy or Intolerance Conditions"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.10--20240802091633"/>
+            </binding>
+        </element>
+        <element id="Observation.participant">
+            <path value="Observation.participant"/>
+            <definition
+                value="The substance that causes the allergy or intolerance should be specified in the &lt;participant&gt; structure.  &#xA; This is the preferred way an allergy is supposed to be expressed. &#xA; However it is recognized that in some contexts a controlled vocabulary is used for describing the allergy to a                         substance; or for asserting known absence or unavailability of information.  &#xA; In this case the &lt;participant&gt; structure shall be omitted. &#xA; The agent responsible for an allergy or adverse reaction is not always a manufactured material (for example, food allergies), nor is it necessarily consumed. The following constraints reflect limitations in the base CDA R2                         specification, and should be used to represent any type of responsible agent, i.e., use playingEntity classCode = &#34;MMAT&#34; for all agents, manufactured or not.IF the observation/value element is present and valued with a code derived form the  2.16.840.1.113883.11.22.9 Absent or Unknown Allergies value set THEN the  observation/participant element used to describe the agent SHALL be omitted."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.participant.typeCode">
+            <path value="Observation.participant.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CSM"/>
+        </element>
+        <element id="Observation.participant.participantRole">
+            <path value="Observation.participant.participantRole"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant.participantRole.classCode">
+            <path value="Observation.participant.participantRole.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MANU"/>
+        </element>
+        <element id="Observation.participant.participantRole.playingEntity">
+            <path value="Observation.participant.participantRole.playingEntity"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant.participantRole.playingEntity.classCode">
+            <path value="Observation.participant.participantRole.playingEntity.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MMAT"/>
+        </element>
+        <element id="Observation.participant.participantRole.playingEntity.code">
+            <path value="Observation.participant.participantRole.playingEntity.code"/>
+            <definition value="Code for the substance causing the allergy or intolerance."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Allergy or Intolerance Substances"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/allergy-intolerance-substance-condition-uv-ips"/>
+            </binding>
+        </element>
+        <element id="Observation.entryRelationship">
+            <path value="Observation.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="profile"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1">
+            <path value="Observation.entryRelationship"/>
+            <definition value="The contained entry describes the reactions that are manifestations (typeCode='MFST') of the reported allergy or intolerance."/>
+            <min value="0"/>
+            <max value="*"/>
+            <sliceName value="entryRelationship-1"/>
+            <constraint>
+                <key value="entryRelationship-1"/>
+                <human value="contains IPS Reaction Manifestation 2.16.840.1.113883.10.22.4.6 (2024-08-04)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship-1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.6--20240804101847"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MFST"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-2">
+            <path value="Observation.entryRelationship"/>
+            <definition value="**Criticality**                         &#xA; The contained entry describes the gravity of the potential risk for future life-threatening adverse reactions when exposed to a substance known to cause an adverse reaction in that individual."/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="entryRelationship-2"/>
+            <constraint>
+                <key value="entryRelationship-2"/>
+                <human value="contains IPS Criticality Observation 2.16.840.1.113883.10.22.4.18 (2017-03-27)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-2.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SUBJ"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-2.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-3">
+            <path value="Observation.entryRelationship"/>
+            <definition value="**Certainty or Verification Status**                         &#xA; The contained entry describes the certainty associated with a propensity, or potential risk, of a reaction to the identified substance."/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="entryRelationship-3"/>
+            <constraint>
+                <key value="entryRelationship-3"/>
+                <human value="contains IPS Allergy Certainty Observation 2.16.840.1.113883.10.22.10 (2018-02-07)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-3.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SUBJ"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-3.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-4">
+            <path value="Observation.entryRelationship"/>
+            <definition value="**Status of the Allergy or Intolerance **                         &#xA; The contained entry describes the current status of the allergy or intolerance, for example, whether it is active, in remission, resolved, and so on ..."/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="entryRelationship-4"/>
+            <constraint>
+                <key value="entryRelationship-4"/>
+                <human value="contains IPS Allergy Status Observation 2.16.840.1.113883.10.22.4.21 (2017-05-24)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-4.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="REFR"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-4.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="false"/>
+        </element>
+    </differential>
+</StructureDefinition>

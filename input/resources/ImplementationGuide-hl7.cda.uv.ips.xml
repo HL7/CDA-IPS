@@ -28,7 +28,7 @@
     <definition>
         <grouping id="document">
             <name value="Document Templates"/>
-            <description value="Document-level templates ..."/>
+            <description value="Document-level Templates ..."/>
         </grouping>
         <grouping id="header">
             <name value="Header Templates"/>
@@ -42,20 +42,917 @@
             <name value="Entry Templates"/>
             <description value="Entry-level Templates"/>
         </grouping>
+        <grouping id="datatype">
+            <name value="Datatype Templates"/>
+            <description value="Datatype-level Templates"/>
+        </grouping>
         <grouping id="other">
             <name value="Other Templates"/>
-            <description value="Other templates ..."/>
+            <description value="Other Templates ..."/>
+        </grouping>
+        <grouping id="terminology">
+            <name value="Terminology"/>
+            <description value="Code Systems and Value Sets that are defined in this guide."/>
         </grouping>
 
-        <!--         <resource>
+
+       <!-- <resource>
             <reference>
-                <reference value="StructureDefinition/2.16.840.1.113883.10.22.1.120200714160821"/> removed - - before 2020
-                <display value="HL7-IPS"/>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2-\-20151005155707"/>
+                <display value="IHE Coded Vital Signs Section"/>
             </reference>
-            <name value="HL7-IPS"/>
+            <name value="IHE Coded Vital Signs Section"/>
+            <description value="The vital signs section contains coded measurement results of a patient’s vital signs."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.4.13.1-\-20131220000000"/>
+                <display value="IHE Vital Signs Organizer"/>
+            </reference>
+            <name value="IHE Vital Signs Organizer"/>
+            <description value="A vital signs organizer collects vital signs observations."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.4.13.2-\-20160929092249"/>
+                <display value="IHE Vital Signs Observation"/>
+            </reference>
+            <name value="IHE Vital Signs Observation"/>
+            <description value="A vital signs observation is a simple observation that uses a specific vocabulary, and inherits constraints from CCD."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>-->
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.12.151-\-20050907000000"/>
+                <display value="CDA Organization"/>
+            </reference>
+            <name value="CDA Organization"/>
+            <description value="Template CDA Organization (prototype, directly derived from POCD_RM000040 MIF)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.12.152-\-20050907000000"/>
+                <display value="CDA Person"/>
+            </reference>
+            <name value="CDA Person"/>
+            <description value="Template CDA Person (prototype, directly derived from POCD_RM000040 MIF)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.12.153-\-20050907000000"/>
+                <display value="CDA AssignedEntity"/>
+            </reference>
+            <name value="CDA AssignedEntity"/>
+            <description value="Template CDA AssignedEntity (prototype, directly derived from POCD_RM000040 MIF)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="other"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.12.315-\-20050907000000"/>
+                <display value="CDA Device"/>
+            </reference>
+            <name value="CDA Device"/>
+            <description value="Template CDA Device (prototype, directly derived from POCD_RM000040 MIF)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.12.316-\-20050907000000"/>
+                <display value="CDA RelatedEntity"/>
+            </reference>
+            <name value="CDA RelatedEntity"/>
+            <description value="Template CDA RelatedEntity (prototype, directly derived from POCD_RM000040 MIF)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.12.318-\-20050907000000"/>
+                <display value="CDA Author (Body)"/>
+            </reference>
+            <name value="CDA Author (Body)"/>
+            <description value="Template CDA Author (prototype, directly derived from POCD_RM000040 MIF)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.12.319-\-20050907000000"/>
+                <display value="CDA Informant (Body)"/>
+            </reference>
+            <name value="CDA Informant (Body)"/>
+            <description value="Template CDA Informant Body (prototype, directly derived from POCD_RM000040 MIF)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.12.323-\-20050907000000"/>
+                <display value="CDA Performer (Body)"/>
+            </reference>
+            <name value="CDA Performer (Body)"/>
+            <description value="Template CDA Performer (Body) (prototype, directly derived from POCD_RM000040 MIF)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>-->
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.21.4.6-\-20230130093600"/>
+                <display value="UV Subordinate Substance Administration"/>
+            </reference>
+            <name value="UV Subordinate Substance Administration"/>
+            <description value="Universal Subordinate Substance Administration to convey information about dosages"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.21.9.1-\-20230130095527"/>
+                <display value="UV Use Period"/>
+            </reference>
+            <name value="UV Use Period"/>
+            <description value="This element encodes the start and stop time of the medication regimen. This is an interval of time (xsi:type='IVL_TS'), and must be specified as shown. This is an additional constraint placed upon CDA Release 2.0 by this profile, and simplifies the exchange of start/stop and frequency information between EMR systems."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>-->
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.1.2--20240802130239"/>
+                <display value="International Patient Summary"/>
+            </reference>
+            <name value="International Patient Summary"/>
+            <description
+                value="The **International Patient Summary** is a **&#34;Minimal and non-exhaustive Patient Summary, specialty-agnostic, condition-independent, but readily usable by all clinicians for the unscheduled (cross-border) care of a patient.&#34;**&#xA;                 &#xA;The IPS templates aim to:&#xA;                 &#xA;* Serve for both cross-jurisdictional (through adaptation/extension for multi-language and realm scenarios, including translation) and national (through localization) patient summaries.&#xA;* Support emergency care and unplanned care in any country (home and foreign), regardless of language&#xA;* Define value sets based on international vocabularies that                             are usable and understandable in any country  "/>
             <exampleBoolean value="false"/>
             <groupingId value="document"/>
-        </resource> -->
+        </resource>
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.2.1-\-20210902121024"/>
+                <display value="IPS CDA recordTarget"/>
+            </reference>
+            <name value="IPS CDA recordTarget"/>
+            <description value="The recordTarget records the administrative and demographic data of the patient whose health information is described by the clinical document; each recordTarget must contain at least one patientRole element."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>-->
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.2.2-\-20170411000000"/>
+                <display value="IPS CDA author"/>
+            </reference>
+            <name value="IPS CDA author"/>
+            <description
+                value="A CDA document shall have at least one author. Authors could be either human (ClinicalDocument/author/assignedAuthor/assignedPerson) either devices (ClinicalDocument/author/assignedAuthor/assignedAuthoringDevice).&#xA;&#xA;For definition “The author element represents the creator of the clinical document. If the role of the actor is the **entry of information                         from his or her own knowledge or application of skills**, that actor is the author. If one actor provides information to another actor **who filters, reasons, or algorithmically creates new information**, then that second actor **is also an author, having created information from his or her own knowledge or skills.”** [From Implementation Guide for CDA                     Release 2: Imaging Integration – UV Realm, March 2009].&#xA;&#xA;According to this definition, not any device that generates the electronic document has to be considered as an author:&#xA;&#xA;* a spider collecting and filtering information from different repositories, according to defined rules and policies, for the scope of creating a Patient Summary is definitely a document                         author (and in some cases the only one );&#xA;* an application that transforms a Patient Summary record into this CDA format may not be an author;&#xA;* For cross-border exchange purposes, a device, which modifies the concepts conveyed (e.g. applying code system mappings), should appear as one of the authors. In this case (document generated through a transformation                         process) the authors of the parent (original) patient summary should appear as authors as well.&#xA;&#xA;&#xA;Further to this, authorship can give information about the nature of Patient Summary :&#xA;&#xA;* if there is a person author only, then the Patient Summary is the result of a practitioner clinical act;&#xA;* if there are device authors only, the summary was                         automatically generated according to well defined rules defined by the responsible organization.&#xA;&#xA;The CDA standard allows to provide detailed information about what was authored by whom in the Patient Summary, allowing the specification of authorship at the whole document level, at the section level and also at the entry level. In any case it is not required to                 repeat this information for each of the mentioned levels, taking advantage of the context conduction propriety. &#xA;In fact “context that is specified on an outer tag holds true for all nested tags, unless overridden on a nested tag. Context specified on a tag within the CDA body always overrides context propagated from an outer tag. For instance, the specification of                 authorship at a document section level overrides all authorship propagated from outer tags.” (HL7 CDA R2 Standard)."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>-->
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.2.3-\-20210804121307"/>
+                <display value="IPS CDA custodian"/>
+            </reference>
+            <name value="IPS CDA custodian"/>
+            <description
+                value="The custodian element represents the organization that is in charge of maintaining and is entrusted with the care of the document.&#xA;&#xA;This information is required by the CDA R2 standard and shall be recorded in the **ClinicalDocument/custodian/assignedCustodian/ representedCustodianOrganization** element.&#xA;&#xA;                 &#xA;There is only one custodian per CDA document. Allowing that a CDA document may not represent the original form of the authenticated document, the custodian represents the steward of the original source document. The custodian may be the document originator, a health information exchange, or other responsible party."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>-->
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.2.4-\-20170411000000"/>
+                <display value="IPS CDA legalAuthenticator"/>
+            </reference>
+            <name value="IPS CDA legalAuthenticator"/>
+            <description
+                value="The legalAuthenticator identifies the single person legally responsible for the document and must be present if the document has been legally authenticated. A clinical document that does not contain this element has not been legally authenticated.&#xA;&#xA;                 &#xA;&#xA;The act of legal authentication requires a certain privilege be granted to the legal authenticator depending upon local policy. Based on local practice, clinical documents may be released before legal authentication.&#xA;&#xA;                 &#xA;&#xA;All clinical documents have the potential for legal authentication, given the appropriate credentials.&#xA;&#xA;                 &#xA;&#xA;&#xA;Local policies MAY choose to delegate the function of legal authentication to a device or system that generates the clinical document. In these cases, the legal authenticator is a person accepting responsibility for the document, not the generating device or system.&#xA;&#xA;                 &#xA;&#xA;Note that the legal authenticator, if present, must be a person."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>-->
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.2.5-\-20170412000000"/>
+                <display value="IPS Patient Contacts"/>
+            </reference>
+            <name value="IPS Patient Contacts"/>
+            <description value="The IPS may record several kinds of patient contacts, including parents, relatives, caregivers, and others related in some way to the patient.&#xA;&#xA;A patient contact may be an individual or an organization with a relationship to the patient, including health provider (person or organization) to be contacted in case of emergency. "/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.2.6-\-20170412000000"/>
+                <display value="IPS CDA documentationOf "/>
+            </reference>
+            <name value="IPS CDA documentationOf "/>
+            <description
+                value="The documentationOf relationship in an International Patient Summary contains the representation of providers who are wholly or partially responsible for the safety and well-being of a subject of care.&#xA;&#xA;The main activity being described by a IPS is the provision of healthcare over a period of time. This is shown by setting the                 value of serviceEvent/@classCode to “PCPR” (care provision) and indicating the duration over which care was provided in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant to care provided during that time range (e.g., reviewed during the stated time range).&#xA;&#xA;For example if the IPS is                 generated by a GP based on information recorded in his/her EHR-S, then the low value should represent the date when the treatment relationship between the patient and the GP started; and the high value the date of the latest care event."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.2.7-\-20170412000000"/>
+                <display value="IPS CDA relatedDocument"/>
+            </reference>
+            <name value="IPS CDA relatedDocument"/>
+            <description
+                value="An IPS may have three types of parent document: &#xA;&#xA;                 &#xA;* A superseded version that the present instance of the document wholly replaces (typeCode = RPLC). &#xA;&#xA;* A source document from which the present document is transformed (typeCode = XFRM). An IPS may be created by transformation from an already existing local Patient Summary or an IPS document. An example of this case is the creation of a derived instance in which translations are appended in order to facilitate the cross-border usage of this document; or the case in which a                         local patient summary is transformed to originate a new IPS instance.&#xA;&#xA;* An original version that the present document integrates (typeCode = APND). Some cross-border legal agreements (e.g.  the European Digital Service Infrastructure for eHealth) require the patient summary to be accompanied by  a printable representation of the original national data / document this IPS comes from. The relationship between the IPS and this content may be                         tracked using this relationship. &#xA;&#xA;                 &#xA;&gt; Note 1: even for countries not dealing with real documents in their National Infrastructures (e.g. data collected from local databases), this mechanism could be useful to identify the collection of data used for generating the epSOS CDAs, facilitating the information backtracking. In that case the ID might be that of the epSOS friendly document or of any other kind of                     intermediate document used for generating the NCP document input.&#xA; Note 2: even if none of the allowable relationships defined by the CDA standard (XFRM, RPLC, APND) fits perfectly with the described case; the APND relationship seems to be the one that fits the better. In fact “An addendum is a separate document that references the parent document, and may                     extend or alter the observations in the prior document. The parent document remains a current component of the patient record, and the addendum and its parent are both read by report recipients.”"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>-->
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.1--20161111000000"/>
+                <display value="IPS Medication Summary Section"/>
+            </reference>
+            <name value="IPS Medication Summary Section"/>
+            <description
+                value="The medication summary section contains a description of the patient's medications relevant for the scope of the patient summary.&#xA;The actual content could depend on the jurisdiction, it could report:&#xA;&#xA;&#xA;* the currently active medications; &#xA;&#xA;* the current and past medications considered                                     relevant by the authoring GP; &#xA;&#xA;* the patient prescriptions or dispensations automatically extracted by a regional or a national EHR.&#xA;&#xA;In all those cases however medications are documented in the Patient Summary as medication statements.&#xA;&#xA;This section requires either an entry indicating the subject                             is known not to be on any medications; either an entry indicating that no information is available about medications; or entries summarizing the subject's medications.&#xA;&#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is different from what is                             announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.2--20240804100736"/>
+                <display value="IPS Allergies and Intolerances Section"/>
+            </reference>
+            <name value="IPS Allergies and Intolerances Section"/>
+            <description
+                value="This section documents the relevant allergies or intolerances (conditions) for that patient, describing the kind of reaction (e.g. rash, anaphylaxis,..); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy. &#xA;&#xA;                 &#xA;&#xA;At a minimum, it should list currently active and any relevant historical allergies and adverse reactions.&#xA;&#xA;                 &#xA;&#xA;If no information about allergies is available, or if no allergies are known this should be clearly documented in the section.&#xA;&#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.3--20170215000000"/>
+                <display value="IPS Problems Section"/>
+            </reference>
+            <name value="IPS Problems Section"/>
+            <description
+                value="The IPS problem section lists and describes clinical problems or conditions currently being monitored for the patient. This section can record different kinds of  problems as, but not limited to,  chronic diseases (e.g. COPD, diabetes, hypertension); contagious diseases; nutritional problems (e.g. metabolic diseases); and so on.The optional author and informant                 elements are used, when necessary, to convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.4--20170327000000"/>
+                <display value="IPS History of Procedures Section"/>
+            </reference>
+            <name value="IPS History of Procedures Section"/>
+            <description
+                value="The History of Procedures Section contains a description of the  patient past procedures that are pertinent to the scope of this document.&#xA;&#xA;&#xA;                 &#xA;&#xA;Procedures may refer for example to:&#xA;&#xA;                 &#xA;&#xA;                     &#xA;1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section)&#xA;&#xA;1. Therapeutic procedure: e.g. dialysis; &#xA;&#xA;1. Surgical procedure: e.g. appendectomy&#xA;&#xA;&#xA;                 &#xA;&#xA;                 &#xA;&#xA;All those are represented in this template as procedures.&#xA;&#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.5--20170405000000"/>
+                <display value="IPS Immunizations Section"/>
+            </reference>
+            <name value="IPS Immunizations Section"/>
+            <description
+                value="The Immunizations Section defines a patient's current immunization status and pertinent immunization history. &#xA;The primary use case for the Immunization Section is to enable communication of a patient's immunization status. &#xA;The section includes current immunization status, and may contain the entire immunization history that is                 relevant to the period of time being summarized.&#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.6--20211020171142"/>
+                <display value="IPS Medical Devices Section"/>
+            </reference>
+            <name value="IPS Medical Devices Section"/>
+            <description
+                value="The medical devices section contains narrative text and coded entries describing the patient history of medical device use. &#xA;Medical devices include, but are not limited to, implanted devices and devices for nutrition. &#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of                 the section content in case it is different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.7--20170412000000"/>
+                <display value="IPS History of Past Illness Section"/>
+            </reference>
+            <name value="IPS History of Past Illness Section"/>
+            <description value="The History of Past Illness section contains a narrative description and coded entries of the conditions the patient suffered in the past. &#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.8--20200508191737"/>
+                <display value="IPS Functional Status Section"/>
+            </reference>
+            <name value="IPS Functional Status Section"/>
+            <description
+                value="The functional status section shall contain a narrative description of capability of the patient to perform acts of daily living, including possible needs of the patient to be continuously assessed by third parties. The invalidity status may in fact influence decisions about how to administer treatments. &#xA; Coded clinical statements will be                 specified by future versions of this template.&#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.9--20200508182838"/>
+                <display value="IPS Plan of Care Section"/>
+            </reference>
+            <name value="IPS Plan of Care Section"/>
+            <description
+                value="The care plan section contains a narrative description of the expectations for care including proposals, goals, and order requests for monitoring, tracking, or improving the condition of the patient.&#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is                     different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.10--20200510185232"/>
+                <display value="IPS Social History Section"/>
+            </reference>
+            <name value="IPS Social History Section"/>
+            <description
+                value="The social history section contains a description of the person’s Health related “lifestyle factors&#34; or &#34;lifestyle observations&#34; (e.g. smoke habits; alcohol consumption; diets, risky habits.)&#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is different from what is                 announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.11--20200507184608"/>
+                <display value="IPS History of Pregnancy Section"/>
+            </reference>
+            <name value="IPS History of Pregnancy Section"/>
+            <description
+                value="The history of pregnancy section shall contain information about whether the patient is currently pregnant (optional with the Expected Delivery Date) or not. &#xA;It may contain addition summarizing information about the outcome of earlier pregnancies.&#xA;The optional author and informant elements are used when necessary to                         convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.12--20200508163849"/>
+                <display value="IPS Advance Directives Section"/>
+            </reference>
+            <name value="IPS Advance Directives Section"/>
+            <description
+                value="The advance directive section shall contain a narrative description of patient's advance directive. &#xA;The optional author and informant elements are used when necessary to convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header.&#xA; Entries for references to                         consent and advance directive documents when known will be specified by future versions of this template."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.14--20170430000000"/>
+                <display value="IPS Results Section"/>
+            </reference>
+            <name value="IPS Results Section"/>
+            <description
+                value="This section assembles relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results.&#xA;The structured, machine-processable content of this section is                 sorted out between as many Result Organizer entries as needed. One Result Organizer entry groups results, which have a common context of production: &#xA;* common specialty (imaging, bacteriology, serology, chemistry,  surgical pathology, clinical, radiology ...), &#xA;* common overall interpretation, (which interprets the set of results of the Organizer),&#xA;* common                         biologic specimen for in vitro diagnostic observations, &#xA;* common associated illustrative image. &#xA;&#xA;&#xA;&#xA;The optional author and informant elements of the section are used when necessary to convey the provenance and authoring of the section content in case it is different from what is announced in the CDA header.&#xA;In case this section assembles results from                     multiple authors (e.g.; results authored by a clinical laboratory, and results produced by a radiology center), the authors are listed in the section, and each Result Organizer of the section indicates its own author(s)."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.3.15--20210902120441"/>
+                <display value="IPS Translation Section"/>
+            </reference>
+            <name value="IPS Translation Section"/>
+            <description value="Template CDA Section to carry the translations of a Parent Section"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.1--20240804094850"/>
+                <display value="IPS Allergy or Intolerance"/>
+            </reference>
+            <name value="IPS Allergy or Intolerance"/>
+            <description
+                value="This template reflects a discrete observation about a patient's allergy or intolerance. &#xA;&#xA;Because it is a discrete observation, it will have a statusCode of &#34;completed&#34;.&#xA;&#xA;                 &#xA;&#xA;The effectiveTime, also referred to as the &#34;biologically relevant time&#34; is the time at which the observation holds for the patient.&#xA;&#xA;                 &#xA;&#xA;For a provider seeing a patient in the clinic today, observing a history of penicillin allergy that developed five years ago, the effectiveTime is five years ago.&#xA;&#xA;                 &#xA;&#xA;The effectiveTime of the Allergy - Intolerance Observation gives an indication of whether or not the underlying allergy/intolerance is resolved. If known to be resolved, then an effectiveTime/high would be present. &#xA;&#xA;                 &#xA;&#xA;If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &#34;UNK&#34;. &#xA;It is recommended that the agent responsible for an allergy or adverse reaction would be used for describing the allergy, however the possibility that pre-coordinate codes (e.g. &#34;allergy to nuts&#34;) will be used has been here also considered.&#xA;The agent responsible                     for  an allergy or adverse reaction it is not always a manufactured material (for example, food allergies), nor is it necessarily consumed; however  the playingEntity classCode = &#34;MMAT&#34; for all agents, manufactured or not is expected to be used. This choice depends on thecharacteristics of the base CDA R2 specification."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.2-\-20240804104546"/>
+                <display value="IPS Medication Information (detail)"/>
+            </reference>
+            <name value="IPS Medication Information (detail)"/>
+            <description value="This entry describes the consumable subject of the medication statement. &#xA; All the information about the  medication is provided in the included IPS Manufactured Material template."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.3-\-20240804104730"/>
+                <display value="IPS Manufactured Material"/>
+            </reference>
+            <name value="IPS Manufactured Material"/>
+            <description
+                value="This entry provides details about the medicinal product.&#xA;&#xA;                 &#xA;&#xA;Due to the current absence of global product identifiers the product is described through a set of identification and descriptive attributes (e.g. active substances, strength, unit of presentation,...)  that may be used to integrate jurisdictional product codes.&#xA;&#xA;                 &#xA;&#xA;This shortage will be likely overcome when the ISO IDMP identifiers will be available for concrete usage in the next years, as well as the globally used value sets for products attributes agreed by the ISO IDMP implemention guides. (e.g. GInAs for substances).&#xA;&#xA;                 &#xA;&#xA;Even though there is a quite common consensus about the attributes that should be provided in order to describe a medicine in the context of the international patient summary (e.g. the list of active substances, the strength(s); the administrable pharmaceutical forms;..), this template doesn't require any of them, recommending, above all for cross-borders services, to provide                     all the available information that could be helpful for the identification of medications&#xA;&#xA;                 &#xA;&#xA;Jurisdictions could specialize this template making some ofthese attributes required.&#xA;&#xA;                 &#xA;&#xA;It is also recognized that in many contexts structured information about the product, might not be available, and only textual information for describing products (e.g. the product scientific name &#34;amoxicillin 400mg/5mL suspension”) or some of their attributes (e.g. textual strength &#34;875 mg + 125 mg&#34; ; &#34;amoxycillin and clavulanic acid&#34;) could be used. &#xA;&#xA;                 &#xA;&#xA;This template attempts to provide a solution that takes in account this current complexity being also ready for including the future IDMP-based solution as soon as they will become available for concrete use.&#xA;&#xA;                 &#xA;&#xA;Since the CDA R2.0 model support only a very limited set of information about the products, extensions based on the R_ProductList (Common Product Model) CMET have been used for conveying such information, aiming to align this solution with that that will be likely used for the IDMP implementation Guide."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>-->
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.4--20240804104154"/>
+                <display value="IPS Medication Statement"/>
+            </reference>
+            <name value="IPS Medication Statement"/>
+            <description
+                value="An IPS Medication entry describes a medication statement, that is a substance administration that has actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &#34;take 2 tablets twice a day for the next 10 days&#34;). Medication activities in &#34;INT&#34; mood are reflections of what a clinician                     intends a patient to be taking. For example, a clinician may intend that a patient to be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &#34;EVN&#34; mood would reflect actual use.&#xA;&#xA;                 &#xA;&#xA;The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician. A common scenario where this information is captured is during the history taking process during a patient visit or stay, but it could be derived from the medications information recorded into a GP's EHR-system, in form of prescribed medication, or                     administration statements.&#xA;&#xA;                 &#xA;&#xA;The medication information may come from sources such as the patient's memory, from a prescription bottle, or from a list of medications the patient, clinician or other party maintains.&#xA;&#xA;                 &#xA;&#xA;A medication statement is usually less specific than an a prescription or a medication administration record.  &#xA;&#xA;                 &#xA;&#xA;This entry is composed by a main substanceAdministration act and a subordinate substanceAdministration act, unless it is asserted that there are no medications data. &#xA;&#xA;                 &#xA;&#xA;The first conveys information as the product, the period of administration and the route of administration; the latter is used to provide dosage information as the frequency of intakes or the amount of the medication given."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.5--20240804100924"/>
+                <display value="IPS Allergy and Intolerance Concern"/>
+            </reference>
+            <name value="IPS Allergy and Intolerance Concern"/>
+            <description
+                value="This template reflects an ongoing concern on behalf of the person that placed the allergy on a patient’s allergy list. &#xA; A concern may refer to one or more allergies or intolerances. &#xA; There are different kinds of status that could be related to an allergy, or more in general to a condition: &#xA;* The status of the concern (active, inactive,..) &#xA;* The status of the condition (e.g. active, inactive, resolved,..) &#xA;* The confirmation status [clinical workflow status, certainty] (e.g. confirmed, likely, unlikely,…) &#xA;&#xA;                 &#xA;&#xA;Not all of them can be represented in a CDA using the statusCode elements of the concern (ACT) and observation (condition).&#xA;&#xA;                 &#xA;&#xA;As long as the underlying condition is of concern to the author (i.e., as long as the allergy, whether active or resolved, is of ongoing concern and interest to the author), the statusCode is “active”.&#xA;&#xA;                 &#xA;&#xA;In case the clinician deems that there is no longer any need to track the underlying conditions then the concern is inactive and the statusCode is set to &#34;completed&#34;.&#xA;The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart.&#xA;The effectiveTime/high                     asserts when the concern became inactive, and it is present if the statusCode of the concern act is &#34;completed&#34;"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.6--20240804101847"/>
+                <display value="IPS Reaction Manifestation"/>
+            </reference>
+            <name value="IPS Reaction Manifestation"/>
+            <description value="This clinical statement represents the response to an undesired symptom, finding, etc. due to administered or exposed substance. This reaction may be an undesired symptom, finding, etc. or it could be a desired response to a treatment. A reaction can be defined with respect to its severity, and can have been treated by one or                 more interventions."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.7--20210804084927"/>
+                <display value="IPS Problem Concern Entry"/>
+            </reference>
+            <name value="IPS Problem Concern Entry"/>
+            <description
+                value="This template reflects an ongoing concern on behalf of the provider that placed the concern on a patient’s problem list. &#xA;The purpose of the concern act is that of supporting the tracking of a problem or a condition.&#xA;&#xA;There are different kinds of status that could be related to a condition:&#xA;&#xA;                 &#xA;&#xA;                     &#xA;* The status of the concern (active, inactive,..) &#xA;&#xA;* The status of the condition (e.g. active, inactive, resolved,..) &#xA;&#xA;* The confirmation status [clinical workflow status, certainty] (e.g. confirmed, likely, unlikely,…) &#xA;&#xA;&#xA;                 &#xA;&#xA;                 &#xA;&#xA;Not all of them can be represented in a CDA using the statusCode elements of the concern (ACT) and observation (condition).  &#xA;&#xA;                 &#xA;So long as the underlying conditions are of concern to the provider (i.e., as long as the condition, whether active or resolved, is of ongoing concern and interest to the provider), the statusCode is “active”. &#xA;Only when the underlying conditions are no longer of concern is the statusCode set to “completed”. &#xA;&#xA;The effectiveTime                     reflects the time that the underlying condition was felt to be a concern; it may or may not correspond to the effectiveTime of the condition (e.g., even five years later, the clinician may remain concerned about a prior heart attack).&#xA;The effectiveTime/low of the Problem Concern Act asserts when the concern became active. This equates to the time the concern                     was authored in the patient's chart. &#xA;The effectiveTime/high asserts when the concern become inactive, and it is present if the statusCode of the concern act is &#34;completed&#34;.&#xA;&#xA;                 &#xA;&#xA;A Problem Concern Act can contain many Problem Observations.&#xA;&#xA;&#xA;                 &#xA;&#xA;                     &#xA;The many Problem Observations nested under a Problem Concern Act reflect the change in the clinical understanding of a condition over time. For instance, a Concern may initially contain a Problem Observation of “chest pain”:&#xA;                     &#xA;- Problem Concern 1&#xA;                     &#xA;--- Problem Observation: Chest Pain&#xA;                     &#xA;Later, a new Problem Observation of “esophagitis” will be added, reflecting a better understanding of the nature of the chest pain. The later problem observation will have a more recent author time stamp.&#xA;                     &#xA;- Problem Concern 1&#xA;                     &#xA;--- Problem Observation (author/time Jan 3, 2012): Chest Pain&#xA;                     &#xA;--- Problem Observation (author/time Jan 6, 2012): Esophagitis&#xA;                     &#xA;Many systems display the nested Problem Observation with the most recent author time stamp, and provide a mechanism for viewing prior observations."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.8--20240804110603"/>
+                <display value="IPS Problem Entry"/>
+            </reference>
+            <name value="IPS Problem Entry"/>
+            <description
+                value="This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of &#34;completed&#34;. The effectiveTime, also referred to as the “biologically relevant time” is the time at which the observation holds for the patient. For a provider seeing a patient in the                     clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago.&#xA;                 &#xA;The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is resolved. If the problem is known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &#34;UNK&#34;."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.9--20170302000000"/>
+                <display value="IPS Result Organizer"/>
+            </reference>
+            <name value="IPS Result Organizer"/>
+            <description
+                value="This template provides a mechanism for grouping result observations. It contains information applicable to all of the contained result observations. The Result Organizer code categorizes the contained results into one of several commonly accepted values (e.g., “Hematology”, “Chemistry”, “Nuclear Medicine”). If any Result Observation within the organizer has a                 statusCode of &#34;active&#34;, the Result Organizer must also have a statusCode of &#34;active&#34;. However, the results selected for a patient summary are most often final results, with status &#34;completed&#34;. So in most cases, the statusCode of the Organizer is &#34;completed&#34;.&#xA;&#xA;&#xA;&#xA;The  result observations contained within the organizer may use                     either of these templates:&#xA;&#xA;&#xA;&#xA;&#xA;* Laboratory Result Observation&#xA;&#xA;* Radiology Result Observation&#xA;&#xA;* Pathology Result Observation&#xA;* Result Observation (most generic template used whenever none of the above is applicable)&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;One Result Organizer entry groups                     results, which have a common context of production: &#xA;* common specialty (imaging, bacteriology, serology, chemistry,  surgical pathology, clinical, radiology ...), &#xA;* common overall interpretation, (which interprets the set of results of the Organizer),&#xA;* common biologic specimen for in vitro diagnostic observations, &#xA;* common associated illustrative                             image (ObservationMedia).&#xA;&#xA;&#xA;&#xA;The ultimate choice for sorting out results between Organizer entries belongs to the authoring person or system of the section."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.10--20170302000000"/>
+                <display value="IPS Result Observation"/>
+            </reference>
+            <name value="IPS Result Observation"/>
+            <description
+                value="This generic template is the basic set of constraints, which apply to any kind of observation grouped in a Result Organizer. The IPS Result Observation template is generic. It is further specialized by child templates, which  constrain  clinical laboratory observations or radiology observations or anatomic pathology observations. The generic IPS Result                 Observation template is usable in a patient summary for observations, which do not fall within one of the specialized categories.  &#xA;The result observation includes a statusCode to allow recording the status of an observation. “Pending” results (e.g., a test has been run but results have not been reported yet) should be represented as “active” ActStatus. However, in                 most cases, observations selected for an international patient summary are  results that are final and approved, and thus, have a &#34;completed&#34; statusCode.&#xA;The result of the observation may be commented through an entryRelationship introducing an &#34;IPS Comment activity&#34; template."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.11--20240804111042"/>
+                <display value="IPS Pathology Result Observation"/>
+            </reference>
+            <name value="IPS Pathology Result Observation"/>
+            <description value="This template constrains the results of an  anatomic pathology observation. The result observation includes a statusCode to allow recording the status of an observation. “Pending” results (e.g., a test has been run but results have not been reported yet) should be repnresented as “active” ActStatus."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.12--20240804201800"/>
+                <display value="IPS Radiology Result Observation"/>
+            </reference>
+            <name value="IPS Radiology Result Observation"/>
+            <description
+                value="This template represents an observation produced as one of the results of a radiology or other imaging study performed on a patient.  &#xA; In most cases, in the context of a patient summary this observation is final and validated, which is recorded with the value &#34;completed&#34; in the statusCode element. Should  the                 observation be not final, the statusCode would indicate &#34;active&#34;, instead."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.13--20240804111020"/>
+                <display value="IPS Laboratory Result Observation"/>
+            </reference>
+            <name value="IPS Laboratory Result Observation"/>
+            <description value="This template constrains the results of a clinical laboratory observation. The result observation includes a statusCode to allow recording the status of an observation. “Pending” results (e.g., a test has been run but results have not been reported yet) should be represented as “active” ActStatus."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.14-\-20170302000000"/>
+                <display value="IPS Body Author"/>
+            </reference>
+            <name value="IPS Body Author"/>
+            <description
+                value="This template represents the Author Participation (including the author timestamp). CDA R2 requires that Author and Author timestamp be asserted in the document header. From there, authorship propagates to contained sections and contained entries, unless explicitly overridden. The Author Participation template was added to those templates in scope for analysis in                 R2. Although it is not explicitly stated in all templates the Author Participation template can be used in any template."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>-->
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.15--20240804212024"/>
+                <display value="IPS Immunization"/>
+            </reference>
+            <name value="IPS Immunization"/>
+            <description value="An Immunization entry describes immunization substance administrations that have actually occurred. "/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.16--20240804211600"/>
+                <display value="IPS Immunization Medication Information"/>
+            </reference>
+            <name value="IPS Immunization Medication Information"/>
+            <description value="The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.17--20240804110835"/>
+                <display value="IPS Procedure Entry"/>
+            </reference>
+            <name value="IPS Procedure Entry"/>
+            <description value="The procedure entry is used to record procedures that have occurred, or which are planned for in the future."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.18--20170327000000"/>
+                <display value="IPS Criticality Observation"/>
+            </reference>
+            <name value="IPS Criticality Observation"/>
+            <description value="This observation represents the gravity of the potential risk for future life-threatening adverse reactions when exposed to a substance known to cause an adverse reaction in that individual. When the worst case result is assessed to have a life-threatening or organ system threatening potential, it is considered to be of high criticality."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.19--20240610095919"/>
+                <display value="IPS Certainty Observation"/>
+            </reference>
+            <name value="IPS Certainty Observation"/>
+            <description value="This observation represents the verification status to support the clinical status of the condition."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.20--20170329000000"/>
+                <display value="IPS Problem Status Observation"/>
+            </reference>
+            <name value="IPS Problem Status Observation"/>
+            <description value="This subordinated observation used by the problem observation records information about the current status of a condition, for example, whether it is active, in remission, resolved, et cetera."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.21--20170524000000"/>
+                <display value="IPS Allergy Status Observation"/>
+            </reference>
+            <name value="IPS Allergy Status Observation"/>
+            <description value="This subordinated observation used by the allergy observation records information about the current status of an allergy or intolerance, for example, whether it is active, in remission, resolved, et cetera."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.22--20170405000000"/>
+                <display value="IPS Comment Activity"/>
+            </reference>
+            <name value="IPS Comment Activity"/>
+            <description value="Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.23--20210902120216"/>
+                <display value="IPS ObservationMedia"/>
+            </reference>
+            <name value="IPS ObservationMedia"/>
+            <description value=""/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.25--20170407000000"/>
+                <display value="IPS Severity Observation"/>
+            </reference>
+            <name value="IPS Severity Observation"/>
+            <description
+                value="This clinical statement represents the subjective assessment of the severity of the condition as evaluated by the clinician.&#xA;&#xA;The Severity Observation can be associated with a Reaction Observation. &#xA;When the Severity Observation is associated with a Reaction Observation it characterizes a reaction. A person may                 manifest many symptoms in a reaction to a single substance, and each reaction to the substance can be represented. However, each reaction observation can have only one severity observation associated with it. For example, someone may have a rash reaction observation as well as an itching reaction observation, but each can have only one level of severity."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.26--20170411000000"/>
+                <display value="IPS Medical Device"/>
+            </reference>
+            <name value="IPS Medical Device"/>
+            <description value="The medical devices entry content module describes the kind of device that is, or has been used by the patient"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.27--20200714163153"/>
+                <display value="IPS Pregnancy Status Observation"/>
+            </reference>
+            <name value="IPS Pregnancy Status Observation"/>
+            <description value="A pregnancy status observation records whether the patient is currently pregnant or not.&#xA;If pregnant, an Expected Delivery Date may be specified as an subordinate observation."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.28--20170413000000"/>
+                <display value="IPS Pregnancy Outcome Observation"/>
+            </reference>
+            <name value="IPS Pregnancy Outcome Observation"/>
+            <description value="A pregnancy outcome observation records a summary over all pregnancies."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.29--20240804110242"/>
+                <display value="IPS Pregnancy Expected Delivery Date Observation"/>
+            </reference>
+            <name value="IPS Pregnancy Expected Delivery Date Observation"/>
+            <description value="This observation records the Pregnancy Expected Delivery Date for pregnant patients, expressed as a time stamp.&#xA;The code reflects the method (operationalisation) of how the date was determined, e.g. clinically estimated, estimated from last menstruation date or last ovulation date."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.30--20240804210307"/>
+                <display value="IPS Specimen Collection"/>
+            </reference>
+            <name value="IPS Specimen Collection"/>
+            <description
+                value="Specimen Collection is used when a set of laboratory or pathology observations  produced on one or more specimens need to be associated with the minimal characteristics of the specimen(s): specimen source site and type of specimen. &#xA; In addition this template enables to convey when the specimen was collected.                     &#xA; In a patient summary there is no need to provide more data than these 4: &#xA;                 &#xA;* collection method, &#xA;&#xA;* source site, &#xA;&#xA;* type of specimen and &#xA;&#xA;* time of collection.&#xA;&#xA;&#xA; An occurrence of this template describes one specimen collected, used by the set of observations present in the same Result Organizer."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.31--20170502000000"/>
+                <display value="IPS Internal Reference"/>
+            </reference>
+            <name value="IPS Internal Reference"/>
+            <description value="This template is used to reference (point to) information contained in other entries within the same document."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.34--20170620000000"/>
+                <display value="IPS Social History Tobacco Use"/>
+            </reference>
+            <name value="IPS Social History Tobacco Use"/>
+            <description value="This template is a specialization of the Social History Observation that may be used to represent smoking or tobacco habits."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.35--20170629000000"/>
+                <display value="IPS Social History Alcohol Use"/>
+            </reference>
+            <name value="IPS Social History Alcohol Use"/>
+            <description value="This template is a specialization of the Social History Observation that may be used to represent alcohol consumption habits."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.36--20200507183637"/>
+                <display value="IPS Pregnancy Observation"/>
+            </reference>
+            <name value="IPS Pregnancy Observation"/>
+            <description value="A pregnancy observation is a Simple Observation that uses a specific vocabulary to record observations about a patient's current or historical pregnancies."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.37--20200508162154"/>
+                <display value="IPS Advance Directive Observation"/>
+            </reference>
+            <name value="IPS Advance Directive Observation"/>
+            <description
+                value="This clinical statement represents Advance Directive Observation findings (e.g., “resuscitation status is Full Code”) rather than orders. It should not be considered a legal document or a substitute for the actual Advance Directive document. The related legal documents are referenced using the reference/externalReference element. The Advance Directive Observation                 describes the patient’s directives, including but not limited to: • Medications • Transfer of Care to Hospital • Treatment • Procedures • Intubation and Ventilation • Diagnostic Tests • Tests The observation/value element contains the detailed patient directive which may be coded or text. For example, a category directive may be antibiotics, and the details would be intravenous                 antibiotics only."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.38--20200508173848"/>
+                <display value="IPS Planned Procedure"/>
+            </reference>
+            <name value="IPS Planned Procedure"/>
+            <description value="The procedure entry is used to record procedures which are planned for in the future."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.39--20220715135511"/>
+                <display value="IPS Planned Act"/>
+            </reference>
+            <name value="IPS Planned Act"/>
+            <description value="This template represents a Planned Act. It may be a wrapper for intervention-type activities considered to be parts of the same intervention; or it could be used to describe planned acts not represented by the other care plan entry templates."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.40--20200508181838"/>
+                <display value="IPS Planned Encounter"/>
+            </reference>
+            <name value="IPS Planned Encounter"/>
+            <description
+                value="An Encounter is an interaction between a patient and care provider(s) for the purpose of providing healthcare-related service(s). Healthcare services include health assessment. Examples: outpatient visit to multiple departments, home health support (including physical therapy), inpatient hospital stay, emergency room visit, field visit (e.g., traffic accident), office visit,                     occupational therapy, or telephone call."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.41--20200508183442"/>
+                <display value="IPS Planned Observation"/>
+            </reference>
+            <name value="IPS Planned Observation"/>
+            <description value="The observation request entry is used to record goals, plans or intention for an observation to be performed (e.g., assessment, laboratory test, imaging study, et cetera)."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.42--20200508190226"/>
+                <display value="IPS Survey Panel"/>
+            </reference>
+            <name value="IPS Survey Panel"/>
+            <description value="A survey panel collects related survey observations."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.43--20200508190511"/>
+                <display value="IPS Survey Observation"/>
+            </reference>
+            <name value="IPS Survey Observation"/>
+            <description value="Survey observations are used to record responses to assessment instruments. They are simple observations conforming to the CCD Result template. The vocabulary and data type constraints on survey observations is specified elsewhere, either in the specializations of the survey observation template, or by the template that makes use of it."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.46--20200508161148"/>
+                <display value="IPS Advance Directive Organizer"/>
+            </reference>
+            <name value="IPS Advance Directive Organizer"/>
+            <description value="This clinical statement groups a set of advance directive observations."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.47--20200508172918"/>
+                <display value="IPS Planned Immunization"/>
+            </reference>
+            <name value="IPS Planned Immunization"/>
+            <description value="A Planned Immunization entry describes the intent of administrating immunization substance. "/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.4.48--20200510151616"/>
+                <display value="IPS Social History Observation"/>
+            </reference>
+            <name value="IPS Social History Observation"/>
+            <description
+                value="This template represents a patient's occupations, lifestyle, and environmental health risk factors. Demographic data (e.g., marital status, race, ethnicity, religious affiliation) are captured in the header. Though tobacco use and exposure may be represented with a Social History Observation, it is recommended to use the Current Smoking Status template or the                 Tobacco Use template instead, to represent smoking or tobacco habits."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.9.1-\-20170411000000"/>
+                <display value="IPS CDA Organization"/>
+            </reference>
+            <name value="IPS CDA Organization"/>
+            <description value="This is a reusable template providing essential information for describing / identifying an organization."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>-->
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.9.2-\-20170412000000"/>
+                <display value="IPS CDA Device"/>
+            </reference>
+            <name value="IPS CDA Device"/>
+            <description value="This template provides basic information about a device"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.9.3-\-20170412000000"/>
+                <display value="IPS CDA Person"/>
+            </reference>
+            <name value="IPS CDA Person"/>
+            <description value="Person name"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="header"/>
+        </resource>-->
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.10--20180207120044"/>
+                <display value="IPS Allergy Certainty Observation"/>
+            </reference>
+            <name value="IPS Allergy Certainty Observation"/>
+            <description value="This observation represents the certainty associated with a propensity, or potential risk, of a reaction to the identified substance."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+        <!--<resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.11-\-20180404154136"/>
+                <display value="IPS Address"/>
+            </reference>
+            <name value="IPS Address"/>
+            <description value="Reusable address template"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="datatype"/>
+        </resource>-->
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.15--20240612085101"/>
+                <display value="IPS Alerts Section"/>
+            </reference>
+            <name value="IPS Alerts Section"/>
+            <description
+                value="The ‘Alert’ Section brings the most important healthcare information to the fore.  &#xA;                 &#xA;This section highlights extreme problem(s).  Previously, ‘alerts’ were just reported as ‘problems’, which carried the risk of losing the immediacy and importance of information to the attending clinician.&#xA;                 &#xA;An alert in meant to be &#34;Information used to warn or call to a state of preparedness. Information flagged (or intended) to raise awareness of a potential danger to/from the subject of the IPS or to/from another individual or awareness of a potential obstacle to care.&#34;"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.16--20240612092602"/>
+                <display value="IPS Patient Story Section"/>
+            </reference>
+            <name value="IPS Patient Story Section"/>
+            <description
+                value="A concise narrative from the patient’s perspective about their present health state. This is a record of the things that a person feels it is important to communicate about their needs, strengths, values, concerns and preferences to others providing support and care. &#xA;                 &#xA;Patients unable to communicate can be supported by a proxy author. The patient’s story, provided here, may be told by the patient or by a proxy."/>
+            <exampleBoolean value="false"/>
+            <groupingId value="section"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/2.16.840.1.113883.10.22.17--20240804201847"/>
+                <display value="IPS Radiology Result Observation Component"/>
+            </reference>
+            <name value="IPS Radiology Result Observation Component"/>
+            <description
+                value="IPS Radiology Result Observation Component&#xA;&#xA;The component carries additional detailed radiological results. Depending on it's type the code and value have different constraints to reflect proper results.&#xA;&#xA;&#xA;| &#xA;Type of result&#xA; | &#xA;Constraints for code (Value                                     Set)&#xA; | &#xA;Value Domain value type&#xA; |&#xA;| &#xA;Observation Text&#xA; | &#xA;IPS Results Radiology Textual Observations &#xA; | &#xA;String&#xA; |&#xA;| &#xA;Observation Code&#xA; | &#xA;IPS Results Radiology Observation&#xA; | &#xA;Code&#xA; |&#xA;| &#xA;Observation Measurement, including linear, area and                                     volume quantity measurements&#xA; | &#xA;IPS Results Radiology Measurement Observation&#xA; | &#xA;Quantity&#xA; |&#xA;| &#xA;Observation Measurement, including linear, area and volume range measurements&#xA; | &#xA;IPS Results Radiology Measurement Observation&#xA; | &#xA;Interval of quantity&#xA; |&#xA;| &#xA;Observation Measurement,                                     including linear, area and volume ratio measurements&#xA; | &#xA;IPS Results Radiology Measurement Observation&#xA; | &#xA;Ratio of quantity&#xA; |&#xA;| &#xA;Observation Measurement, including linear, area and volume sampled data measurements&#xA; | &#xA;IPS Results Radiology Measurement Observation&#xA; | &#xA;Sample Data                             (Binary)&#xA; |"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="entry"/>
+        </resource>
+
 
         <page>
             <nameUrl value="index.html"/>
@@ -64,47 +961,47 @@
             <page>
                 <nameUrl value="fp-1989e119-f04f-48e5-89e1-19f04fb8e123.html"/>
                 <title value="Important Notes"/>
-                <generation value="html"/>
+                <generation value="markdown"/>
             </page>
             <page>
                 <nameUrl value="fp-db11d3be-6643-471a-91d3-be6643e71a7a.html"/>
                 <title value="Introduction"/>
-                <generation value="html"/>
+                <generation value="markdown"/>
             </page>
             <page>
                 <nameUrl value="fp-f90f93c1-2a58-4b42-8f93-c12a58cb4219.html"/>
                 <title value="Technical Background"/>
-                <generation value="html"/>
+                <generation value="markdown"/>
             </page>
             <page>
                 <nameUrl value="fp-6b5529b2-6c73-42ba-9529-b26c7352bad9.html"/>
                 <title value="Functional requirements and high-level use cases"/>
-                <generation value="html"/>
+                <generation value="markdown"/>
                 <page>
                     <nameUrl value="fp-aad25e8f-a199-4dad-925e-8fa1995dad81.html"/>
                     <title value="Code mappings and multilingual support"/>
-                    <generation value="html"/>
+                    <generation value="markdown"/>
                 </page>
             </page>
             <page>
                 <nameUrl value="fp-1c7c828b-28f2-4e9c-bc82-8b28f26e9cab.html"/>
                 <title value="Design conventions and principles"/>
-                <generation value="html"/>
+                <generation value="markdown"/>
                 <page>
                     <nameUrl value="fp-cf9114e2-8bab-456c-9114-e28bab156cfe.html"/>
                     <title value="Determining the Status of Clinical Statement"/>
-                    <generation value="html"/>
+                    <generation value="markdown"/>
                 </page>
                 <page>
                     <nameUrl value="fp-2cb4a6c4-d299-44b4-b4a6-c4d29934b4f2.html"/>
                     <title value="The use of medication statements in the summary"/>
-                    <generation value="html"/>
+                    <generation value="markdown"/>
                 </page>
             </page>
             <page>
                 <nameUrl value="fp-d1165c7d-3728-4f71-965c-7d37280f71dd.html"/>
                 <title value="Conformance clause"/>
-                <generation value="html"/>
+                <generation value="markdown"/>
             </page>
             <!--<page>
                 <nameUrl value="fp-6433a150-f8a2-4ffb-b3a1-50f8a2cffbf3.html"/>
@@ -114,7 +1011,7 @@
             <page>
                 <nameUrl value="fp-867991e9-f04f-48e5-89e1-19f04fb8e123.html"/>
                 <title value="Appendix (Informative)"/>
-                <generation value="html"/>
+                <generation value="markdown"/>
             </page>
         </page>
         <parameter>

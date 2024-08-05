@@ -1,0 +1,364 @@
+<StructureDefinition xmlns="http://hl7.org/fhir"><!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.8--20240804110603"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-04T11:06:03+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.8--20240804110603"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.8"/>
+    </identifier>
+    <version value="2024-08-04T11:06:03"/>
+    <name value="IPSProblemEntry"/>
+    <title value="IPS Problem Entry"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-04T11:06:03Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="This template reflects a discrete observation about a patient's problem. Because it is a discrete observation, it will have a statusCode of &#34;completed&#34;. The effectiveTime, also referred to as the “biologically relevant time” is the time at which the observation holds for the patient. For a provider seeing a patient in the                     clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago.&#xA;                 &#xA;The effectiveTime of the Problem Observation is the definitive indication of whether or not the underlying condition is resolved. If the problem is known to be resolved, then an effectiveTime/high would be present. If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &#34;UNK&#34;."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:primary">
+            <path value="Observation.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.templateId:primary.root">
+            <path value="Observation.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.8"/>
+        </element>
+        <element id="Observation.id">
+            <path value="Observation.id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <definition value="This element describes the type of condition this observation is referring to."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="Problem Type"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/problem-type-uv-ips"/>
+            </binding>
+        </element>
+        <element id="Observation.text">
+            <path value="Observation.text"/>
+            <definition value="The  element if present points to the text describing the problem being recorded; including any dates, comments, et cetera. The  contains a URI in value attribute. This URI points to the free text description of the problem in the document that is being described."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.text.reference">
+            <path value="Observation.text.reference"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.text.reference.value">
+            <path value="Observation.text.reference.value"/>
+            <representation value="xmlAttr"/>
+            <definition value="When used it shall refer to the narrative, typically #{label}-{generated-id}, e.g. #xxx-1"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <definition value="A clinical document normally records only those condition observation events that have been completed, not observations that are in any other state. Therefore, the  shall always have code='completed'."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="completed"/>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <definition value="The effectiveTime, also referred to as the “biologically relevant time” is the time at which the observation holds for the patient. For a provider seeing a patient in the clinic today, observing a history of heart attack that occurred five years ago, the effectiveTime is five years ago.&#xA;&#xA;                         &#xA;&#xA;The &lt;low&gt; and &lt;high&gt; values should be no more precise than known, but as precise as possible."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.effectiveTime.low">
+            <path value="Observation.effectiveTime.low"/>
+            <definition value="The effectiveTime/low (a.k.a. &#34;onset date&#34;) asserts when the condition became biologically active."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.effectiveTime.high">
+            <path value="Observation.effectiveTime.high"/>
+            <definition value="The effectiveTime/high (a.k.a. &#34;resolution date&#34;) asserts when the condition e became biologically resolved. &#xA; If the date of resolution is not known, then effectiveTime/high will be present with a nullFlavor of &#34;UNK&#34;.If this condition is known to be resolved, then the effectiveTime/high would be present."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <representation value="typeAttr"/>
+            <definition value="The &lt;value&gt; is the condition that was found. &#xA; It may a coded or an un-coded string, but its type is always coded. &#xA; The coded form shall be used also to indicate known absent conditions or the nonavailability of information about them."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Problems"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.73--20240802094107"/>
+            </binding>
+        </element>
+        <element id="Observation.value.type">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="http://www.w3.org/2001/XMLSchema-instance"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="xsi"/>
+            </extension>
+            <path value="Observation.value.type"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CD"/>
+        </element>
+        <element id="Observation.value.originalText">
+            <path value="Observation.value.originalText"/>
+            <definition value="The &lt;originalText&gt; element within the &lt;code&gt; element described above is used as follows: the &lt;value&gt; contains a &lt;reference&gt; to the &lt;originalText&gt; in order to link the coded value to the problem narrative text (minus any dates, comments, et cetera). The &lt;reference&gt; contains a                                 URI in value attribute. This URI points to the free text description of the problem in the document that is being described."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.value.originalText.reference">
+            <path value="Observation.value.originalText.reference"/>
+            <definition value="The URI given in the value attribute of the  element points to an element in the narrative content that contains the complete text describing the medication. In a CDA document, the URI given in the value attribute of the  element points to an element in the narrative content that contains&#xA;                                        the complete text describing the medication."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.value.qualifier">
+            <path value="Observation.value.qualifier"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.value.translation">
+            <path value="Observation.value.translation"/>
+            <definition value="The translation element may be used to transmit a set of other concept descriptors, using for example ICD-10 or other international or jurisdictional code systems."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.entryRelationship">
+            <path value="Observation.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="profile"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1">
+            <path value="Observation.entryRelationship"/>
+            <definition value="**Severity**                         &#xA; The contained entry describes a subjective assessment of the severity of the condition as evaluated by the clinician."/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="entryRelationship-1"/>
+            <constraint>
+                <key value="entryRelationship-1"/>
+                <human value="contains IPS Severity Observation 2.16.840.1.113883.10.22.4.25 (2017-04-07)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship-1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.25--20170407000000"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SUBJ"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-2">
+            <path value="Observation.entryRelationship"/>
+            <definition value="** Certainty or Verification Status **                         &#xA; The contained entry describes the certainty associated with a condition."/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="entryRelationship-2"/>
+            <constraint>
+                <key value="entryRelationship-2"/>
+                <human value="contains IPS Certainty Observation 2.16.840.1.113883.10.22.4.19 (2024-06-10)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-2.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SUBJ"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-2.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-3">
+            <path value="Observation.entryRelationship"/>
+            <definition value="**Status of the Problem**    &#xA; The contained entry describes the current status of the condition, for example, whether it is active, in remission, resolved, and so on ..."/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="entryRelationship-3"/>
+            <constraint>
+                <key value="entryRelationship-3"/>
+                <human value="contains IPS Problem Status Observation 2.16.840.1.113883.10.22.4.20 (2017-03-29)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-3.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="REFR"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-3.inversionInd">
+            <path value="Observation.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="false"/>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -4,7 +4,6 @@
         <lastUpdated value="2024-08-02T10:27:31Z"/>
         <source value="http://localhost:8877/exist/apps/fhir/4.0/hl7ips-"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-        <!--<profile value="http://hl7.org/fhir/4.0/StructureDefinition/ValueSet"/>-->
         <tag>
             <system value="http://hl7.org/fhir/FHIR-version"/>
             <code value="4.0.1"/>

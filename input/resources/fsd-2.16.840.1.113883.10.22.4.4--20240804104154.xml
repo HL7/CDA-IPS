@@ -1,0 +1,1473 @@
+<StructureDefinition xmlns="http://hl7.org/fhir"><!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.4--20240804104154"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-04T10:41:54+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.4--20240804104154"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.4"/>
+    </identifier>
+    <version value="2024-08-04T10:41:54"/>
+    <name value="IPSMedicationStatement"/>
+    <title value="IPS Medication Statement"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-04T10:41:54Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="An IPS Medication entry describes a medication statement, that is a substance administration that has actually occurred (e.g., pills ingested or injections given) or are intended to occur (e.g., &#34;take 2 tablets twice a day for the next 10 days&#34;). Medication activities in &#34;INT&#34; mood are reflections of what a clinician                     intends a patient to be taking. For example, a clinician may intend that a patient to be administered Lisinopril 20 mg PO for blood pressure control. If what was actually administered was Lisinopril 10 mg., then the Medication activities in the &#34;EVN&#34; mood would reflect actual use.&#xA;&#xA;                 &#xA;&#xA;The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician. A common scenario where this information is captured is during the history taking process during a patient visit or stay, but it could be derived from the medications information recorded into a GP's EHR-system, in form of prescribed medication, or                     administration statements.&#xA;&#xA;                 &#xA;&#xA;The medication information may come from sources such as the patient's memory, from a prescription bottle, or from a list of medications the patient, clinician or other party maintains.&#xA;&#xA;                 &#xA;&#xA;A medication statement is usually less specific than an a prescription or a medication administration record.  &#xA;&#xA;                 &#xA;&#xA;This entry is composed by a main substanceAdministration act and a subordinate substanceAdministration act, unless it is asserted that there are no medications data. &#xA;&#xA;                 &#xA;&#xA;The first conveys information as the product, the period of administration and the route of administration; the latter is used to provide dosage information as the frequency of intakes or the amount of the medication given."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="SubstanceAdministration">
+            <path value="SubstanceAdministration"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.classCode">
+            <path value="SubstanceAdministration.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SBADM"/>
+        </element>
+        <element id="SubstanceAdministration.moodCode">
+            <path value="SubstanceAdministration.moodCode"/>
+            <representation value="xmlAttr"/>
+            <definition value="If the statement refers to a prescribed medication then a   intent (moodCode='INT') is used; otherwise, to record medications which are stated to have taken, the moodCode shall be set to 'EVN'. &#xA;                    "/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="MoodCodeEvnInt"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.20.9.18--20160623000000"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.templateId">
+            <path value="SubstanceAdministration.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:primary">
+            <path value="SubstanceAdministration.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:primary.root">
+            <path value="SubstanceAdministration.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.4"/>
+        </element>
+        <element id="SubstanceAdministration.id">
+            <path value="SubstanceAdministration.id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.code">
+            <path value="SubstanceAdministration.code"/>
+            <definition value="The &lt;code&gt; element is valorized with the Substance Administration ACT code &#34;DRUG&#34; unless it is used for asserting the  known absence of medication treatments or no information about them."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="DRUGActCode"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.14--20170401000000"/>
+            </binding>
+            <binding>
+                <strength value="required"/>
+                <description value="IPS No Medications"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.79--20240802094107"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.text">
+            <path value="SubstanceAdministration.text"/>
+            <definition value="The URI given in the value attribute of the &lt;reference&gt; element points to an element in the narrative content that contains the complete text describing the medication. &#xA;&#xA;                         &#xA;&#xA;In a CDA document, the URI given in the value attribute of the &lt;reference&gt; element points to an element in the narrative content that contains the complete text describing the medication."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.text.reference">
+            <path value="SubstanceAdministration.text.reference"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.text.reference.value">
+            <path value="SubstanceAdministration.text.reference.value"/>
+            <representation value="xmlAttr"/>
+            <definition value="Reference pointing to the narrative, typically #{label}-{generated-id}, e.g. #xxx-1"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.statusCode">
+            <path value="SubstanceAdministration.statusCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="ActStatusActiveCompletedAbortedSuspended"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.12--20170330000000"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.nullFlavor">
+            <path value="SubstanceAdministration.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.low">
+            <path value="SubstanceAdministration.low"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.high">
+            <path value="SubstanceAdministration.high"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.low">
+            <path value="SubstanceAdministration.low"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.high">
+            <path value="SubstanceAdministration.high"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.center">
+            <path value="SubstanceAdministration.center"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.width">
+            <path value="SubstanceAdministration.width"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.width.unit">
+            <path value="SubstanceAdministration.width.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Medication Time Units (UCUM)"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.21.1--20230201111208"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.low">
+            <path value="SubstanceAdministration.low"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.width">
+            <path value="SubstanceAdministration.width"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.width.unit">
+            <path value="SubstanceAdministration.width.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Medication Time Units (UCUM)"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.21.1--20230201111208"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.routeCode">
+            <path value="SubstanceAdministration.routeCode"/>
+            <definition value="The &lt;routeCode&gt; element specifies the route of administration using the EDQM route of administration vocabulary.&#xA;&#xA;                         &#xA;&#xA;A code must be specified if the route is known. &#xA;&#xA;                         &#xA;&#xA;Since the EDQM Standards Terms, together with UCUM, is one of the IDMP terminologies actually available for usage, this code system has been selected  as referecne terminology for representing Pharmaceutical Dose forms; Packages and Route of Administration.&#xA;&#xA;                         &#xA;&#xA;It is known that also alternative jurisdictional and international terminologies are also used for this concept domain, as NCI or SNOMED CT.&#xA;&#xA;                         &#xA;&#xA;Official NCI and EDQM maps for the route of administration are available from the EDQM site."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="IPS Medicine Route of Administration"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/medicine-route-of-administration"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.doseQuantity">
+            <path value="SubstanceAdministration.doseQuantity"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.rateQuantity">
+            <path value="SubstanceAdministration.rateQuantity"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.administrationUnitCode">
+            <path value="SubstanceAdministration.administrationUnitCode"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="SubstanceAdministration.consumable">
+            <path value="SubstanceAdministration.consumable"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.typeCode">
+            <path value="SubstanceAdministration.consumable.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CSM"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MANU"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.templateId">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.templateId:primary">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.templateId:primary.root">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.2"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MMAT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.determinerCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="KIND"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.templateId">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.templateId:primary">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.templateId:primary.root">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.3"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.name">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.name"/>
+            <definition value="This element is supposed to be valorized with the complete Medicinal Product Name as approved by the Medicines Regulatory Agency in a jurisdiction.&#xA;&#xA;                         &#xA;&#xA;The name may be applicable in one or more country/language combinations."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.formCode">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.formCode"/>
+            <definition value="Administrable Pharmaceutical Dose Form.&#xA;&#xA;                         &#xA;&#xA;This code represents the form of the medication (e.g. tablet, capsule, liquid)&#xA;&#xA;                         &#xA;&#xA;Since the EDQM Standards Terms, together with UCUM, is one of the IDMP terminologies actually available for usage, this code system has been selected  as referecne terminology for representing Pharmaceutical Dose forms;Pakages and Route of Administration.&#xA;&#xA;                         &#xA;&#xA;It is known that also alternative jurisdictional and international terminologies are known to be used for this concept domain, as NCI or SNOMED CT."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="IPS Medicine Doseform"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/medicine-doseform"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent"/>
+            <definition value="This structure describes the packaging of the medication.&#xA;&#xA;                         &#xA;&#xA;The &lt;pharm:formCode&gt; element provides the code for the particular package.&#xA;&#xA;                         &#xA;&#xA;If the package has a brand name, it can be described in the &lt;pharm:name&gt; element.&#xA;&#xA;                         &#xA;&#xA;The &lt;pharm:capacityQuantity&gt; element describes the capacity of the packaging, while the &lt;pharm:quantity&gt; the actual quantity of inner packaged items in the outer packaging container.&#xA;The product might have a single (30 pills bottle) or multiple (5 vials 10 ml; box with 2 blisters of 20 tablets) layers of packaging.&#xA;                         &#xA;&#xA;                         &#xA;&#xA;In the latter case, the most inner (nested) item represents the most outer package item.&#xA;&#xA;                         &#xA;&#xA;For example the case &#xA;&#xA;                         &#xA;&#xA;  \--Box &#xA;&#xA;                         &#xA;&#xA;  \-----2 blisters &#xA;&#xA;                         &#xA;&#xA;  \--------20 tablets &#xA;&#xA;                         &#xA;&#xA;is described as &#34;20 tablets&#34; contained by &#34;a blister&#34;; &#34;2 blisters&#34; contained by one box.&#xA;&#xA;                         &#xA;&#xA;                             &#xA;The most inner package represents the Packaged Medicinal Product.&#xA;                             &#xA;                         &#xA;&#xA;                         &#xA;&#xA;When the IDMP Packaged Medicinal Product ID (PCID) will become actually available for usage, the most inner package &lt;code&gt; element will be used to convey the IDMP PCID."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CONT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.quantity">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.quantity"/>
+            <definition value="The quantity which specified how many inner packaged content entities are in an outer packaging container entity."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.quantity.unit">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.quantity.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Quantity Units"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/quantityUnits"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.quantity.value">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.quantity.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="decimal"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct"/>
+            <definition value="It represents the most inner Package Item or the Packaged Medicinal Product."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CONT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.determinerCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="KIND"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.code">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.code"/>
+            <definition value="If this is also the most outer &lt;pharm:containerPackagedProduct&gt; than the &lt;code&gt; element can be used to convey the (IDMP) Packaged Medicinal Product ID (e.g. the IDMP PCID when it will become actually available for usage).&#xA; &#xA;&#xA;                                 &#xA;&#xA;The presence of the PCID indicates that that element represents the &#34;Packaged Medicinal Product&#34;."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.name">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.name"/>
+            <definition value="It represents the Name of the Package Item or of the Packaged Medicinal Product.&#xA;&#xA;                                 &#xA;&#xA;If this is also the most outer &lt;pharm:containerPackagedProduct&gt; than this element can be used for the brand name."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.formCode">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.formCode"/>
+            <definition value="This element encodes the type of the most inner package item or of the or the Packaged Medicinal Product. &#xA;                                 &#xA; Since the EDQM Standards Terms, together with UCUM, is one of the IDMP terminologies actually available for usage, this code system has been selected  as referecne terminology for representing Pharmaceutical Dose forms; Packages and Route of Administration."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="Medicine Package"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.27--20170503000000"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.capacityQuantity">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.capacityQuantity"/>
+            <definition value="It represents the functional capacity of the container: e.g. bottle containing up to 20 tablets or ampule of 10 ml."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.capacityQuantity.unit">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.capacityQuantity.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Quantity Units"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/quantityUnits"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.capacityQuantity.value">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.capacityQuantity.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="decimal"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent"/>
+            <definition value="In case of multiple layers of packaging (5 vials 10 ml; box with 2 blisters of 20 tablets) this element can be used for describing the intermediate Packaged Medicinal Product Item or the Packaged Medicinal Product.&#xA;&#xA;                                 &#xA;&#xA;For example in the case &#xA;&#xA;                                 &#xA;&#xA;  \--Box &#xA;&#xA;                                 &#xA;&#xA;  \-----2 blisters &#xA;&#xA;                                 &#xA;&#xA;  \--------20 tablets &#xA;&#xA;                                 &#xA;&#xA;it describes the &#34;2 blisters&#34; &#xA;&#xA;                                 &#xA;&#xA;In the case of &#xA;&#xA;                                 &#xA;&#xA;  \--Box &#xA;&#xA;                                 &#xA;&#xA;  \-----5 vials&#xA;&#xA;                                 &#xA;&#xA;it represents the Packaged Medicinal Product. "/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CONT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.quantity">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.quantity"/>
+            <definition value="The quantity which specified how many inner packaged content entities are in an outer packaging container entity."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.quantity.unit">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.quantity.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Quantity Units"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/quantityUnits"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.quantity.value">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.quantity.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="decimal"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct"/>
+            <definition value="It represents the intermediate Package Item or the Packaged Medicinal Product"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CONT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.determinerCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="KIND"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.code">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.code"/>
+            <definition value="If this is also the most inner  &lt;pharm:containerPackagedProduct&gt; than the &lt;code&gt; element can be used to convey the (IDMP) Packaged Medicinal Product ID (e.g. the IDMP PCID when it will become actually available for usage).&#xA; &#xA;&#xA;                                         &#xA;&#xA;The presence of the PCID indicates that that element represents the &#34;Packaged Medicinal Product&#34;."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.name">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.name"/>
+            <definition value="It represents the Name of the Package Item or of the Packaged Medicinal Product&#xA;&#xA;                                         &#xA;&#xA;If this is also the most inner  &lt;pharm:containerPackagedProduct&gt; than this element can be used for the brand name."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.formCode">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.formCode"/>
+            <definition value="This element encodes the type of the most inner package item or of the or the Packaged Medicinal Product. &#xA;                                         &#xA; Since the EDQM Standards Terms, together with UCUM, is one of the IDMP terminologies actually available for usage, this code system has been selected  as reference terminology for representing Pharmaceutical Dose forms; Packages and Route of Administration."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="Medicine Package"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.27--20170503000000"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity"/>
+            <definition value="It represents the functional capacity of the container: e.g. bottle containing up to 20 tablets or ampule of 10 ml."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity.unit">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Quantity Units"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/quantityUnits"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity.value">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="decimal"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent"/>
+            <definition value="In case of multiple layers of packaging (box with 2 blisters of 20 tablets) this element is used for describing the most outer Packaged Medicinal Product Item or the Packaged Medicinal Product.&#xA;&#xA;                                         &#xA;&#xA;For example in the case &#xA;&#xA;                                         &#xA;&#xA;  \--Box &#xA;&#xA;                                         &#xA;&#xA;  \-----2 blisters &#xA;&#xA;                                         &#xA;&#xA;  \--------20 tablets &#xA;&#xA;                                         &#xA;&#xA;it describes the Packaged Medicinal Product. "/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CONT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.quantity">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.quantity"/>
+            <definition value="The quantity which specified how many inner packaged content entities are in an outer packaging container entity."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.quantity.unit">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.quantity.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Quantity Units"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/quantityUnits"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.quantity.value">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.quantity.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="decimal"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct"/>
+            <definition value="When present, it represents the Packaged Medicinal Product"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CONT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.determinerCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="KIND"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.code">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.code"/>
+            <definition value="When present, it can be used to convey the (IDMP) Packaged Medicinal Product ID (e.g. the IDMP PCID when it will become actually available for usage)."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.name">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.name"/>
+            <definition value="When present, it can be used for the representing the brand name."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.formCode">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.formCode"/>
+            <definition value="When present, it encodes the type of the outer package. &#xA;                                                 &#xA; Since the EDQM Standards Terms, together with UCUM, is one of the IDMP terminologies actually available for usage, this code system has been selected  as referecne terminology for representing Pharmaceutical Dose forms; Packages and Route of Administration."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="Medicine Package"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.27--20170503000000"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity"/>
+            <definition value="It represents the functional capacity of the container: e.g. bottle containing up to 20 tablets or ampule of 10 ml."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity.unit">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Quantity Units"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/quantityUnits"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity.value">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asContent.containerPackagedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.capacityQuantity.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="decimal"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind"/>
+            <definition value="This module is used for representing the classification of the Substance according to the **WHO Anatomical Therapeutic Chemical (ATC)** Classification System.&#xA;&#xA;                         &#xA;&#xA;The classCode of &#34;GRIC&#34; identifies this structure as the representation of a generic equivalent of the medication described in the current Medicine entry."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="GRIC"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MMAT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.code">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.code"/>
+            <definition value="The &lt;code&gt; element contains the ATC code of this medicine."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="WHO ATC"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/whoatc-uv-ips"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.name">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.name"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind"/>
+            <definition value="The Medicinal Product can be classified according to various classification systems, which may be jurisdictional or international. &#xA; The classification system itself is specified using an appropriate identification system; the controlled term and the controlled term identifier shall be specified. &#xA;                         &#xA; When the IDMP Pharmaceutical Product Identifier(s) (PhPID Set) will become actually available for use, the PhPID will be represented by the generalizedMaterialKind/code element."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="GRIC"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MMAT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.code">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.code"/>
+            <definition value="When the IDMP Pharmaceutical Product Identifier(s) (PhPID Set) will become actually available for use, this element will be used for representing the IDMP PhP Id.&#xA;&#xA;                                 &#xA;&#xA;The level and the stratum of the PhPID will be distiguished by the OID of the code system."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.name">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.asSpecializedKind.generalizedMaterialKind.name"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient"/>
+            <definition value="This module provides the list of the ingredients (substances with a role) used for this product; one or more ingredients may be present.&#xA;&#xA;                         &#xA;&#xA;The classCode of &#34;ACTI&#34; indicates that this is an active ingredient."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="RoleClassIngredientEntity"/>
+                <valueSet value="urn:oid:2.16.840.1.113883.1.11.10430"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity"/>
+            <definition value="The medication strength is represented as the ratio of the active ingredient(s) to a unit of medication. The  element contains the numerator and denominator of the strength ratio."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.numerator">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.numerator"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.numerator.unit">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.numerator.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Medicine Strength Numerator"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/strengthNumerator"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.numerator.value">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.numerator.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="decimal"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.denominator">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.denominator"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.denominator.unit">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.denominator.unit"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="Medicine Strength Denominator"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/strengthDenominator"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.denominator.value">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.quantity.denominator.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="decimal"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance"/>
+            <min value="1"/>
+            <max value="1"/>
+            <condition value="MD1723604N1l1l3l30l25l13l15"/>
+            <constraint><!--extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-expression">
+                    <valueString value="" />
+                </extension-->
+                <key value="MD1723604N1l1l3l30l25l13l15"/>
+                <severity value="error"/>
+                <human value="Either the name or the code of the substance (or both) shall be provided"/>
+                <xpath value="pharm:code or pharm:name"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MMAT"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.determinerCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="KIND"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code"/>
+            <definition value="The IDMP ISO 11238 standard addresses the identification and exchange of regulated information on substances.  &#xA; The Global Ingredient Archival System (GInAS)  will provide a common global identifier  for all of the substances used in medicinal products, providing a definition of                                 substances globally consistent with this standard. &#xA; Those identifiers however are yet available for concrete usage, therefore in this version of the template, SNOMED CT has been chosen as reference terminology also for the active substances. &#xA; This choice will be revised based on the availability and the maturity of GInAS."/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="IPS Medicine Active Substances"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/medicine-active-substances-uv-ips"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code.originalText">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code.originalText"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code.originalText.reference">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code.originalText.reference"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code.translation">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code.translation"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code.translation:primary">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.code.translation"/>
+            <definition value="This element can be used to provide alternative identifications for the described substance."/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.name">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="urn:hl7-org:pharm"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="pharm"/>
+            </extension>
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.ingredient.ingredientSubstance.name"/>
+            <definition value="Name of the substance"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.author">
+            <path value="SubstanceAdministration.author"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.author.templateId">
+            <path value="SubstanceAdministration.author.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.author.templateId:primary">
+            <path value="SubstanceAdministration.author.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author.templateId:primary.root">
+            <path value="SubstanceAdministration.author.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.14"/>
+        </element>
+        <element id="SubstanceAdministration.author.time">
+            <path value="SubstanceAdministration.author.time"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor">
+            <path value="SubstanceAdministration.author.assignedAuthor"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.id">
+            <path value="SubstanceAdministration.author.assignedAuthor.id"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.code">
+            <path value="SubstanceAdministration.author.assignedAuthor.code"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.classCode">
+            <path value="SubstanceAdministration.author.assignedAuthor.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PSN"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.determinerCode">
+            <path value="SubstanceAdministration.author.assignedAuthor.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.name">
+            <path value="SubstanceAdministration.author.assignedAuthor.name"/>
+            <definition value="Name of the person (e.g. the Healthcare Professional)  authoring this document"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.name.family">
+            <path value="SubstanceAdministration.author.assignedAuthor.name.family"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.name.given">
+            <path value="SubstanceAdministration.author.assignedAuthor.name.given"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.representedOrganization">
+            <path value="SubstanceAdministration.author.assignedAuthor.representedOrganization"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.representedOrganization.id">
+            <path value="SubstanceAdministration.author.assignedAuthor.representedOrganization.id"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.representedOrganization.name">
+            <path value="SubstanceAdministration.author.assignedAuthor.representedOrganization.name"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.representedOrganization.telecom">
+            <path value="SubstanceAdministration.author.assignedAuthor.representedOrganization.telecom"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.author.assignedAuthor.representedOrganization.addr">
+            <path value="SubstanceAdministration.author.assignedAuthor.representedOrganization.addr"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="profile"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship-1">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <definition value="Subordinate Substance Administration Statement as a component of the overall medication statement.&#xA;&#xA;                         &#xA;&#xA;Unless medications are unknown or known absent, at least one subordinated &lt;substanceAdministration&gt; has to be present to convey information about dosages (dose, frequency of intakes,..).&#xA;&#xA;                         &#xA;&#xA;Subordinated &lt;substanceAdministration&gt; elements can be also used either to handle split dosing, or to support combination medications.At least one subordinate  element SHALL be present unless medications are unknown or known absent."/>
+            <min value="0"/>
+            <max value="*"/>
+            <sliceName value="entryRelationship-1"/>
+            <constraint>
+                <key value="entryRelationship-1"/>
+                <human value="contains UV Subordinate Substance Administration 2.16.840.1.113883.10.21.4.6 (2023-01-30)"/>
+            </constraint>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship-1.substanceAdministration">
+            <path value="SubstanceAdministration.entryRelationship.substanceAdministration"/>
+            <sliceName value="entryRelationship-1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.21.4.6--20230130093600"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship-1.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="COMP"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship-1.sequenceNumber">
+            <path value="SubstanceAdministration.entryRelationship.sequenceNumber"/>
+            <definition value="Sequence number of the Subordinate Substance Administration"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="entryRelationship-1"/>
+            <constraint>
+                <key value="entryRelationship-1"/>
+                <human value="contains   ()"/>
+            </constraint>
+        </element>
+    </differential>
+</StructureDefinition>
