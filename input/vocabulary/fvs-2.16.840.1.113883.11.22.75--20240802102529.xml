@@ -1,0 +1,58 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.11.22.75--20240802102529"/>
+    <meta>
+        <lastUpdated value="2024-08-02T10:44:50Z"/>
+        <source value="https://art-decor.org/ad/#/hl7ips-/terminology/valueset"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+        <!--<profile value="http://hl7.org/fhir/4.0/StructureDefinition/ValueSet"/>-->
+        <tag>
+            <system value="http://hl7.org/fhir/FHIR-version"/>
+            <code value="4.0.1"/>
+        </tag>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-02T10:25:29+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://hl7.org/fhir/uv/ips/ValueSet/procedures-uv-ips"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.11.22.75"/>
+    </identifier>
+    <version value="2024-08-02T10:25:29"/>
+    <name value="IPSResultsLaboratoryPathology"/>
+    <title value="IPS Results Laboratory/Pathology Observation"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value="HL7 International"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="IPS Results Values Laboratory/Pathology value set.&#xA;&#xA;Value Set Definition: LOINC {STATUS in {ACTIVE}, CLASSTYPE in {Laboratory class (1)}, CLASS exclude {LP62148-9 (NR STATS), LP175679-2 (H&amp;P.HX.LAB), LP7785-1 (CHALSKIN), LP94892-4 (LABORDERS)}}"/>
+    <immutable value="false"/>
+    <compose>
+        <include>
+            <system value="http://loinc.org"/>
+            <filter>
+                <property value="STATUS"/>
+                <op value="="/>
+                <value value="ACTIVE"/>
+            </filter>
+            <filter>
+                <property value="CLASSTYPE"/>
+                <op value="="/>
+                <value value="Laboratory class"/>
+            </filter>
+        </include>
+    </compose>
+</ValueSet>

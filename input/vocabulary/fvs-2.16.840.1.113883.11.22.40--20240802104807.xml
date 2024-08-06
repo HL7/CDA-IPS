@@ -2,7 +2,7 @@
     <id value="2.16.840.1.113883.11.22.40--20240802104807"/>
     <meta>
         <lastUpdated value="2024-08-02T10:48:42Z"/>
-        <source value="http://localhost:8877/exist/apps/fhir/4.0/hl7ips-"/>
+        <source value="https://art-decor.org/ad/#/hl7ips-/terminology/valueset"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
         <!--<profile value="http://hl7.org/fhir/4.0/StructureDefinition/ValueSet"/>-->
         <tag>
