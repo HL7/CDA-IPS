@@ -96,4 +96,5 @@ Technical
 | **Contributor** | George Dixon | Allscripts LLC | george.dixon@allscripts.com |
 | **Contributor** | Kenneth Sinn  | Ontario Health Digital Services | ken.sinn@ontariohealth.ca |
 | **Contributor** | John D'Amore | More Informatics | johnd@moreinformatics.com |
-| Other contributors |  | Alexander Berler (a.berler@gnomon.com.gr) ; Carina Seerainer (carina.seerainer@elga.gv.at); John Roberts (John.A.Roberts@tn.gov); Julie James (julie_james@bluewaveinformatics.co.uk); Mark Shafarman (mark.shafarman@earthlink.net); Fernando Portilla (fportila@gmail.com); Ed Hammond (william.hammond@duke.edu); Steve Kay (s.kay@histandards.net) |  |
+
+Thanks to Alexander Berler ([a.berler@gnomon.com.gr](mailto:a.berler@gnomon.com.gr)) ; Carina Seerainer (carina.seerainer@elga.gv.at); John Roberts (John.A.Roberts@tn.gov); Julie James ([julie_james@bluewaveinformatics.co.uk](mailto:julie_james@bluewaveinformatics.co.uk)); Mark Shafarman ([mark.shafarman@earthlink.net](mailto:mark.shafarman@earthlink.net)); Fernando Portilla ([fportila@gmail.com](mailto:fportila@gmail.com)); Ed Hammond ([william.hammond@duke.edu](mailto:william.hammond@duke.edu)); Steve Kay ([s.kay@histandards.net](mailto:s.kay@histandards.net))
