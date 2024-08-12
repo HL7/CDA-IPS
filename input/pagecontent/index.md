@@ -1,3 +1,7 @@
+| This Implementation Guide is in a provisional state and purely for information. |
+| ------------------------------------------------------------ |
+| As a pilot, efforts have been made to convert the definitions of the HL7 CDA® R2 Implementation Guide of the International Patient Summary, that were done in ART-DECOR® using the former HL7 Templates Standard: Specification and Use of Reusable Information Constraint Templates, in short Templates ITS, into FHIR Structure Definitions and to use the exposed Templtaes, Value Sets, Code Systems etc. with the FHIR IG publisher for the CDA Implementation Guide. This is a continous process until the conversion is error-free. |
+
 An **International Patient Summary (IPS) document** is an electronic health record extract containing essential healthcare information about a subject of care.
 As specified in EN 17269 and ISO 27269, it is designed for supporting the use case scenario for ‘unplanned, cross border care’, but it is not limited to it.
 It is intended to be international, i.e., to provide generic solutions for global application beyond a particular region or country.
