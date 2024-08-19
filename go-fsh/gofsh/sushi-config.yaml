@@ -1,8 +1,0 @@
-canonical: http://hl7.org/fhir/uv/ips
-fhirVersion: 4.0.1
-FSHOnly: true
-applyExtensionMetadataToRoot: false
-id: hl7.fhir.uv.ips
-name: UvIps
-status: active
-version: 2005-09-07T00:00:00
