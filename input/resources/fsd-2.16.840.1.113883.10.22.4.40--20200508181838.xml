@@ -1,0 +1,250 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.40--20200508181838"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2020-05-08T18:18:38+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.40--20200508181838"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.40"/>
+    </identifier>
+    <version value="2020-05-08T18:18:38"/>
+    <name value="IPSPlannedEncounter"/>
+    <title value="IPS Planned Encounter"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2020-05-08T18:18:38Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description
+        value="An Encounter is an interaction between a patient and care provider(s) for the purpose of providing healthcare-related service(s). Healthcare services include health assessment. Examples: outpatient visit to multiple departments, home health support (including physical therapy), inpatient hospital stay, emergency room visit, field visit (e.g., traffic accident), office visit,                     occupational therapy, or telephone call."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Encounter"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Encounter">
+            <path value="Encounter"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.classCode">
+            <path value="Encounter.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="ENC"/>
+        </element>
+        <element id="Encounter.moodCode">
+            <path value="Encounter.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <patternString value="APT"/>
+            <patternString value="ARQ"/>
+            <patternString value="PRP"/>
+        </element>
+        <element id="Encounter.templateId">
+            <path value="Encounter.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Encounter.templateId:primary">
+            <path value="Encounter.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Encounter.templateId:primary.root">
+            <path value="Encounter.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.40"/>
+        </element>
+        <element id="Encounter.id">
+            <path value="Encounter.id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Encounter.code">
+            <path value="Encounter.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Encounter.text">
+            <path value="Encounter.text"/>
+            <definition value="The  element if present points to the text describing the problem being recorded; including any dates, comments, et cetera. The  contains a URI in value attribute. This URI points to the free text description of the problem in the document that is being described."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Encounter.text.reference">
+            <path value="Encounter.text.reference"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Encounter.text.reference.value">
+            <path value="Encounter.text.reference.value"/>
+            <representation value="xmlAttr"/>
+            <definition value="When used it shall refer to the narrative, typically #{label}-{generated-id}, e.g. #xxx-1"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <element id="Encounter.effectiveTime">
+            <path value="Encounter.effectiveTime"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.priorityCode">
+            <path value="Encounter.priorityCode"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.performer">
+            <path value="Encounter.performer"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.performer.time">
+            <path value="Encounter.performer.time"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.participant">
+            <path value="Encounter.participant"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.participant.typeCode">
+            <path value="Encounter.participant.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="LOC"/>
+        </element>
+        <element id="Encounter.participant.participantRole">
+            <path value="Encounter.participant.participantRole"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Encounter.participant.participantRole.classCode">
+            <path value="Encounter.participant.participantRole.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SDLOC"/>
+        </element>
+        <element id="Encounter.participant.participantRole.id">
+            <path value="Encounter.participant.participantRole.id"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.participant.participantRole.code">
+            <path value="Encounter.participant.participantRole.code"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Encounter.participant.participantRole.addr">
+            <path value="Encounter.participant.participantRole.addr"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.participant.participantRole.telecom">
+            <path value="Encounter.participant.participantRole.telecom"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Encounter.participant.participantRole.playingEntity">
+            <path value="Encounter.participant.participantRole.playingEntity"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Encounter.participant.participantRole.playingEntity.classCode">
+            <path value="Encounter.participant.participantRole.playingEntity.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PLC"/>
+        </element>
+        <element id="Encounter.participant.participantRole.playingEntity.name">
+            <path value="Encounter.participant.participantRole.playingEntity.name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+    </differential>
+</StructureDefinition>

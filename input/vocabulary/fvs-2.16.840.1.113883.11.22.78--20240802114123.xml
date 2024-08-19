@@ -1,0 +1,53 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="2.16.840.1.113883.11.22.78--20240802114123"/>
+    <meta>
+        <lastUpdated value="2024-08-02T11:42:07Z"/>
+        <source value="https://art-decor.org/ad/#/hl7ips-/terminology/valueset"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+        <!--<profile value="http://hl7.org/fhir/4.0/StructureDefinition/ValueSet"/>-->
+        <tag>
+            <system value="http://hl7.org/fhir/FHIR-version"/>
+            <code value="4.0.1"/>
+        </tag>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-02T11:41:23+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://hl7.org/fhir/uv/ips/ValueSet/vaccines-uv-ips"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.11.22.78"/>
+    </identifier>
+    <version value="2024-08-02T11:41:23"/>
+    <name value="IPSWHOVaccines"/>
+    <title value="IPS Vaccines WHO ATC"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value="HL7 International"/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="IPS Vaccine codes value set. This value set includes codes from the World Health Organization Anatomical Therapeutic Chemical (ATC) classification system: all descendants of J07 “VACCINES”"/>
+    <immutable value="false"/>
+    <compose>
+        <include>
+            <system value="http://www.whocc.no/atc"/>
+            <filter>
+                <property value="concept"/>
+                <op value="descendent-of"/>
+                <value value="J07"/>
+            </filter>
+        </include>
+    </compose>
+</ValueSet>

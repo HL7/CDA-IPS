@@ -1,0 +1,237 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.5--20240804100924"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-04T10:09:24+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.5--20240804100924"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.5"/>
+    </identifier>
+    <version value="2024-08-04T10:09:24"/>
+    <name value="IPSAllergyAndIntoleranceConcern"/>
+    <title value="IPS Allergy and Intolerance Concern"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-04T10:09:24Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description
+        value="This template reflects an ongoing concern on behalf of the person that placed the allergy on a patient’s allergy list. &#xA; A concern may refer to one or more allergies or intolerances. &#xA; There are different kinds of status that could be related to an allergy, or more in general to a condition: &#xA;* The status of the concern (active, inactive,..) &#xA;* The status of the condition (e.g. active, inactive, resolved,..) &#xA;* The confirmation status [clinical workflow status, certainty] (e.g. confirmed, likely, unlikely,…) &#xA;&#xA;                 &#xA;&#xA;Not all of them can be represented in a CDA using the statusCode elements of the concern (ACT) and observation (condition).&#xA;&#xA;                 &#xA;&#xA;As long as the underlying condition is of concern to the author (i.e., as long as the allergy, whether active or resolved, is of ongoing concern and interest to the author), the statusCode is “active”.&#xA;&#xA;                 &#xA;&#xA;In case the clinician deems that there is no longer any need to track the underlying conditions then the concern is inactive and the statusCode is set to &#34;completed&#34;.&#xA;The effectiveTime/low of the Allergy Concern Act asserts when the concern became active. This equates to the time the concern was authored in the patient's chart.&#xA;The effectiveTime/high                     asserts when the concern became inactive, and it is present if the statusCode of the concern act is &#34;completed&#34;"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Act">
+            <path value="Act"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Act.templateId">
+            <path value="Act.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Act.templateId:primary">
+            <path value="Act.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.templateId:primary.root">
+            <path value="Act.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.5"/>
+        </element>
+        <element id="Act.id">
+            <path value="Act.id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.code">
+            <path value="Act.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.code.code">
+            <path value="Act.code.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="CONC"/>
+        </element>
+        <element id="Act.code.codeSystem">
+            <path value="Act.code.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.5.6"/>
+        </element>
+        <element id="Act.statusCode">
+            <path value="Act.statusCode"/>
+            <definition
+                value="As long as the underlying conditions are of concern to the author (i.e., as long as allergies, whether active or resolved, is of ongoing concern and interest to the author), the statusCode is “ **active** ”. The concern is tracked by the author. &#xA;                         &#xA; Only when the underlying allergies are no longer of concern then the statusCode is set to “ **completed** ”. The author is no more tracking this concern and no further actions are expected."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="x_ActStatusActiveComplete"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-xActStatusActiveComplete"/>
+            </binding>
+        </element>
+        <element id="Act.effectiveTime">
+            <path value="Act.effectiveTime"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.effectiveTime.low">
+            <path value="Act.effectiveTime.low"/>
+            <definition value="This element asserts when the concern became active. This equates to the time the concern was authored in the patient's chart and the author started tracking this concern."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.effectiveTime.high">
+            <path value="Act.effectiveTime.high"/>
+            <definition value="This element asserts when the clinician deemed there is no longer any need to track the underlying conditions.If statusCode/@code=&#34;completed&#34; Completed, then effectiveTime *SHALL* contain [1..1] high"/>
+            <min value="0"/>
+            <max value="1"/>
+            <condition value="MD1557037N1l27l352l30l19l10l12"/>
+            <constraint>
+                <!--extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-expression">
+                    <valueString value="" />
+                </extension-->
+                <key value="MD1557037N1l27l352l30l19l10l12"/>
+                <severity value="error"/>
+                <human value="If statusCode/@code=&#34;completed&#34; Completed, then effectiveTime *SHALL* contain [1..1] high"/>
+                <xpath value="not(../hl7:statusCode[@code='completed']) or hl7:high"/>
+            </constraint>
+        </element>
+        <element id="Act.entryRelationship">
+            <path value="Act.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="resolve()"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship-1">
+            <path value="Act.entryRelationship"/>
+            <min value="1"/>
+            <max value="*"/>
+            <sliceName value="entryRelationship-1"/>
+            <constraint>
+                <key value="entryRelationship-1"/>
+                <human value="contains IPS Allergy or Intolerance 2.16.840.1.113883.10.22.4.1 (2024-08-04)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship-1.observation">
+            <path value="Act.entryRelationship.observation"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.1--20240804094850"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship-1.typeCode">
+            <path value="Act.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SUBJ"/>
+        </element>
+        <element id="Act.entryRelationship:entryRelationship-1.inversionInd">
+            <path value="Act.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="false"/>
+        </element>
+    </differential>
+</StructureDefinition>

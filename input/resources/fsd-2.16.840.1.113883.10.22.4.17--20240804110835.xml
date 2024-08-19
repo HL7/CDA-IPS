@@ -1,0 +1,325 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.17--20240804110835"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-04T11:08:35+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.17--20240804110835"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.17"/>
+    </identifier>
+    <version value="2024-08-04T11:08:35"/>
+    <name value="IPSProcedureEntry"/>
+    <title value="IPS Procedure Entry"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-04T11:08:35Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="The procedure entry is used to record procedures that have occurred, or which are planned for in the future."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Procedure"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Procedure">
+            <path value="Procedure"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Procedure.classCode">
+            <path value="Procedure.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PROC"/>
+        </element>
+        <element id="Procedure.moodCode">
+            <path value="Procedure.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="MoodCodeEvnInt"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.20.9.18--20160623000000"/>
+            </binding>
+        </element>
+        <element id="Procedure.templateId">
+            <path value="Procedure.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Procedure.templateId:primary">
+            <path value="Procedure.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.templateId:primary.root">
+            <path value="Procedure.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.17"/>
+        </element>
+        <element id="Procedure.id">
+            <path value="Procedure.id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.code">
+            <path value="Procedure.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Procedures"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/procedures-uv-ips"/>
+            </binding>
+        </element>
+        <element id="Procedure.text">
+            <path value="Procedure.text"/>
+            <definition value="The  element if present points to the text describing the data being recorded; including any dates, comments, et cetera. The  contains a URI in value attribute. This URI points to the free text description of the element (problem, procedure,...) in the document that is being described."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.text.reference">
+            <path value="Procedure.text.reference"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.text.reference.value">
+            <path value="Procedure.text.reference.value"/>
+            <representation value="xmlAttr"/>
+            <definition value=" When used it shall refer to the narrative, typically #{label}-{generated-id}, e.g. #xxx-1 "/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <element id="Procedure.statusCode">
+            <path value="Procedure.statusCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="ActStatusActiveCompletedAbortedCancelled"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.22--20170502000000"/>
+            </binding>
+        </element>
+        <element id="Procedure.effectiveTime">
+            <path value="Procedure.effectiveTime"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.targetSiteCode">
+            <path value="Procedure.targetSiteCode"/>
+            <min value="0"/>
+            <max value="*"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Body Site"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/target-site-uv-ips"/>
+            </binding>
+        </element>
+        <element id="Procedure.participant">
+            <path value="Procedure.participant"/>
+            <definition value="The device is represented as a participant in the procedure structure. The following descriptions apply to the device structure."/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.participant.typeCode">
+            <path value="Procedure.participant.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="DEV"/>
+        </element>
+        <element id="Procedure.participant.participantRole">
+            <path value="Procedure.participant.participantRole"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.participant.participantRole.classCode">
+            <path value="Procedure.participant.participantRole.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MANU"/>
+        </element>
+        <element id="Procedure.participant.participantRole.id">
+            <path value="Procedure.participant.participantRole.id"/>
+            <definition value="The device ID, e.g. using UDI, is represented by the id element of the participant role. This element is optional, as not all production identifiers (e.g., serial number, lot/batch number, distinct identification number) may be known to the provider or patient."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.participant.participantRole.playingDevice">
+            <path value="Procedure.participant.participantRole.playingDevice"/>
+            <definition value="The playingDevice element describes the device instance. "/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.participant.participantRole.playingDevice.classCode">
+            <path value="Procedure.participant.participantRole.playingDevice.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="DEV"/>
+        </element>
+        <element id="Procedure.participant.participantRole.playingDevice.determinerCode">
+            <path value="Procedure.participant.participantRole.playingDevice.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>
+        <element id="Procedure.participant.participantRole.playingDevice.code">
+            <path value="Procedure.participant.participantRole.playingDevice.code"/>
+            <definition value="The device code describes the type of device (e.g. arm prosthesis, arterial stent)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Medical Devices"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/medical-devices-uv-ips"/>
+            </binding>
+            <binding>
+                <strength value="preferred"/>
+                <description value="Absent or Unknown Devices"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-devices-uv-ips"/>
+            </binding>
+        </element>
+        <element id="Procedure.entryRelationship">
+            <path value="Procedure.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="profile"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship-1">
+            <path value="Procedure.entryRelationship"/>
+            <min value="0"/>
+            <max value="*"/>
+            <sliceName value="entryRelationship-1"/>
+            <constraint>
+                <key value="entryRelationship-1"/>
+                <human value="contains IPS Internal Reference 2.16.840.1.113883.10.22.4.31 (2017-05-02)"/>
+            </constraint>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship-1.act">
+            <path value="Procedure.entryRelationship.act"/>
+            <sliceName value="entryRelationship-1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.31--20170502000000"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship-1.typeCode">
+            <path value="Procedure.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="COMP"/>
+        </element>
+        <element id="Procedure.entryRelationship:entryRelationship-1.inversionInd">
+            <path value="Procedure.entryRelationship.inversionInd"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="boolean"/>
+            </type>
+            <fixedString value="true"/>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -1,0 +1,15 @@
+# ╭─────────────────────────Commonly Used ImplementationGuide Properties───────────────────────────╮
+# │  The properties below are used to create the ImplementationGuide resource. The most commonly   │
+# │  used properties are included. For a list of all supported properties and their functions,     │
+# │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+id: cdaips
+canonical: http://hl7.org/cda/uv/cda-ips/ImplementationGuide/hl7.cda.uv.ips
+name: InternationalPatientSummaryCDAIG
+title: International Patient Summary (IPS)
+status: draft # draft | active | retired | unknown
+version: "2024.0.0-ballot"
+fhirVersion: "4.0.1" # https://www.hl7.org/fhir/valueset-FHIR-version.html
+copyrightYear: 2024+
+releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
+FSHOnly: true

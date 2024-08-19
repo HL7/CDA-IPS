@@ -1,0 +1,270 @@
+<StructureDefinition xmlns="http://hl7.org/fhir"><!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.26--20170411000000"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2017-04-11T00:00:00+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.26--20170411000000"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.26"/>
+    </identifier>
+    <version value="2017-04-11T00:00:00"/>
+    <name value="IPSMedicalDevice"/>
+    <title value="IPS Medical Device"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2017-04-11T00:00:00Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="The medical devices entry content module describes the kind of device that is, or has been used by the patient"/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Supply"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Supply">
+            <path value="Supply"/>
+            <definition value="The  element shall be present. The moodCode attribute shall be EVN to reflect that a medical device has been provided."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.classCode">
+            <path value="Supply.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SPLY"/>
+        </element>
+        <element id="Supply.moodCode">
+            <path value="Supply.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Supply.templateId">
+            <path value="Supply.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Supply.templateId:primary">
+            <path value="Supply.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.templateId:primary.root">
+            <path value="Supply.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.26"/>
+        </element>
+        <element id="Supply.id">
+            <path value="Supply.id"/>
+            <definition value="This optional element identifies the provision of the device (e.g. implant procedure)"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.text">
+            <path value="Supply.text"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.text.reference">
+            <path value="Supply.text.reference"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.text.reference.value">
+            <path value="Supply.text.reference.value"/>
+            <representation value="xmlAttr"/>
+            <definition value="Reference pointing to the narrative, typically #{label}-{generated-id}, e.g. #xxx-1"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <element id="Supply.effectiveTime">
+            <path value="Supply.effectiveTime"/>
+            <representation value="typeAttr"/>
+            <definition value="This element provides the interval of time corresponding to the device usage by/presence in the patient."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.effectiveTime.type">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="http://www.w3.org/2001/XMLSchema-instance"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="xsi"/>
+            </extension>
+            <path value="Supply.effectiveTime.type"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="IVL_TS"/>
+        </element>
+        <element id="Supply.effectiveTime.low">
+            <path value="Supply.effectiveTime.low"/>
+            <definition value="The lower bound of the interval represents the start date/time."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.effectiveTime.high">
+            <path value="Supply.effectiveTime.high"/>
+            <definition value="The upper bound represents the end date/time. If it is not present, the device is still used by or present in the patient."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Supply.participant">
+            <path value="Supply.participant"/>
+            <definition value="The device is represented as a participant in the supply structure. The following descriptions apply to the device structure."/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.participant.typeCode">
+            <path value="Supply.participant.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="DEV"/>
+        </element>
+        <element id="Supply.participant.participantRole">
+            <path value="Supply.participant.participantRole"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.participant.participantRole.classCode">
+            <path value="Supply.participant.participantRole.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MANU"/>
+        </element>
+        <element id="Supply.participant.participantRole.id">
+            <path value="Supply.participant.participantRole.id"/>
+            <definition value="The device ID, e.g. using UDI, is represented by the id element of the participant role. This element is optional, as not all production identifiers (e.g., serial number, lot/batch number, distinct identification number) may be known to the provider or patient."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.participant.participantRole.playingDevice">
+            <path value="Supply.participant.participantRole.playingDevice"/>
+            <definition value="The playingDevice element describes the device instance. "/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Supply.participant.participantRole.playingDevice.classCode">
+            <path value="Supply.participant.participantRole.playingDevice.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="DEV"/>
+        </element>
+        <element id="Supply.participant.participantRole.playingDevice.determinerCode">
+            <path value="Supply.participant.participantRole.playingDevice.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>
+        <element id="Supply.participant.participantRole.playingDevice.code">
+            <path value="Supply.participant.participantRole.playingDevice.code"/>
+            <definition value="The device code describes the type of device (e.g. arm prosthesis, arterial stent)."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Medical Devices"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/medical-devices-uv-ips"/>
+            </binding>
+            <binding>
+                <strength value="preferred"/>
+                <description value="Absent or Unknown Devices"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-devices-uv-ips"/>
+            </binding>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -1,0 +1,171 @@
+<StructureDefinition xmlns="http://hl7.org/fhir"><!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.16--20240804211600"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-04T21:16:00+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.16--20240804211600"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.16"/>
+    </identifier>
+    <version value="2024-08-04T21:16:00"/>
+    <name value="IPSImmunizationMedicationInformation"/>
+    <title value="IPS Immunization Medication Information"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-04T21:16:00Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="The Immunization Medication Information represents product information about the immunization substance. The vaccine manufacturer and vaccine lot number are typically recorded in the medical record and should be included if known."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ManufacturedProduct"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="ManufacturedProduct">
+            <path value="ManufacturedProduct"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ManufacturedProduct.classCode">
+            <path value="ManufacturedProduct.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MANU"/>
+        </element>
+        <element id="ManufacturedProduct.templateId">
+            <path value="ManufacturedProduct.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ManufacturedProduct.templateId:primary">
+            <path value="ManufacturedProduct.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ManufacturedProduct.templateId:primary.root">
+            <path value="ManufacturedProduct.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.16"/>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial">
+            <path value="ManufacturedProduct.manufacturedMaterial"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.code">
+            <path value="ManufacturedProduct.manufacturedMaterial.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Vaccines"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/vaccines-uv-ips"/>
+            </binding>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.code.translation">
+            <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.code.translation:primary">
+            <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CE"/>
+            </type>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.code.translation:secondary">
+            <path value="ManufacturedProduct.manufacturedMaterial.code.translation"/>
+            <definition value="candidate: for when WHO ATC code system is preferred"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CE"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="IPS Vaccines WHO ATC"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/vaccines-uv-ips"/>
+            </binding>
+        </element>
+        <element id="ManufacturedProduct.manufacturedMaterial.lotNumberText">
+            <path value="ManufacturedProduct.manufacturedMaterial.lotNumberText"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ManufacturedProduct.manufacturerOrganization">
+            <path value="ManufacturedProduct.manufacturerOrganization"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+    </differential>
+</StructureDefinition>

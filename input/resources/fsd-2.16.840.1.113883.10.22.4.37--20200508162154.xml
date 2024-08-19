@@ -1,0 +1,412 @@
+<StructureDefinition xmlns="http://hl7.org/fhir"><!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.37--20200508162154"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2020-05-08T16:21:54+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.37--20200508162154"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.37"/>
+    </identifier>
+    <version value="2020-05-08T16:21:54"/>
+    <name value="IPSAdvanceDirectiveObservation"/>
+    <title value="IPS Advance Directive Observation"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2020-05-08T16:21:54Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="This clinical statement represents Advance Directive Observation findings (e.g., “resuscitation status is Full Code”) rather than orders. It should not be considered a legal document or a substitute for the actual Advance Directive document. The related legal documents are referenced using the reference/externalReference element. The Advance Directive Observation                 describes the patient’s directives, including but not limited to: • Medications • Transfer of Care to Hospital • Treatment • Procedures • Intubation and Ventilation • Diagnostic Tests • Tests The observation/value element contains the detailed patient directive which may be coded or text. For example, a category directive may be antibiotics, and the details would be intravenous                 antibiotics only."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:primary">
+            <path value="Observation.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.templateId:primary.root">
+            <path value="Observation.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.37"/>
+        </element>
+        <element id="Observation.id">
+            <path value="Observation.id"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="example"/>
+                <description value="AdvanceDirectiveTypeCode"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.1.11.20.2--20160623000000"/>
+            </binding>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="completed"/>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.effectiveTime.low">
+            <path value="Observation.effectiveTime.low"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.effectiveTime.high">
+            <path value="Observation.effectiveTime.high"/>
+            <definition value="If the Advance Directive does not have a specified ending time, the  element *SHALL* have the nullFlavor attribute set to *NA*"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.author">
+            <path value="Observation.author"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant">
+            <path value="Observation.participant"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.participant:primary">
+            <path value="Observation.participant"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Participant2"/>
+            </type>
+        </element>
+        <element id="Observation.participant:primary.typeCode">
+            <path value="Observation.participant.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="VRF"/>
+        </element>
+        <element id="Observation.participant:primary.time">
+            <path value="Observation.participant.time"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/IVL-TS"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:primary.participantRole">
+            <path value="Observation.participant.participantRole"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:primary.participantRole.code">
+            <path value="Observation.participant.participantRole.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CE"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:primary.participantRole.addr">
+            <path value="Observation.participant.participantRole.addr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:primary.participantRole.playingEntity">
+            <path value="Observation.participant.participantRole.playingEntity"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PlayingEntity"/>
+            </type>
+        </element>
+        <element id="Observation.participant:primary.participantRole.playingEntity.code">
+            <path value="Observation.participant.participantRole.playingEntity.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CE"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:primary.participantRole.playingEntity.name">
+            <path value="Observation.participant.participantRole.playingEntity.name"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:secondary">
+            <path value="Observation.participant"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Participant2"/>
+            </type>
+        </element>
+        <element id="Observation.participant:secondary.typeCode">
+            <path value="Observation.participant.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CST"/>
+        </element>
+        <element id="Observation.participant:secondary.participantRole">
+            <path value="Observation.participant.participantRole"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/ParticipantRole"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:secondary.participantRole.classCode">
+            <path value="Observation.participant.participantRole.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="AGNT"/>
+        </element>
+        <element id="Observation.participant:secondary.participantRole.code">
+            <path value="Observation.participant.participantRole.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CE"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:secondary.participantRole.addr">
+            <path value="Observation.participant.participantRole.addr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/AD"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:secondary.participantRole.telecom">
+            <path value="Observation.participant.participantRole.telecom"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/TEL"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:secondary.participantRole.playingEntity">
+            <path value="Observation.participant.participantRole.playingEntity"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PlayingEntity"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:secondary.participantRole.playingEntity.code">
+            <path value="Observation.participant.participantRole.playingEntity.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CE"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.participant:secondary.participantRole.playingEntity.name">
+            <path value="Observation.participant.participantRole.playingEntity.name"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/PN"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.reference">
+            <path value="Observation.reference"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.reference.typeCode">
+            <path value="Observation.reference.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="REFR"/>
+        </element>
+        <element id="Observation.reference.externalDocument">
+            <path value="Observation.reference.externalDocument"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.reference.externalDocument.id">
+            <path value="Observation.reference.externalDocument.id"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.reference.externalDocument.text">
+            <path value="Observation.reference.externalDocument.text"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.reference.externalDocument.text.reference">
+            <path value="Observation.reference.externalDocument.text.reference"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

@@ -1,0 +1,182 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.48--20200510151616"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2020-05-10T15:16:16+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.48--20200510151616"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.48"/>
+    </identifier>
+    <version value="2020-05-10T15:16:16"/>
+    <name value="IPSSocialHistoryObservation"/>
+    <title value="IPS Social History Observation"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2020-05-10T15:16:16Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description
+        value="This template represents a patient's occupations, lifestyle, and environmental health risk factors. Demographic data (e.g., marital status, race, ethnicity, religious affiliation) are captured in the header. Though tobacco use and exposure may be represented with a Social History Observation, it is recommended to use the Current Smoking Status template or the                 Tobacco Use template instead, to represent smoking or tobacco habits."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:primary">
+            <path value="Observation.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.templateId:primary.root">
+            <path value="Observation.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.48"/>
+        </element>
+        <element id="Observation.id">
+            <path value="Observation.id"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="example"/>
+                <description value="Social History Type"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.3.88.12.80.60--20081218000000"/>
+            </binding>
+        </element>
+        <element id="Observation.text">
+            <path value="Observation.text"/>
+            <definition value="The  element if present points to the text describing the problem being recorded; including any dates, comments, et cetera. The  contains a URI in value attribute. This URI points to the free text description of the problem in the document that is being described."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.text.reference">
+            <path value="Observation.text.reference"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.text.reference.value">
+            <path value="Observation.text.reference.value"/>
+            <representation value="xmlAttr"/>
+            <definition value="When used it shall refer to the narrative, typically #{label}-{generated-id}, e.g. #xxx-1"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="completed"/>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <definition value="If Observation/value is a physical quantity (xsi:type=&#34;PQ&#34;), the unit of measure *SHALL* be selected from ValueSet UnitsOfMeasureCaseSensitive (2.16.840.1.113883.1.11.12839) *DYNAMIC*"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+    </differential>
+</StructureDefinition>

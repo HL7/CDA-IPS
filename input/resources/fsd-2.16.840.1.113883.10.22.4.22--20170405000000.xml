@@ -1,0 +1,209 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.22--20170405000000"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2017-04-05T00:00:00+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.22--20170405000000"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.22"/>
+    </identifier>
+    <version value="2017-04-05T00:00:00"/>
+    <name value="IPSCommentActivity"/>
+    <title value="IPS Comment Activity"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2017-04-05T00:00:00Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="Comments are free text data that cannot otherwise be recorded using data elements already defined by this specification. They are not to be used to record information that can be recorded elsewhere. For example, a free text description of the severity of an allergic reaction would not be recorded in a comment."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Act"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Act">
+            <path value="Act"/>
+            <definition value="Data elements defined elsewhere in the specification SHALL NOT be recorded using the Comment Activity"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Act.classCode">
+            <path value="Act.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="ACT"/>
+        </element>
+        <element id="Act.moodCode">
+            <path value="Act.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Act.templateId">
+            <path value="Act.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Act.templateId:primary">
+            <path value="Act.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.templateId:primary.root">
+            <path value="Act.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.22"/>
+        </element>
+        <element id="Act.code">
+            <path value="Act.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.code.code">
+            <path value="Act.code.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="48767-8"/>
+        </element>
+        <element id="Act.code.codeSystem">
+            <path value="Act.code.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Act.text">
+            <path value="Act.text"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.text.reference">
+            <path value="Act.text.reference"/>
+            <min value="1"/>
+            <max value="1"/>
+            <condition value="PD4012N3l16l262l20l14l9l11"/>
+            <constraint>
+                <!--extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-expression">
+                    <valueString value="" />
+                </extension-->
+                <key value="PD4012N3l16l262l20l14l9l11"/>
+                <severity value="error"/>
+                <human value="This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1)"/>
+                <xpath value="not(@value) or starts-with(@value, '#')"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.text.reference.value">
+            <path value="Act.text.reference.value"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <element id="Act.author">
+            <path value="Act.author"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Act.author.time">
+            <path value="Act.author.time"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.author.assignedAuthor">
+            <path value="Act.author.assignedAuthor"/>
+            <definition value="The author, if present, SHALL include assignedPerson/name or representedOrganization/name"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.author.assignedAuthor.id">
+            <path value="Act.author.assignedAuthor.id"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.author.assignedAuthor.addr">
+            <path value="Act.author.assignedAuthor.addr"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.author.assignedAuthor.name">
+            <path value="Act.author.assignedAuthor.name"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Act.author.assignedAuthor.softwareName">
+            <path value="Act.author.assignedAuthor.softwareName"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+    </differential>
+</StructureDefinition>

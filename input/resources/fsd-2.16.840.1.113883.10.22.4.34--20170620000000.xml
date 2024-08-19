@@ -1,0 +1,191 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.34--20170620000000"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2017-06-20T00:00:00+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.34--20170620000000"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.34"/>
+    </identifier>
+    <version value="2017-06-20T00:00:00"/>
+    <name value="IPSSocialHistoryObsTobaccoUse"/>
+    <title value="IPS Social History Tobacco Use"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2017-06-20T00:00:00Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="This template is a specialization of the Social History Observation that may be used to represent smoking or tobacco habits."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:primary">
+            <path value="Observation.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.templateId:primary.root">
+            <path value="Observation.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.34"/>
+        </element>
+        <element id="Observation.id">
+            <path value="Observation.id"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.code.code">
+            <path value="Observation.code.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="72166-2"/>
+        </element>
+        <element id="Observation.code.codeSystem">
+            <path value="Observation.code.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="Observation.code.translation">
+            <path value="Observation.code.translation"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.statusCode.code">
+            <path value="Observation.statusCode.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="completed"/>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <representation value="typeAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="IPS Current Smoking Status"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/current-smoking-status-uv-ips"/>
+            </binding>
+        </element>
+        <element id="Observation.value.type">
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+                <valueUri value="http://www.w3.org/2001/XMLSchema-instance"/>
+            </extension>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-xml-name">
+                <valueString value="xsi"/>
+            </extension>
+            <path value="Observation.value.type"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CD"/>
+        </element>
+    </differential>
+</StructureDefinition>

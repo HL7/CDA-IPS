@@ -1,0 +1,424 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.12--20240804201800"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-04T20:18:00+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.12--20240804201800"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.12"/>
+    </identifier>
+    <version value="2024-08-04T20:18:00"/>
+    <name value="IPSRadiologyResultObservation"/>
+    <title value="IPS Radiology Result Observation"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-04T20:18:00Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description
+        value="This template represents an observation produced as one of the results of a radiology or other imaging study performed on a patient.  &#xA; In most cases, in the context of a patient summary this observation is final and validated, which is recorded with the value &#34;completed&#34; in the statusCode element. Should  the                 observation be not final, the statusCode would indicate &#34;active&#34;, instead."/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="Observation">
+            <path value="Observation"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.classCode">
+            <path value="Observation.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="OBS"/>
+        </element>
+        <element id="Observation.moodCode">
+            <path value="Observation.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="Observation.templateId">
+            <path value="Observation.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.templateId:primary">
+            <path value="Observation.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.templateId:primary.root">
+            <path value="Observation.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.12"/>
+        </element>
+        <element id="Observation.id">
+            <path value="Observation.id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.code">
+            <path value="Observation.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="IPS Results Radiology Observation"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/imaging-observations-uv-ips"/>
+            </binding>
+        </element>
+        <element id="Observation.statusCode">
+            <path value="Observation.statusCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="x_ActStatusActiveComplete"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-xActStatusActiveComplete"/>
+            </binding>
+        </element>
+        <element id="Observation.effectiveTime">
+            <path value="Observation.effectiveTime"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.value">
+            <path value="Observation.value"/>
+            <definition value="Actual result, free text (data type ST)"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.interpretationCode">
+            <path value="Observation.interpretationCode"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="ObservationInterpretation"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v2-0078"/>
+            </binding>
+        </element>
+        <element id="Observation.targetSiteCode">
+            <path value="Observation.targetSiteCode"/>
+            <definition value="If the observation site is not precoordinated in the observation/code or observation/value it SHALL be specified in the observation/targetSiteCode"/>
+            <min value="0"/>
+            <max value="1"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Body Site"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/target-site-uv-ips"/>
+            </binding>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier">
+            <path value="Observation.targetSiteCode.qualifier"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="name"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="value"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier:primary">
+            <path value="Observation.targetSiteCode.qualifier"/>
+            <definition value="LateralityThe qualifier element for laterality SHALL be present if the targetSiteCode represents a paired body part and laterality is not pre-coordinated in the targetSiteCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CR"/>
+            </type>
+        </element>
+        <!--<element id="Observation.targetSiteCode.qualifier.name">
+            <path value="Observation.targetSiteCode.qualifier.name"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="name"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="value"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>-->
+        <element id="Observation.targetSiteCode.qualifier:primary.name">
+            <path value="Observation.targetSiteCode.qualifier.name"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CV"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier:primary.name.code">
+            <path value="Observation.targetSiteCode.qualifier.name.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="272741003"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier:primary.name.codeSystem">
+            <path value="Observation.targetSiteCode.qualifier.name.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.6.96"/>
+        </element>
+        <!--<element id="Observation.targetSiteCode.qualifier:primary.value">
+            <path value="Observation.targetSiteCode.qualifier.value"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="name"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="value"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>-->
+        <element id="Observation.targetSiteCode.qualifier:primary.value">
+            <path value="Observation.targetSiteCode.qualifier.value"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="Laterality (qualifier)"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.57--20171212192725"/>
+            </binding>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier:secondary">
+            <path value="Observation.targetSiteCode.qualifier"/>
+            <definition value="Topographical modifier"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CR"/>
+            </type>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier:secondary.name">
+            <path value="Observation.targetSiteCode.qualifier.name"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CV"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier:secondary.name.code">
+            <path value="Observation.targetSiteCode.qualifier.name.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="106233006"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier:secondary.name.codeSystem">
+            <path value="Observation.targetSiteCode.qualifier.name.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.6.96"/>
+        </element>
+        <element id="Observation.targetSiteCode.qualifier:secondary.value">
+            <path value="Observation.targetSiteCode.qualifier.value"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="Topographical modifier (qualifier)"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.22.58--20171212193352"/>
+            </binding>
+        </element>
+        <element id="Observation.author">
+            <path value="Observation.author"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.referenceRange">
+            <path value="Observation.referenceRange"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.referenceRange.observationRange">
+            <path value="Observation.referenceRange.observationRange"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.referenceRange.observationRange.code">
+            <path value="Observation.referenceRange.observationRange.code"/>
+            <min value="0"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.referenceRange.observationRange.value">
+            <path value="Observation.referenceRange.observationRange.value"/>
+            <representation value="typeAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.referenceRange.observationRange.interpretationCode">
+            <path value="Observation.referenceRange.observationRange.interpretationCode"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.referenceRange.observationRange.interpretationCode.code">
+            <path value="Observation.referenceRange.observationRange.interpretationCode.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="N"/>
+        </element>
+        <element id="Observation.referenceRange.observationRange.interpretationCode.codeSystem">
+            <path value="Observation.referenceRange.observationRange.interpretationCode.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.5.83"/>
+        </element>
+        <element id="Observation.entryRelationship">
+            <path value="Observation.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="profile"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1">
+            <path value="Observation.entryRelationship"/>
+            <min value="0"/>
+            <max value="*"/>
+            <sliceName value="entryRelationship-1"/>
+            <constraint>
+                <key value="entryRelationship-1"/>
+                <human value="contains IPS Radiology Result Observation Component 2.16.840.1.113883.10.22.17 (2024-08-04)"/>
+            </constraint>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1.observation">
+            <path value="Observation.entryRelationship.observation"/>
+            <sliceName value="entryRelationship-1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Observation"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.17--20240804201847"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-1.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="COMP"/>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-2">
+            <path value="Observation.entryRelationship"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="entryRelationship-2"/>
+            <constraint>
+                <key value="entryRelationship-2"/>
+                <human value="contains IPS Comment Activity 2.16.840.1.113883.10.22.4.22 (2017-04-05)"/>
+            </constraint>
+        </element>
+        <element id="Observation.entryRelationship:entryRelationship-2.typeCode">
+            <path value="Observation.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="COMP"/>
+        </element>
+    </differential>
+</StructureDefinition>

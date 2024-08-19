@@ -1,0 +1,2114 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.1.2--20240802130239"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-02T13:02:39+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.1.2--20240802130239"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.1.2"/>
+    </identifier>
+    <version value="2024-08-02T13:02:39"/>
+    <name value="HL7_IPS"/>
+    <title value="International Patient Summary"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-02T13:02:39Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description
+        value="The **International Patient Summary** is a **&#34;Minimal and non-exhaustive Patient Summary, specialty-agnostic, condition-independent, but readily usable by all clinicians for the unscheduled (cross-border) care of a patient.&#34;**&#xA;                 &#xA;The IPS templates aim to:&#xA;                 &#xA;* Serve for both cross-jurisdictional (through adaptation/extension for multi-language and realm scenarios, including translation) and national (through localization) patient summaries.&#xA;* Support emergency care and unplanned care in any country (home and foreign), regardless of language&#xA;* Define value sets based on international vocabularies that                             are usable and understandable in any country  "/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/ClinicalDocument"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="ClinicalDocument">
+            <path value="ClinicalDocument"/>
+            <definition value="CDA header"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.realmCode">
+            <path value="ClinicalDocument.realmCode"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.typeId">
+            <path value="ClinicalDocument.typeId"/>
+            <definition value="The clinical document typeId identifies the constraints imposed by CDA R2 on the content, essentially acting as a version identifier."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.typeId.root">
+            <path value="ClinicalDocument.typeId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.1.3"/>
+        </element>
+        <element id="ClinicalDocument.typeId.extension">
+            <path value="ClinicalDocument.typeId.extension"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="POCD_HD000040"/>
+        </element>
+        <element id="ClinicalDocument.templateId">
+            <path value="ClinicalDocument.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.templateId:primary">
+            <path value="ClinicalDocument.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.templateId:primary.root">
+            <path value="ClinicalDocument.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.1.1"/>
+        </element>
+        <element id="ClinicalDocument.id">
+            <path value="ClinicalDocument.id"/>
+            <definition value="Unique identifier of this instance of the Patient Summary."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.code">
+            <path value="ClinicalDocument.code"/>
+            <definition value="Determines the document type that is the &#34;Patient Summary&#34; document"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.code.code">
+            <path value="ClinicalDocument.code.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="60591-5"/>
+        </element>
+        <element id="ClinicalDocument.code.codeSystem">
+            <path value="ClinicalDocument.code.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="ClinicalDocument.code.displayName">
+            <path value="ClinicalDocument.code.displayName"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.code.translation">
+            <path value="ClinicalDocument.code.translation"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.code.translation:primary">
+            <path value="ClinicalDocument.code.translation"/>
+            <definition value="This element can be here used either to provide the originally used document code if this IPS is the result of a transformation."/>
+            <min value="0"/>
+            <max value="*"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CD"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.title">
+            <path value="ClinicalDocument.title"/>
+            <definition value="ClinicalDocument/title is used for display purposes."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.effectiveTime">
+            <path value="ClinicalDocument.effectiveTime"/>
+            <definition value="Time of creation of the Patient Summary"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.confidentialityCode">
+            <path value="ClinicalDocument.confidentialityCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="HL7 BasicConfidentialityKind"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-xBasicConfidentialityKind"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.languageCode">
+            <path value="ClinicalDocument.languageCode"/>
+            <definition value="Document Language CodeThe two characters form SHALL be used when available; otherwise the three characters representation SHALL be adopted"/>
+            <min value="1"/>
+            <max value="1"/>
+            <condition value="PD4012N3l16l644l27l23l19"/>
+            <constraint>
+                <!--extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-expression">
+                    <valueString value="" />
+                </extension-->
+                <key value="PD4012N3l16l644l27l23l19"/>
+                <severity value="error"/>
+                <human value="The language code SHALL be in the form nn-CC or nnn-CCC, in accordance with BCP 47 (e.g. nn is the ISO language code; CC is ISO country code)"/>
+                <xpath value="matches(@code,'[a-z]{2,3}-[A-Z]{2,3}')"/>
+            </constraint>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="All Languages"/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.setId">
+            <path value="ClinicalDocument.setId"/>
+            <definition
+                value="This attribute “represents an identifier that is common across all document revisions”.&#xA;                         &#xA;In the case the IPS instance is generated as result of one or more transformations (translation/transcoding) the setId is supposed to remain unchanged across all those transformations.&#xA;                         &#xA;Implementers are recommended to use this attribute."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.versionNumber">
+            <path value="ClinicalDocument.versionNumber"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget">
+            <path value="ClinicalDocument.recordTarget"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.typeCode">
+            <path value="ClinicalDocument.recordTarget.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="RCT"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.contextControlCode">
+            <path value="ClinicalDocument.recordTarget.contextControlCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="OP"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole">
+            <path value="ClinicalDocument.recordTarget.patientRole"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.classCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PAT"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.id">
+            <path value="ClinicalDocument.recordTarget.patientRole.id"/>
+            <definition value="Patient Identifiers: Primary Patient Identifier (Regional/National Health Id), Secondary Patient Identifier (Social/Insurance Number)"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr"/>
+            <definition value="The patient address.When used for cross-border exchange the country address part has to be provided."/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr.use">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="PostalAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-PostalAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr.nullFlavor">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="NI"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr.streetAddressLine">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr.streetAddressLine"/>
+            <definition value="Subject's or Organization's Street Address Line"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr.city">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr.city"/>
+            <definition value="Subject's or Organization's City"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr.postalCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr.postalCode"/>
+            <definition value="Subject's or Organization's Postal Code"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr.state">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr.state"/>
+            <definition value="Subject's or Organization's State or Province"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.addr.country">
+            <path value="ClinicalDocument.recordTarget.patientRole.addr.country"/>
+            <definition value="Subject's Country.The content of this element SHALL be selected EITHER from ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300  DYNAMIC OR MAY be selected from ISO Country Alpha-3 2.16.840.1.113883.1.11.171 DYNAMIC, IF the country is not specified in ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.telecom">
+            <path value="ClinicalDocument.recordTarget.patientRole.telecom"/>
+            <definition value="Patient’s telecom information : e.g. telephone number, e-mail address. If there is no information, the nullFlavor attribute shall have a value of 'NI' and the &#34;value&#34; and &#34;use&#34; attributes shall be omitted, otherwise the nullFlavor attribute shall not be present, and the &#34;value&#34; and &#34;use&#34; attributes shall be present."/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.telecom.use">
+            <path value="ClinicalDocument.recordTarget.patientRole.telecom.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="TelecommunicationAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-TelecommunicationAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.telecom.nullFlavor">
+            <path value="ClinicalDocument.recordTarget.patientRole.telecom.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="NI"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.classCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PSN"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.determinerCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.name">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.name"/>
+            <definition value="Patient NameThe Alphabetic representation of the name SHALL be always provided"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.name.family">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.name.family"/>
+            <definition value="Patient's Family Name/Surname"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.name.given">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.name.given"/>
+            <definition value="Patient's Given Name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.administrativeGenderCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.administrativeGenderCode"/>
+            <definition value="Patient's Gender"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="Administrative Gender (HL7 V3)"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-AdministrativeGender"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.administrativeGenderCode.nullFlavor">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.administrativeGenderCode.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="UNK"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.birthTime">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.birthTime"/>
+            <definition value="Patient's Date of Birth. The patient date of birth may be a partial date such as only the year."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian"/>
+            <definition value="The guardians of a patient. &#xA;                                     &#xA;Other patient contacts are described using the /ClinicalDocument/participant structure. The &lt;associatedEntity&gt; element defines the type of contact."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.classCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="GUARD"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.code">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.code"/>
+            <definition value="The relationship between the patient and the guardian or other contact may be recorded in the  element. "/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="PersonalRelationshipRoleType"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-PersonalRelationshipRoleType"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr"/>
+            <definition value="If there is no information, the nullFlavor attribute shall have a value of 'NI' and no address parts shall be present, otherwise there shall be no nullFlavor attribute, and at least one of the address parts listed below shall be present."/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.use">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="PostalAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-PostalAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.nullFlavor">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="NI"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.streetAddressLine">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.streetAddressLine"/>
+            <definition value="Subject's or Organization's Street Address Line"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.city">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.city"/>
+            <definition value="Subject's or Organization's City"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.postalCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.postalCode"/>
+            <definition value="Subject's or Organization's Postal Code"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.state">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.state"/>
+            <definition value="Subject's or Organization's State or Province"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.country">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.addr.country"/>
+            <definition value="Subject's Country.The content of this element SHALL be selected EITHER from ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300  DYNAMIC OR MAY be selected from ISO Country Alpha-3 2.16.840.1.113883.1.11.171 DYNAMIC, IF the country is not specified in ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom"/>
+            <definition value="Guardian’s telecom information: e.g. telephone number; e-mail address. If there is no information, the nullFlavor attribute shall have a value of 'NI' and the &#34;value&#34; and &#34;use&#34; attributes shall be omitted, otherwise the nullFlavor attribute shall not be present, and the &#34;value&#34; and &#34;use&#34; attributes shall be present."/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom.use">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="TelecommunicationAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-TelecommunicationAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom.nullFlavor">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.telecom.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="NI"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson.name">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson.name"/>
+            <definition value="Patient Guardian's Name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson.name.family">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson.name.family"/>
+            <definition value="Patient Guardian's Family Name/Surname"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson.name.given">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson.name.given"/>
+            <definition value="Patient Guardian's Given Name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode">
+            <path value="ClinicalDocument.recordTarget.patientRole.patient.languageCommunication.languageCode"/>
+            <definition value="Patient’s languageThe two characters form SHALL be used when available; otherwise the three characters representation SHALL be adopted"/>
+            <min value="1"/>
+            <max value="1"/>
+            <condition value="MD1756847N1l1l3l28l13l16l22l7l18"/>
+            <constraint>
+                <!--extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-expression">
+                    <valueString value="" />
+                </extension-->
+                <key value="MD1756847N1l1l3l28l13l16l22l7l18"/>
+                <severity value="error"/>
+                <human value="The language code SHALL be in the form nn-CC or nnn-CCC, in accordance with BCP 47 (e.g. nn is the ISO language code; CC is ISO country code)"/>
+                <xpath value="matches(@code,'[a-z]{2,3}-[A-Z]{2,3}')"/>
+            </constraint>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="All Languages"/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.author">
+            <path value="ClinicalDocument.author"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.typeCode">
+            <path value="ClinicalDocument.author.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="AUT"/>
+        </element>
+        <element id="ClinicalDocument.author.contextControlCode">
+            <path value="ClinicalDocument.author.contextControlCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="OP"/>
+        </element>
+        <element id="ClinicalDocument.author.functionCode">
+            <path value="ClinicalDocument.author.functionCode"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.time">
+            <path value="ClinicalDocument.author.time"/>
+            <definition value="The author/time element represents the start time of the author’s participation in the creation of the clinical document. "/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor">
+            <path value="ClinicalDocument.author.assignedAuthor"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.classCode">
+            <path value="ClinicalDocument.author.assignedAuthor.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="ASSIGNED"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.id">
+            <path value="ClinicalDocument.author.assignedAuthor.id"/>
+            <definition value="Author Identifier(s)"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.id.nullFlavor">
+            <path value="ClinicalDocument.author.assignedAuthor.id.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.code">
+            <path value="ClinicalDocument.author.assignedAuthor.code"/>
+            <definition value="A code, which identifies the profession/competence/specialty of the author when it is a person."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="IPS Healthcare Professional Roles"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/healthcare-professional-roles-uv-ips "/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.addr">
+            <path value="ClinicalDocument.author.assignedAuthor.addr"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.telecom">
+            <path value="ClinicalDocument.author.assignedAuthor.telecom"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.telecom.use">
+            <path value="ClinicalDocument.author.assignedAuthor.telecom.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="TelecommunicationAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-TelecommunicationAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.telecom.value">
+            <path value="ClinicalDocument.author.assignedAuthor.telecom.value"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="url"/>
+            </type>
+        </element>
+        <!--<element id="ClinicalDocument.author.assignedAuthor.classCode">
+            <path value="ClinicalDocument.author.assignedAuthor.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PSN"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.determinerCode">
+            <path value="ClinicalDocument.author.assignedAuthor.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>-->
+        <element id="ClinicalDocument.author.assignedAuthor.name">
+            <path value="ClinicalDocument.author.assignedAuthor.name"/>
+            <definition value="Name of the person (e.g. the Healthcare Professional)  authoring this document"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.name.family">
+            <path value="ClinicalDocument.author.assignedAuthor.name.family"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.name.given">
+            <path value="ClinicalDocument.author.assignedAuthor.name.given"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <!--<element id="ClinicalDocument.author.assignedAuthor.classCode">
+            <path value="ClinicalDocument.author.assignedAuthor.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="DEV"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.determinerCode">
+            <path value="ClinicalDocument.author.assignedAuthor.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>-->
+        <element id="ClinicalDocument.author.assignedAuthor.manufacturerModelName">
+            <path value="ClinicalDocument.author.assignedAuthor.manufacturerModelName"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.softwareName">
+            <path value="ClinicalDocument.author.assignedAuthor.softwareName"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.classCode">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="ORG"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.determinerCode">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.id">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.id"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.id.nullFlavor">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.id.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.name">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.name"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.name.nullFlavor">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.name.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.telecom">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.telecom"/>
+            <definition value="If there is no information, the nullFlavor attribute shall have a value of 'NI' and the &#34;value&#34; and &#34;use&#34; attributes shall be omitted, otherwise the nullFlavor attribute shall not be present, and the &#34;value&#34; and &#34;use&#34; attributes shall be present."/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.telecom.use">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.telecom.use"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="TelecommunicationAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-TelecommunicationAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.telecom.nullFlavor">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.telecom.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.addr">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.addr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.use">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="PostalAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-PostalAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.nullFlavor">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="NI"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.streetAddressLine">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.streetAddressLine"/>
+            <definition value="Subject's or Organization's Street Address Line"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.city">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.city"/>
+            <definition value="Subject's or Organization's City"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.postalCode">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.postalCode"/>
+            <definition value="Subject's or Organization's Postal Code"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.state">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.state"/>
+            <definition value="Subject's or Organization's State or Province"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.country">
+            <path value="ClinicalDocument.author.assignedAuthor.representedOrganization.addr.country"/>
+            <definition value="Subject's Country.The content of this element SHALL be selected EITHER from ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300  DYNAMIC OR MAY be selected from ISO Country Alpha-3 2.16.840.1.113883.1.11.171 DYNAMIC, IF the country is not specified in ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian">
+            <path value="ClinicalDocument.custodian"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.custodian.typeCode">
+            <path value="ClinicalDocument.custodian.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="CST"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian">
+            <path value="ClinicalDocument.custodian.assignedCustodian"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.classCode">
+            <path value="ClinicalDocument.custodian.assignedCustodian.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="ASSIGNED"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.classCode">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="ORG"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.determinerCode">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id.nullFlavor">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.id.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.name">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.name"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.name.nullFlavor">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.name.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom"/>
+            <definition value="If there is no information, the nullFlavor attribute shall have a value of 'NI' and the &#34;value&#34; and &#34;use&#34; attributes shall be omitted, otherwise the nullFlavor attribute shall not be present, and the &#34;value&#34; and &#34;use&#34; attributes shall be present."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom.use">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom.use"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="TelecommunicationAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-TelecommunicationAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom.nullFlavor">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.telecom.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.use">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="PostalAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-PostalAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.nullFlavor">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="NI"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.streetAddressLine">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.streetAddressLine"/>
+            <definition value="Subject's or Organization's Street Address Line"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.city">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.city"/>
+            <definition value="Subject's or Organization's City"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.postalCode">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.postalCode"/>
+            <definition value="Subject's or Organization's Postal Code"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.state">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.state"/>
+            <definition value="Subject's or Organization's State or Province"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.country">
+            <path value="ClinicalDocument.custodian.assignedCustodian.representedCustodianOrganization.addr.country"/>
+            <definition value="Subject's Country.The content of this element SHALL be selected EITHER from ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300  DYNAMIC OR MAY be selected from ISO Country Alpha-3 2.16.840.1.113883.1.11.171 DYNAMIC, IF the country is not specified in ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator">
+            <path value="ClinicalDocument.legalAuthenticator"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.time">
+            <path value="ClinicalDocument.legalAuthenticator.time"/>
+            <definition value="Time of signing the document"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.signatureCode">
+            <path value="ClinicalDocument.legalAuthenticator.signatureCode"/>
+            <definition value="Signature code"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.signatureCode.code">
+            <path value="ClinicalDocument.legalAuthenticator.signatureCode.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="S"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity"/>
+            <definition value="The entity that is responsible for the legal authentication of the CDA document"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.id">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.id"/>
+            <definition value="Unique identification of legal authenticator"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.addr">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.addr"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.telecom">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.telecom"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.classCode">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PSN"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.determinerCode">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.name">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.name"/>
+            <definition value="Name of the legal authenticator"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.name.family">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.name.family"/>
+            <definition value="HP Family Name/Surname"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.name.given">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.assignedPerson.name.given"/>
+            <definition value="HP Given Name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.legalAuthenticator.assignedEntity.representedOrganization">
+            <path value="ClinicalDocument.legalAuthenticator.assignedEntity.representedOrganization"/>
+            <definition value="Organization the legal authenticator is acting for"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.participant">
+            <path value="ClinicalDocument.participant"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant:primary">
+            <path value="ClinicalDocument.participant"/>
+            <definition value="Patient contacts or the Preferred Health Professional to contact in case of emergency."/>
+            <min value="0"/>
+            <max value="*"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Participant1"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.participant:primary.typeCode">
+            <path value="ClinicalDocument.participant.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="IND"/>
+        </element>
+        <element id="ClinicalDocument.participant.templateId">
+            <path value="ClinicalDocument.participant.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="typeCode"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant.templateId:primary">
+            <path value="ClinicalDocument.participant.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.participant.templateId:primary.root">
+            <path value="ClinicalDocument.participant.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.2.5"/>
+        </element>
+        <element id="ClinicalDocument.participant.functionCode">
+            <path value="ClinicalDocument.participant.functionCode"/>
+            <definition value="The element may be used to indicate that this participant is the preferred Health Professional to contact in case of emergency."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant.functionCode.code">
+            <path value="ClinicalDocument.participant.functionCode.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="PCP"/>
+        </element>
+        <element id="ClinicalDocument.participant.functionCode.codeSystem">
+            <path value="ClinicalDocument.participant.functionCode.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.5.88"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity">
+            <path value="ClinicalDocument.participant.associatedEntity"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.classCode">
+            <path value="ClinicalDocument.participant.associatedEntity.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="INDRoleclassCodes"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.11.20.9.33--20160623000000"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.code">
+            <path value="ClinicalDocument.participant.associatedEntity.code"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="IPS Personal Relationship"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/personal-relationship-uv-ips "/>
+            </binding>
+            <binding>
+                <strength value="required"/>
+                <description value="IPS Healthcare Professional Roles"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/healthcare-professional-roles-uv-ips "/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.addr">
+            <path value="ClinicalDocument.participant.associatedEntity.addr"/>
+            <min value="1"/>
+            <max value="*"/>
+            <condition value="MD1759580N1l1l3l27l15l13l10"/>
+            <constraint>
+                <!--extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-expression">
+                    <valueString value="" />
+                </extension-->
+                <key value="MD1759580N1l1l3l27l15l13l10"/>
+                <severity value="error"/>
+                <human value="If addr is not nullflavored at least one sub element has to be provided"/>
+                <xpath value="@nullFlavor or hl7:*"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.addr.use">
+            <path value="ClinicalDocument.participant.associatedEntity.addr.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="PostalAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-PostalAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.addr.nullFlavor">
+            <path value="ClinicalDocument.participant.associatedEntity.addr.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="NI"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.addr.streetAddressLine">
+            <path value="ClinicalDocument.participant.associatedEntity.addr.streetAddressLine"/>
+            <definition value="Subject's or Organization's Street Address Line"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.addr.city">
+            <path value="ClinicalDocument.participant.associatedEntity.addr.city"/>
+            <definition value="Subject's or Organization's City"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.addr.postalCode">
+            <path value="ClinicalDocument.participant.associatedEntity.addr.postalCode"/>
+            <definition value="Subject's or Organization's Postal Code"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.addr.state">
+            <path value="ClinicalDocument.participant.associatedEntity.addr.state"/>
+            <definition value="Subject's or Organization's State or Province"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.addr.country">
+            <path value="ClinicalDocument.participant.associatedEntity.addr.country"/>
+            <definition value="Subject's Country.The content of this element SHALL be selected EITHER from ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300  DYNAMIC OR MAY be selected from ISO Country Alpha-3 2.16.840.1.113883.1.11.171 DYNAMIC, IF the country is not specified in ValueSet ISO Country Alpha-2 urn:oid:2.16.840.1.113883.1.11.20300."/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.telecom">
+            <path value="ClinicalDocument.participant.associatedEntity.telecom"/>
+            <definition
+                value="Patient Contact's / Preferred HP's/Legal Organization telephone or e-mail  element is required.If there is no information, the nullFlavor attribute shall have a value of 'NI' and the &#34;value&#34; and &#34;use&#34; attributes shall be omitted, otherwise the nullFlavor attribute shall not be present, and the &#34;value&#34; and &#34;use&#34; attributes shall be present"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.telecom.use">
+            <path value="ClinicalDocument.participant.associatedEntity.telecom.use"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="TelecommunicationAddressUse"/>
+                <valueSet value="http://terminology.hl7.org/ValueSet/v3-TelecommunicationAddressUse"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.telecom.nullFlavor">
+            <path value="ClinicalDocument.participant.associatedEntity.telecom.nullFlavor"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="NI"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.name">
+            <path value="ClinicalDocument.participant.associatedEntity.name"/>
+            <definition value="Patient Contact's Name / Preferred HP's Name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.name.family">
+            <path value="ClinicalDocument.participant.associatedEntity.name.family"/>
+            <definition value="Patient Contact's Family Name/Surname / Preferred HP's Family Name/Surname"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.name.given">
+            <path value="ClinicalDocument.participant.associatedEntity.name.given"/>
+            <definition value="Patient Contact's Given Name / Preferred HP's Given Name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.participant.associatedEntity.name">
+            <path value="ClinicalDocument.participant.associatedEntity.name"/>
+            <definition value="Organization's Name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf">
+            <path value="ClinicalDocument.documentationOf"/>
+            <definition value="The documentationOf relationship in an International Patient Summary contains the representation of providers who are wholly or partially responsible for the safety and well-being of a subject of care."/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.typeCode">
+            <path value="ClinicalDocument.documentationOf.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="DOC"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent">
+            <path value="ClinicalDocument.documentationOf.serviceEvent"/>
+            <definition
+                value="The main activity being described by a IPS is the provision of healthcare over a period of time. This is shown by setting the value of serviceEvent/@classCode to “PCPR” (care provision) and indicating the duration over which care was provided in serviceEvent/effectiveTime. Additional data from outside this duration may also be included if it is relevant                         to care provided during that time range (e.g., reviewed during the stated time range).&#xA;&#xA;For example if the IPS is generated by a GP based on information recorded in his/her EHR-S, then the low value should represent the date when the treatment relationship between the patient and the GP started; and the high value the date of the latest                         care event."/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.classCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PCPR"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.moodCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.id">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.id"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.low"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.effectiveTime.high"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer"/>
+            <definition value="It represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patient’s key healthcare providers would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="x_ServiceEventPerformer"/>
+                <valueSet value="urn:oid:2.16.840.1.113883.1.11.19601"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.functionCode"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.time">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.time"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.id"/>
+            <definition value="Healthcare provider ID number"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.code"/>
+            <definition value="It describes the professional role of the healthcare provider involved in the current or pertinent historical care of the patient."/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="extensible"/>
+                <description value="IPS Healthcare Professional Roles"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/healthcare-professional-roles-uv-ips "/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.addr">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.addr"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.telecom">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.telecom"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.classCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="PSN"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.determinerCode">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.determinerCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="INSTANCE"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.name">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.assignedPerson.name"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.representedOrganization">
+            <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity.representedOrganization"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument">
+            <path value="ClinicalDocument.relatedDocument"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.typeCode">
+            <path value="ClinicalDocument.relatedDocument.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="x_ActRelationshipDocument"/>
+                <valueSet value="http://art-decor.org/fhir/ValueSet/2.16.840.1.113883.1.11.11610--20171004171324"/>
+            </binding>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument">
+            <path value="ClinicalDocument.relatedDocument.parentDocument"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument.classCode">
+            <path value="ClinicalDocument.relatedDocument.parentDocument.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="DOCCLIN"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument.moodCode">
+            <path value="ClinicalDocument.relatedDocument.parentDocument.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument.id">
+            <path value="ClinicalDocument.relatedDocument.parentDocument.id"/>
+            <min value="1"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument.code">
+            <path value="ClinicalDocument.relatedDocument.parentDocument.code"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument.code.codeSystem">
+            <path value="ClinicalDocument.relatedDocument.parentDocument.code.codeSystem"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="2.16.840.1.113883.6.1"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument.text">
+            <path value="ClinicalDocument.relatedDocument.parentDocument.text"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument.setId">
+            <path value="ClinicalDocument.relatedDocument.parentDocument.setId"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.relatedDocument.parentDocument.versionNumber">
+            <path value="ClinicalDocument.relatedDocument.parentDocument.versionNumber"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component">
+            <path value="ClinicalDocument.component"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody">
+            <path value="ClinicalDocument.component.structuredBody"/>
+            <definition value="Note: the proposed order of the sections hereafter indicated is not mandatory"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.classCode">
+            <path value="ClinicalDocument.component.structuredBody.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="0"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="DOCBODY"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="profile"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-1">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="component-1"/>
+            <constraint>
+                <key value="component-1"/>
+                <human value="contains IPS Medication Summary Section 2.16.840.1.113883.10.22.3.1 (2016-11-11)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-1.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.1--20161111000000"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-2">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="component-2"/>
+            <constraint>
+                <key value="component-2"/>
+                <human value="contains IPS Allergies and Intolerances Section 2.16.840.1.113883.10.22.3.2 (2024-08-04)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-2.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.2--20240804100736"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-3">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="component-3"/>
+            <constraint>
+                <key value="component-3"/>
+                <human value="contains IPS Problems Section 2.16.840.1.113883.10.22.3.3 (2017-02-15)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-3.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.3--20170215000000"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-4">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-4"/>
+            <constraint>
+                <key value="component-4"/>
+                <human value="contains IPS History of Procedures Section 2.16.840.1.113883.10.22.3.4 (2017-03-27)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-4.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.4--20170327000000"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-5">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-5"/>
+            <constraint>
+                <key value="component-5"/>
+                <human value="contains IPS Immunizations Section 2.16.840.1.113883.10.22.3.5 (2017-04-05)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-5.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.5--20170405000000"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-6">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-6"/>
+            <constraint>
+                <key value="component-6"/>
+                <human value="contains IPS Medical Devices Section 2.16.840.1.113883.10.22.3.6 (2021-10-20)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-6.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.6--20211020171142"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-7">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-7"/>
+            <constraint>
+                <key value="component-7"/>
+                <human value="contains IPS Results Section 2.16.840.1.113883.10.22.3.14 (2017-04-30)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-7.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.14--20170430000000"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-8">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-8"/>
+            <constraint>
+                <key value="component-8"/>
+                <human value="contains IHE Coded Vital Signs Section 1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2 (2015-10-05)"/>
+            </constraint>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-8.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2--20151005155707"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-9">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-9"/>
+            <constraint>
+                <key value="component-9"/>
+                <human value="contains IPS History of Past Illness Section 2.16.840.1.113883.10.22.3.7 (2017-04-12)"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-9.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.7--20170412000000"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-10">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-10"/>
+            <constraint>
+                <key value="component-10"/>
+                <human value="contains IPS Functional Status Section 2.16.840.1.113883.10.22.3.8 (2020-05-08)"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-10.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.8--20200508191737"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-11">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-11"/>
+            <constraint>
+                <key value="component-11"/>
+                <human value="contains IPS Plan of Care Section 2.16.840.1.113883.10.22.3.9 (2020-05-08)"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-11.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.9--20200508182838"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-12">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-12"/>
+            <constraint>
+                <key value="component-12"/>
+                <human value="contains IPS Social History Section 2.16.840.1.113883.10.22.3.10 (2020-05-10)"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-12.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.10--20200510185232"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-13">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-13"/>
+            <constraint>
+                <key value="component-13"/>
+                <human value="contains IPS History of Pregnancy Section 2.16.840.1.113883.10.22.3.11 (2020-05-07)"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-13.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.11--20200507184608"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-14">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-14"/>
+            <constraint>
+                <key value="component-14"/>
+                <human value="contains IPS Advance Directives Section 2.16.840.1.113883.10.22.3.12 (2020-05-08)"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-14.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.3.12--20200508163849"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-15">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-15"/>
+            <constraint>
+                <key value="component-15"/>
+                <human value="contains IPS Alerts Section 2.16.840.1.113883.10.22.15 (2024-06-12)"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-15.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.15--20240612085101"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-16">
+            <path value="ClinicalDocument.component.structuredBody.component"/>
+            <min value="0"/>
+            <max value="1"/>
+            <sliceName value="component-16"/>
+            <constraint>
+                <key value="component-16"/>
+                <human value="contains IPS Patient Story Section 2.16.840.1.113883.10.22.16 (2024-06-12)"/>
+            </constraint>
+        </element>
+        <element id="ClinicalDocument.component.structuredBody.component:component-16.section">
+            <path value="ClinicalDocument.component.structuredBody.component.section"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/Section"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.16--20240612092602"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

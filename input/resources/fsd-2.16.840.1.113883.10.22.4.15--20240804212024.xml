@@ -1,0 +1,318 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <!--This is an experimental service for conversion of compliant Template ITS templates to FHIR 
+        StructureDefinitions. You can current do one template at a time. Parameters:
+        id              - required. Template id
+        effectiveDate   - optional. Template effectiveDate (yyyy-mm-ddThh:mm:ss). Does latest version if omitted
+        
+        Handles: desc | constraint | element | assert | include | choice | vocabulary | property
+        
+        TODO: slicing, multiple value set bindings, inline value sets (repetitions of vocabulary with code/codeSystem), 
+              languages (when multiple desc | constraints exist), other namespaced elements/attributes 
+              (extension: http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace with valueUri)
+              
+        Part of the TODOs need resolution in Template ITS and parts need resolution in FHIR. These are brought forward there.
+        -->
+    <id value="2.16.840.1.113883.10.22.4.15--20240804212024"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/4.0/StructureDefinition/StructureDefinition"/>
+    </meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace">
+        <valueUri value="urn:hl7-org:v3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod">
+        <valuePeriod>
+            <start value="2024-08-04T21:20:24+02:00"/>
+        </valuePeriod>
+    </extension>
+    <url value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.22.4.15--20240804212024"/>
+    <identifier>
+        <use value="official"/>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.10.22.4.15"/>
+    </identifier>
+    <version value="2024-08-04T21:20:24"/>
+    <name value="IPSImmunization"/>
+    <title value="IPS Immunization"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2024-08-04T21:20:24Z"/>
+    <publisher value="HL7 International"/>
+    <contact>
+        <name value=""/>
+        <telecom>
+            <system value="phone"/>
+            <value value="+1 734 677 7777 "/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="info@hl7.org"/>
+        </telecom>
+    </contact>
+    <description value="An Immunization entry describes immunization substance administrations that have actually occurred. "/>
+    <kind value="logical"/>
+    <abstract value="false"/>
+    <type value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+    <baseDefinition value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+    <derivation value="constraint"/>
+    <differential>
+        <element id="SubstanceAdministration">
+            <path value="SubstanceAdministration"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.classCode">
+            <path value="SubstanceAdministration.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="SBADM"/>
+        </element>
+        <element id="SubstanceAdministration.moodCode">
+            <path value="SubstanceAdministration.moodCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="EVN"/>
+        </element>
+        <element id="SubstanceAdministration.templateId">
+            <path value="SubstanceAdministration.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:primary">
+            <path value="SubstanceAdministration.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.templateId:primary.root">
+            <path value="SubstanceAdministration.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.15"/>
+        </element>
+        <element id="SubstanceAdministration.id">
+            <path value="SubstanceAdministration.id"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.code">
+            <path value="SubstanceAdministration.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="required"/>
+                <description value="ActSubstanceAdministrationImmunizationCode"/>
+                <valueSet value="urn:oid:2.16.840.1.113883.1.11.19709"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.statusCode">
+            <path value="SubstanceAdministration.statusCode"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.statusCode.code">
+            <path value="SubstanceAdministration.statusCode.code"/>
+            <representation value="xmlAttr"/>
+            <fixedString value="completed"/>
+        </element>
+        <element id="SubstanceAdministration.effectiveTime">
+            <path value="SubstanceAdministration.effectiveTime"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable">
+            <path value="SubstanceAdministration.consumable"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.classCode">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.classCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="MANU"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.templateId">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.templateId"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="root"/>
+                </discriminator>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="extension"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.templateId:primary">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.templateId"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/II"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.templateId:primary.root">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.templateId.root"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="string"/>
+            </type>
+            <fixedString value="2.16.840.1.113883.10.22.4.16"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.code">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.code"/>
+            <min value="1"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+            <binding>
+                <strength value="preferred"/>
+                <description value="IPS Vaccines"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/vaccines-uv-ips"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.code.translation">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.code.translation"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="code"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.code.translation:primary">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.code.translation"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="primary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CE"/>
+            </type>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.code.translation:secondary">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.code.translation"/>
+            <definition value="candidate: for when WHO ATC code system is preferred"/>
+            <min value="1"/>
+            <max value="1"/>
+            <sliceName value="secondary"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/CE"/>
+            </type>
+            <binding>
+                <strength value="required"/>
+                <description value="IPS Vaccines WHO ATC"/>
+                <valueSet value="http://hl7.org/fhir/uv/ips/ValueSet/vaccines-uv-ips"/>
+            </binding>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.lotNumberText">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturedMaterial.lotNumberText"/>
+            <min value="0"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.consumable.manufacturedProduct.manufacturerOrganization">
+            <path value="SubstanceAdministration.consumable.manufacturedProduct.manufacturerOrganization"/>
+            <min value="0"/>
+            <max value="1"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.author">
+            <path value="SubstanceAdministration.author"/>
+            <min value="0"/>
+            <max value="*"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="profile"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <min value="1"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship-1">
+            <path value="SubstanceAdministration.entryRelationship"/>
+            <min value="0"/>
+            <max value="*"/>
+            <sliceName value="entryRelationship-1"/>
+            <constraint>
+                <key value="entryRelationship-1"/>
+                <human value="contains UV Subordinate Substance Administration 2.16.840.1.113883.10.21.4.6 (2023-01-30)"/>
+            </constraint>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship-1.substanceAdministration">
+            <path value="SubstanceAdministration.entryRelationship.substanceAdministration"/>
+            <sliceName value="entryRelationship-1"/>
+            <type>
+                <code value="http://hl7.org/cda/stds/core/StructureDefinition/SubstanceAdministration"/>
+                <profile value="http://art-decor.org/fhir/StructureDefinition/2.16.840.1.113883.10.21.4.6--20230130093600"/>
+            </type>
+            <min value="1"/>
+            <max value="1"/>
+        </element>
+        <element id="SubstanceAdministration.entryRelationship:entryRelationship-1.typeCode">
+            <path value="SubstanceAdministration.entryRelationship.typeCode"/>
+            <representation value="xmlAttr"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="code"/>
+            </type>
+            <fixedString value="RSON"/>
+        </element>
+    </differential>
+</StructureDefinition>
